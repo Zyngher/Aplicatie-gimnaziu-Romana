@@ -1,0 +1,10 @@
+[
+  {
+    "id": "char-mira",
+    "name": "Mira",
+    "tagline": "Îți explică regulile fără să te plictisească.",
+    "bio": "O exploratoare urbană cu o cameră video, mereu în căutare de conținut nou.",
+    "avatarAsset": "/mascots/mira-avatar.png",
+    "themeColorHex": "#2E7D6B"
+  }
+]

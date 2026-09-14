@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "id": "set-06-sa-sau-ia-iau",
+  "order": 6,
+  "characterId": "char-mira",
+  "title": "Sa / S-a, Sau / S-au, Ia / I-a, Iau / I-au",
+  "pairs": [
+    {
+      "id": "og-sa-s-a",
+      "formA": "sa",
+      "formB": "s-a",
+      "explanation": "„Sa” e adjectiv posesiv (poate fi înlocuit cu „a lui”/„a ei”). „S-a” e verb, forma scurtă de la „s-a întâmplat” (două cuvinte, „s” și „a”, rostite împreună).",
+      "contrastExamples": [
+        "Camera sa (a ei) de streaming e nouă.",
+        "Jocul s-a (se) terminat abia la miezul nopții."
+      ]
+    },
+    {
+      "id": "og-sau-s-au",
+      "formA": "sau",
+      "formB": "s-au",
+      "explanation": "„Sau” se poate înlocui cu „ori”. „S-au” e verb, două cuvinte („s” și „au”) rostite împreună.",
+      "contrastExamples": [
+        "Vrei ceai sau (ori) cafea?",
+        "Echipele s-au (se) întâlnit deja de două ori anul ăsta."
+      ]
+    },
+    {
+      "id": "og-ia-i-a",
+      "formA": "ia",
+      "formB": "i-a",
+      "explanation": "„Ia” înseamnă „a lua”, „a cumpăra”. „I-a” e verb, două cuvinte („i” și „a”) rostite împreună.",
+      "contrastExamples": [
+        "Andrei ia (a lua) căștile din geantă.",
+        "Antrenorul i-a (a spus lui) spus strategia înainte de meci."
+      ]
+    },
+    {
+      "id": "og-iau-i-au",
+      "formA": "iau",
+      "formB": "i-au",
+      "explanation": "„Iau” înseamnă „a lua”, „a primi”. „I-au” e verb, două cuvinte („i” și „au”) rostite împreună.",
+      "contrastExamples": [
+        "Eu iau (primesc) note bune la română.",
+        "Colegii i-au (au trimis lui) trimis linkul către clipul nou."
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex-set06-mcq-01",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "gaming",
+      "targetIds": ["og-sa-s-a"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Echipa ___ pregătit strategia dinaintea turneului.",
+        "options": ["sa", "s-a"],
+        "correctIndices": [1]
+      }
+    },
+    {
+      "id": "ex-set06-mcq-02",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "content_creators",
+      "targetIds": ["og-sau-s-au"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Vrei să filmăm un unboxing ___ un tutorial azi?",
+        "options": ["sau", "s-au"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set06-fillblank-01",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "theme": "gaming",
+      "targetIds": ["og-ia-i-a"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "Alina ___ controllerul și pornește jocul.",
+        "correctAnswers": ["ia"]
+      }
+    },
+    {
+      "id": "ex-set06-error-01",
+      "stage": "independent",
+      "responseMode": "errorCorrection",
+      "difficulty": 2,
+      "theme": "content_creators",
+      "targetIds": ["og-sa-s-a"],
+      "prompt": "Găsește și corectează greșeala.",
+      "response": {
+        "tokens": ["Vlogger-ul", "s-a", "pregătit", "canalul", "nou", "de", "conținut."],
+        "errorTokenIndex": 1,
+        "correctToken": "sa",
+        "explanation": "Aici e vorba de „canalul lui”, deci adjectiv posesiv → „sa”, nu verbul „s-a”."
+      }
+    },
+    {
+      "id": "ex-set06-wordbank-01",
+      "stage": "guided",
+      "responseMode": "wordBank",
+      "difficulty": 2,
+      "theme": "travel",
+      "targetIds": ["og-iau-i-au", "og-sa-s-a"],
+      "prompt": "Alege din bancă forma potrivită pentru fiecare spațiu.",
+      "response": {
+        "text": "Prietenii {{b1}} bagajele și pleacă spre aeroport. Camera {{b2}} foto e deja în geantă.",
+        "bank": [
+          { "id": "wb-iau", "word": "iau" },
+          { "id": "wb-i-au", "word": "i-au" },
+          { "id": "wb-sa", "word": "sa" },
+          { "id": "wb-s-a", "word": "s-a" }
+        ],
+        "blanks": [
+          { "marker": "b1", "correctWordId": "wb-iau" },
+          { "marker": "b2", "correctWordId": "wb-sa" }
+        ]
+      }
+    },
+    {
+      "id": "ex-set06-free-01",
+      "stage": "transfer",
+      "responseMode": "openText",
+      "difficulty": 2,
+      "targetIds": ["og-sa-s-a", "og-sau-s-au"],
+      "prompt": "Scrie două propoziții proprii despre o călătorie: una cu „sa”/„s-a”, una cu „sau”/„s-au”.",
+      "response": {
+        "instructions": "Folosește fiecare pereche cel puțin o dată.",
+        "modelAnswer": "Bicicleta sa a rămas acasă. Am plecat cu trenul sau cu mașina, nu mai știu exact.",
+        "selfCheckCriteria": [
+          "Am folosit „sa”/„s-a” corect?",
+          "Am folosit „sau”/„s-au” corect?",
+          "Propozițiile au sens?"
+        ]
+      }
+    }
+  ]
+}
