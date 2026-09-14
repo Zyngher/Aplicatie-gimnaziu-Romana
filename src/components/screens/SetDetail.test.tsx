@@ -20,7 +20,9 @@ describe('SetDetail', () => {
 
   it('fix #7: etapele exercitiilor apar in romana, nu ca enum englezesc', () => {
     render(<NavigationProvider initialStack={initialStack}><SetDetail /></NavigationProvider>);
-    expect(screen.getByText(/ghidat/i)).toBeInTheDocument();
+    // Set 6 are mai multe exerciții "guided" (Ghidat) — getAllByText, nu getByText, pentru că
+    // mai multe potriviri sunt corecte și așteptate aici, nu o eroare de ambiguitate.
+    expect(screen.getAllByText(/ghidat/i).length).toBeGreaterThan(0);
     expect(screen.queryByText(/^guided$/)).not.toBeInTheDocument();
     expect(screen.queryByText(/^independent$/)).not.toBeInTheDocument();
   });

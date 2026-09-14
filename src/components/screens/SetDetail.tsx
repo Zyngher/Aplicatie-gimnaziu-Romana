@@ -8,9 +8,6 @@ export function SetDetail() {
   if (screen.name !== 'setDetail') return null;
   const set = getSetById(screen.setId);
 
-  // Get unique stage labels for display
-  const uniqueStages = Array.from(new Set(set.exercises.map((e) => stageLabels[e.stage])));
-
   return (
     <div>
       <button type="button" onClick={() => navigation.pop()}>
@@ -30,9 +27,6 @@ export function SetDetail() {
           </ul>
         </section>
       ))}
-      <div>
-        {uniqueStages.join(', ')}
-      </div>
       <ol>
         {set.exercises.map((exercise, index) => (
           <li key={exercise.id}>
@@ -40,7 +34,7 @@ export function SetDetail() {
               type="button"
               onClick={() => navigation.push({ name: 'exercise', setId: set.id, exerciseIndex: index })}
             >
-              {exercise.prompt}
+              {stageLabels[exercise.stage]} — {exercise.prompt}
             </button>
           </li>
         ))}
