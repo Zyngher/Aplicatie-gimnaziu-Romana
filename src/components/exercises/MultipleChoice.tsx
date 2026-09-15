@@ -11,6 +11,7 @@ interface Props {
 export function MultipleChoice({ exercise, onSubmit }: Props) {
   const isMulti = exercise.response.correctIndices.length > 1;
   const [selected, setSelected] = useState<Set<number>>(new Set());
+  const [submitted, setSubmitted] = useState(false);
 
   function toggle(index: number) {
     if (isMulti) {
@@ -26,9 +27,11 @@ export function MultipleChoice({ exercise, onSubmit }: Props) {
   }
 
   function handleSubmit() {
+    if (submitted) return;
     const correctSet = new Set(exercise.response.correctIndices);
     const correct =
       selected.size === correctSet.size && [...selected].every((i) => correctSet.has(i));
+    setSubmitted(true);
     onSubmit(correct);
   }
 
@@ -49,7 +52,7 @@ export function MultipleChoice({ exercise, onSubmit }: Props) {
           </label>
         ))}
       </div>
-      <button type="button" onClick={handleSubmit} disabled={selected.size === 0}>
+      <button type="button" onClick={handleSubmit} disabled={selected.size === 0 || submitted}>
         Verifică
       </button>
     </div>

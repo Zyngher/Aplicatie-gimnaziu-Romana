@@ -1,10 +1,47 @@
+import { useState } from 'react';
 import { getManifest, getCharacterById, getSetById } from '../../lib/content-loader';
 import { getSetProgressPercent } from '../../lib/progress';
 import { isSetUnlocked, isIndexModeActive } from '../../lib/unlock';
 import { useNavigation } from '../../lib/navigation';
-import type { ManifestEntry } from '../../types/content';
+import type { GuideCharacter, ManifestEntry } from '../../types/content';
 
 const UNIT_ID = 'ortograme';
+
+function characterInitials(name: string): string {
+  return name.slice(0, 2).toUpperCase();
+}
+
+// avatarAsset nu are neaparat un fisier real livrat (vezi fix #4) — daca imaginea nu se
+// incarca, aratam un fallback cu initialele personajului, tintat cu themeColorHex (deja
+// autorat, altfel nefolosit — vezi Minor #20 din review).
+function CharacterAvatar({ character }: { character: GuideCharacter }) {
+  const [failed, setFailed] = useState(false);
+
+  if (failed) {
+    return (
+      <span
+        role="img"
+        aria-label={character.name}
+        style={{
+          display: 'inline-block',
+          width: '2em',
+          height: '2em',
+          lineHeight: '2em',
+          textAlign: 'center',
+          borderRadius: '50%',
+          backgroundColor: character.themeColorHex,
+          color: '#fff',
+          fontSize: '0.75em',
+          fontWeight: 'bold',
+        }}
+      >
+        {characterInitials(character.name)}
+      </span>
+    );
+  }
+
+  return <img src={character.avatarAsset} alt={character.name} onError={() => setFailed(true)} />;
+}
 
 interface EntryWithState {
   entry: ManifestEntry;
@@ -80,9 +117,9 @@ export function OrtogrameHome() {
                       if (clickable) navigation.push({ name: 'setDetail', setId: entry.id });
                     }}
                   >
-                    {character && <img src={character.avatarAsset} alt={character.name} />}
+                    {character && <CharacterAvatar character={character} />}
                     {entry.title}
-                    {!authored && unlocked && <span> (Conținut în lucru)</span>}
+                    {!authored && <span> (Conținut în lucru)</span>}
                     {authored && <span> ({percent}%)</span>}
                   </button>
                 </li>

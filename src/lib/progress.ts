@@ -27,7 +27,18 @@ export function saveProgress(store: ProgressStore): void {
 }
 
 export function getItemProgress(store: ProgressStore, key: string): ItemProgress {
-  return store[key] ?? emptyItemProgress();
+  const raw = store[key];
+  if (!raw) return emptyItemProgress();
+  // Validare de formă: o intrare scrisă parțial (ex. o salvare întreruptă la depășirea
+  // cotei) sau dintr-o versiune de schemă viitoare poate exista în localStorage fără
+  // câmpurile așteptate. Fără verificarea asta, computeSetProgressPercent aruncă la
+  // Object.entries(undefined) și aplicația se blochează fără nicio cale de recuperare
+  // (vezi fix #8 din review-ul final).
+  if (!Array.isArray(raw.completedExerciseIds)) return emptyItemProgress();
+  if (typeof raw.openTextSelfMarkedOk !== 'object' || raw.openTextSelfMarkedOk === null) {
+    return emptyItemProgress();
+  }
+  return raw;
 }
 
 export function markExerciseCompleted(key: string, exerciseId: string): ProgressStore {

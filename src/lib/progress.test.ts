@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import {
-  loadProgress, markExerciseCompleted, markOpenTextSelfCheck,
+  loadProgress, getItemProgress, markExerciseCompleted, markOpenTextSelfCheck,
   computeSetProgressPercent, getSetProgressPercent,
 } from './progress';
 import type { ItemProgress } from '../types/progress';
@@ -19,6 +19,23 @@ describe('loadProgress', () => {
   it('cade grațios pe store gol dacă localStorage conține JSON invalid', () => {
     window.localStorage.setItem('evaluarea-ro:progress:v1', 'not json');
     expect(loadProgress()).toEqual({});
+  });
+});
+
+describe('getItemProgress — fix #8: o intrare cu forma gresita nu trebuie sa arunce', () => {
+  it('o intrare valida ca JSON dar cu forma gresita (fara completedExerciseIds/openTextSelfMarkedOk) se trateaza ca progres gol', () => {
+    window.localStorage.setItem(
+      'evaluarea-ro:progress:v1',
+      JSON.stringify({ [KEY]: { lastAccessedAt: '2026-01-01T00:00:00.000Z' } }),
+    );
+    const store = loadProgress();
+    expect(() => getItemProgress(store, KEY)).not.toThrow();
+    const item = getItemProgress(store, KEY);
+    expect(item.completedExerciseIds).toEqual([]);
+    expect(item.openTextSelfMarkedOk).toEqual({});
+    // trebuie sa poata trece si prin computeSetProgressPercent fara sa arunce
+    expect(() => computeSetProgressPercent(item, 6)).not.toThrow();
+    expect(computeSetProgressPercent(item, 6)).toBe(0);
   });
 });
 

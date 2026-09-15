@@ -1,32 +1,52 @@
-# React + TypeScript + Vite
+# EvaluareaRO — Ortograme (web)
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Aplicație web pentru exersarea limbii române, gândită pentru copii de **10-14 ani**. Acest
+repo conține track-ul **web** (React + Vite + TypeScript) al proiectului EvaluareaRO, cu scopul
+curent limitat la **Unitatea 1 — Ortograme**: perechi de forme care se confundă des în scris
+(„sa"/„s-a", „ia"/„i-a" etc.), predate prin exerciții scurte și auto-corectate.
 
-Currently, two official plugins are available:
+Nu există backend pentru conținut — totul e static, bundlat în aplicație. Progresul elevului
+(exerciții terminate, auto-evaluări) se ține doar local, în `localStorage` (fără PII, fără cont).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Pornire rapidă
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev       # server de dezvoltare (Vite), cu HMR
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Alte comenzi utile:
+
+```bash
+npm test          # rulează suita de teste (Vitest + Testing Library)
+npm run typecheck # tsc -b, fără emitere de fișiere
+npm run lint      # oxlint
+npm run build     # typecheck + build de producție (tsc -b && vite build)
+npm run preview   # servește local build-ul de producție
+npm audit         # verificare dependențe
+```
+
+## Structura conținutului
+
+Fiecare „set" e o grupă de exerciții în jurul unei perechi/unor perechi de forme ortografice.
+Sursa de adevăr pentru ce seturi există (autorate sau nu) e manifestul:
+
+- `src/content/ortograme/manifest.json` — lista completă a seturilor (ordine, titlu, grupă,
+  personaj-ghid, și `filePath` către fișierul JSON al setului — `null` dacă setul nu e încă
+  autorat, caz în care apare în interfață ca „Conținut în lucru").
+- `src/content/ortograme/sets/*.json` — câte un fișier JSON per set autorat, cu perechile
+  ortografice (`pairs`) și exercițiile propriu-zise (`exercises`). În acest moment e autorat
+  un singur set: `set-06-sa-sau-ia-iau.json`.
+- `src/content/ortograme/characters.json` — personajele-ghid asociate seturilor (nume, avatar,
+  culoare temă); dacă imaginea de avatar lipsește, interfața arată automat un fallback cu
+  inițialele personajului.
+
+Exercițiile suportă 6 moduri de răspuns (`responseMode`): `multipleChoice`, `fillBlank`,
+`wordBank`, `ordering`, `errorCorrection`, `openText` — tipate ca uniune discriminată în
+`src/types/exercise.ts`, cu câte o componentă dedicată în `src/components/exercises/`.
+
+## Teste
+
+Fiecare modul de logică/componentă are un fișier `.test.ts(x)` colocat. Nu există teste
+end-to-end (Playwright/Cypress) — doar teste unitare și de integrare la nivel de componentă,
+rulate cu Vitest + React Testing Library.

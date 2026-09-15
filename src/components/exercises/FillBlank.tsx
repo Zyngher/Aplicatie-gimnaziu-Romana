@@ -14,11 +14,14 @@ function normalize(value: string): string {
 
 export function FillBlank({ exercise, onSubmit }: Props) {
   const [value, setValue] = useState('');
+  const [submitted, setSubmitted] = useState(false);
 
   function handleSubmit() {
+    if (submitted) return;
     const correct = exercise.response.correctAnswers.some(
       (answer) => normalize(answer) === normalize(value),
     );
+    setSubmitted(true);
     onSubmit(correct);
   }
 
@@ -30,7 +33,7 @@ export function FillBlank({ exercise, onSubmit }: Props) {
         Răspunsul tău
         <input value={value} onChange={(e) => setValue(e.target.value)} />
       </label>
-      <button type="button" onClick={handleSubmit} disabled={value.trim().length === 0}>
+      <button type="button" onClick={handleSubmit} disabled={value.trim().length === 0 || submitted}>
         Verifică
       </button>
     </div>

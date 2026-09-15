@@ -11,12 +11,15 @@ interface Props {
 export function WordBank({ exercise, onSubmit }: Props) {
   const { text, bank, blanks } = exercise.response;
   const [selections, setSelections] = useState<Record<string, string>>({});
+  const [submitted, setSubmitted] = useState(false);
 
   const parts = text.split(/(\{\{\w+\}\})/g);
   const allFilled = blanks.every((b) => selections[b.marker]);
 
   function handleSubmit() {
+    if (submitted) return;
     const correct = blanks.every((b) => selections[b.marker] === b.correctWordId);
+    setSubmitted(true);
     onSubmit(correct);
   }
 
@@ -47,7 +50,7 @@ export function WordBank({ exercise, onSubmit }: Props) {
           );
         })}
       </p>
-      <button type="button" onClick={handleSubmit} disabled={!allFilled}>
+      <button type="button" onClick={handleSubmit} disabled={!allFilled || submitted}>
         Verifică
       </button>
     </div>

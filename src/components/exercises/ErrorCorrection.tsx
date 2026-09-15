@@ -19,6 +19,7 @@ export function ErrorCorrection({ exercise, onSubmit }: Props) {
   const [submitted, setSubmitted] = useState(false);
 
   function handleSubmit() {
+    if (submitted) return;
     const correct = selectedIndex === errorTokenIndex && normalize(correction) === normalize(correctToken);
     setSubmitted(true);
     onSubmit(correct);
@@ -46,7 +47,7 @@ export function ErrorCorrection({ exercise, onSubmit }: Props) {
       <button
         type="button"
         onClick={handleSubmit}
-        disabled={selectedIndex === null || correction.trim().length === 0}
+        disabled={selectedIndex === null || correction.trim().length === 0 || submitted}
       >
         Verifică
       </button>

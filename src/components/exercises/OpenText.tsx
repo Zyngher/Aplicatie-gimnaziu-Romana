@@ -11,6 +11,13 @@ interface Props {
 export function OpenText({ exercise, onSubmit }: Props) {
   const [answer, setAnswer] = useState('');
   const [revealed, setRevealed] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  function handleSelfCheck(selfMarkedOk: boolean) {
+    if (submitted) return;
+    setSubmitted(true);
+    onSubmit(selfMarkedOk);
+  }
 
   return (
     <div>
@@ -33,10 +40,10 @@ export function OpenText({ exercise, onSubmit }: Props) {
               <li key={criterion}>{criterion}</li>
             ))}
           </ul>
-          <button type="button" onClick={() => onSubmit(true)}>
+          <button type="button" onClick={() => handleSelfCheck(true)} disabled={submitted}>
             Am reușit
           </button>
-          <button type="button" onClick={() => onSubmit(false)}>
+          <button type="button" onClick={() => handleSelfCheck(false)} disabled={submitted}>
             Mai exersez
           </button>
         </div>

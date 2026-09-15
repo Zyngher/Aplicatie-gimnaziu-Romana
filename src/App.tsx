@@ -16,6 +16,10 @@ function Router() {
       return <SetDetail />;
     case 'exercise':
       return <ExerciseScreen />;
+    default: {
+      const _exhaustive: never = navigation.current;
+      return _exhaustive;
+    }
   }
 }
 

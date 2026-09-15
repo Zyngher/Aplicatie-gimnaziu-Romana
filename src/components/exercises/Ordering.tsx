@@ -11,6 +11,7 @@ interface Props {
 export function Ordering({ exercise, onSubmit }: Props) {
   const { items } = exercise.response;
   const [order, setOrder] = useState<number[]>(items.map((_, i) => i));
+  const [submitted, setSubmitted] = useState(false);
 
   function moveUp(position: number) {
     if (position === 0) return;
@@ -31,9 +32,11 @@ export function Ordering({ exercise, onSubmit }: Props) {
   }
 
   function handleSubmit() {
+    if (submitted) return;
     const correct = order.every(
       (itemIndex, position) => itemIndex === exercise.response.correctOrder[position],
     );
+    setSubmitted(true);
     onSubmit(correct);
   }
 
@@ -61,7 +64,7 @@ export function Ordering({ exercise, onSubmit }: Props) {
           </li>
         ))}
       </ol>
-      <button type="button" onClick={handleSubmit}>
+      <button type="button" onClick={handleSubmit} disabled={submitted}>
         Verifică
       </button>
     </div>

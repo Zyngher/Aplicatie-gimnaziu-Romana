@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { NavigationProvider, useNavigation } from '../../lib/navigation';
 import { markExerciseCompleted } from '../../lib/progress';
@@ -44,7 +44,19 @@ describe('OrtogrameHome — mod traseu (implicit)', () => {
     render(<NavigationProvider><OrtogrameHome /></NavigationProvider>);
     const button = screen.getByRole('button', { name: /î și â/i });
     expect(button).toBeDisabled();
-    expect(screen.getByText(/conținut în lucru/i)).toBeInTheDocument();
+    // fix #5: eticheta trebuie sa apara pentru toate cele 19 seturi neautorate (20 in manifest,
+    // 1 singur autorat), nu doar pentru cele deblocate — altfel 19 din 20 sunt butoane fara
+    // nicio explicatie pentru un elev nou. Assertie pe cardinalitate, nu pe un singur match
+    // (acelasi precedent ca la Task 16, documentat in review-ul final).
+    expect(screen.getAllByText(/conținut în lucru/i)).toHaveLength(19);
+  });
+
+  it('fix #4: daca avatarul mascotei nu se incarca, arata un fallback cu initialele, nu o imagine spartă', () => {
+    render(<NavigationProvider><OrtogrameHome /></NavigationProvider>);
+    const img = screen.getByAltText('Mira');
+    fireEvent.error(img);
+    expect(screen.queryByAltText('Mira')).not.toBeInTheDocument();
+    expect(screen.getByRole('img', { name: 'Mira' })).toHaveTextContent('MI');
   });
 
   it('click pe setul autorat si deblocat navigheaza la setDetail', async () => {

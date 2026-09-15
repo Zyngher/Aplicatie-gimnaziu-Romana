@@ -46,19 +46,23 @@ export function ExerciseScreen() {
       <button type="button" onClick={() => navigation.pop()}>
         ← Înapoi
       </button>
-      {feedback === null && (
-        <>
-          {exercise.responseMode === 'multipleChoice' && (
-            <MultipleChoice exercise={exercise} onSubmit={handleSubmit} />
-          )}
-          {exercise.responseMode === 'fillBlank' && <FillBlank exercise={exercise} onSubmit={handleSubmit} />}
-          {exercise.responseMode === 'wordBank' && <WordBank exercise={exercise} onSubmit={handleSubmit} />}
-          {exercise.responseMode === 'ordering' && <Ordering exercise={exercise} onSubmit={handleSubmit} />}
-          {exercise.responseMode === 'errorCorrection' && (
-            <ErrorCorrection exercise={exercise} onSubmit={handleSubmit} />
-          )}
-          {exercise.responseMode === 'openText' && <OpenText exercise={exercise} onSubmit={handleSubmit} />}
-        </>
+      {exercise.responseMode === 'multipleChoice' && (
+        <MultipleChoice key={exercise.id} exercise={exercise} onSubmit={handleSubmit} />
+      )}
+      {exercise.responseMode === 'fillBlank' && (
+        <FillBlank key={exercise.id} exercise={exercise} onSubmit={handleSubmit} />
+      )}
+      {exercise.responseMode === 'wordBank' && (
+        <WordBank key={exercise.id} exercise={exercise} onSubmit={handleSubmit} />
+      )}
+      {exercise.responseMode === 'ordering' && (
+        <Ordering key={exercise.id} exercise={exercise} onSubmit={handleSubmit} />
+      )}
+      {exercise.responseMode === 'errorCorrection' && (
+        <ErrorCorrection key={exercise.id} exercise={exercise} onSubmit={handleSubmit} />
+      )}
+      {exercise.responseMode === 'openText' && (
+        <OpenText key={exercise.id} exercise={exercise} onSubmit={handleSubmit} />
       )}
       {feedback !== null && (
         <div>
