@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { Exercise } from '../../types/exercise';
+import styles from './FillBlank.module.css';
 
 type FillBlankExercise = Extract<Exercise, { responseMode: 'fillBlank' }>;
 
@@ -27,11 +28,11 @@ export function FillBlank({ exercise, onSubmit }: Props) {
 
   return (
     <div>
-      <p>{exercise.prompt}</p>
-      <p>{exercise.response.text}</p>
-      <label>
+      <p className={styles.prompt}>{exercise.prompt}</p>
+      <p className={styles.text}>{exercise.response.text}</p>
+      <label className={styles.label}>
         Răspunsul tău
-        <input value={value} onChange={(e) => setValue(e.target.value)} />
+        <input className={styles.input} value={value} onChange={(e) => setValue(e.target.value)} />
       </label>
       <button type="button" onClick={handleSubmit} disabled={value.trim().length === 0 || submitted}>
         Verifică

@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { FillBlank } from './FillBlank';
 import type { Exercise } from '../../types/exercise';
+import styles from './FillBlank.module.css';
 
 const exercise: Extract<Exercise, { responseMode: 'fillBlank' }> = {
   id: 'ex-fb-1', stage: 'guided', responseMode: 'fillBlank', difficulty: 1,
@@ -32,5 +33,10 @@ describe('FillBlank', () => {
     await user.type(screen.getByRole('textbox'), 'i-a');
     await user.click(screen.getByRole('button', { name: /verifică/i }));
     expect(onSubmit).toHaveBeenCalledWith(false);
+  });
+
+  it('foloseste clasa temei vizuale pe campul de raspuns', () => {
+    render(<FillBlank exercise={exercise} onSubmit={vi.fn()} />);
+    expect(screen.getByRole('textbox')).toHaveClass(styles.input);
   });
 });

@@ -1,0 +1,24 @@
+.prompt {
+  composes: exercise-text from global;
+  font-weight: 700;
+}
+
+.text {
+  composes: exercise-text from global;
+  margin-bottom: var(--space-4);
+}
+
+.label {
+  composes: eyebrow from global;
+  display: block;
+  color: var(--sub);
+  margin-bottom: var(--space-2);
+}
+
+.input {
+  composes: exercise-text from global;
+  width: 100%;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
