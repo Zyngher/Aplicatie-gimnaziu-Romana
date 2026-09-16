@@ -74,3 +74,64 @@ button:disabled {
   border-color: var(--accent);
   color: var(--paper);
 }
+
+/* Utilitati globale de tema — consumate din module CSS locale via "composes: X from global".
+   Centralizate aici (nu repetate per componenta) fiindca sunt identice pe toate ecranele. */
+
+.notebook-page {
+  min-height: 100%;
+  position: relative;
+  background:
+    repeating-linear-gradient(var(--paper) 0px, var(--paper) 27px, var(--rule-line) 28px),
+    var(--paper);
+  padding: var(--space-6) var(--space-4) var(--space-8) var(--space-12);
+}
+
+.notebook-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 28px;
+  width: 2px;
+  background: var(--margin-line);
+}
+
+/* Coloana de continut plafonata la desktop — folosita de ecranele cu o singura coloana
+   (Home, SetDetail, ExerciseScreen). OrtogrameHome NU o foloseste pe intregul ecran —
+   are propriul layout responsive (grid la >=768px), vezi Task 4. */
+@media (min-width: 768px) {
+  .content-column {
+    max-width: 560px;
+    margin: 0 auto;
+  }
+}
+
+.heading-1 {
+  font-family: var(--font-ui);
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.heading-2 {
+  font-family: var(--font-ui);
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.eyebrow {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.exercise-text {
+  font-family: var(--font-exercise);
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 0;
+}
