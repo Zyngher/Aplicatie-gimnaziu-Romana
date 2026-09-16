@@ -1,10 +1,26 @@
 :root {
   --bg: #f2ede3;
-  --paper: #fbf8f2;
+  --paper: #fdfaf3;
+  --rule-line: #d7e3ea;
+  --margin-line: #e0a7a2;
   --ink: #241f1a;
-  --sub: #6b6155;
+  --sub: #8d8175;
   --accent: #c23b33;
+  --accent-pen: #b5342b;
   --border: #e8e0d2;
+
+  --font-ui: 'Baloo 2', system-ui, sans-serif;
+  --font-exercise: 'Kalam', var(--font-ui);
+  --font-speech: 'Caveat', var(--font-ui);
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
 }
 
 * { box-sizing: border-box; }
@@ -17,7 +33,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-ui);
 }
 
 button {
