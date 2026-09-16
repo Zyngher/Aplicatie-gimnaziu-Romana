@@ -21,6 +21,10 @@ export function logError(error: Error, screen?: string): void {
   }
 }
 
+// Neconsumat momentan de nicio componenta/ecran (doar propriul test) — infrastructura
+// intentionala, pregatita pentru un viitor ecran de debug/suport care ar afisa jurnalul
+// din localStorage unui adult/dezvoltator. Nu e cod mort: logError() scrie in el la fiecare
+// eroare prinsa de ErrorBoundary.
 export function getErrorLog(): ErrorLogEntry[] {
   try {
     const raw = window.localStorage.getItem(ERROR_LOG_KEY);

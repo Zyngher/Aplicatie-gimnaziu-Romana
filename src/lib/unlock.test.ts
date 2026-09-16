@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { isSetUnlocked, isIndexModeActive } from './unlock';
+import { isSetUnlocked, isIndexModeActive, computeAuthoredChainUnlockState } from './unlock';
 
 describe('isSetUnlocked — fix #9: regula nu era niciodată testată cu un set blocat real', () => {
   it('primul set (index 0) e mereu deblocat', () => {
@@ -39,5 +39,57 @@ describe('isIndexModeActive', () => {
 
   it('e adevărat dacă toate seturile autorate ating pragul, indiferent de cele neautorate', () => {
     expect(isIndexModeActive([100, 80, null, null])).toBe(true);
+  });
+
+  // D2: OrtogrameHome.tsx apelează isIndexModeActive(percentages, 100) — pragul real de
+  // producție pentru modul index liber, distinct de pragul implicit (80) testat mai sus.
+  // Cazul pozitiv (100% chiar atins) nu era testat la acest prag exact.
+  it('cu pragul real de producție (100), e adevărat când toate seturile autorate ating exact 100%', () => {
+    expect(isIndexModeActive([100, 100, null], 100)).toBe(true);
+  });
+
+  it('cu pragul real de producție (100), e fals dacă un set autorat e sub 100%, chiar și la 99%', () => {
+    expect(isIndexModeActive([100, 99, null], 100)).toBe(false);
+  });
+});
+
+describe('computeAuthoredChainUnlockState — C-arch2: lanțul de deblocare extras din OrtogrameHome ca funcție pură', () => {
+  it('un singur set autorat, la index 0: mereu deblocat', () => {
+    expect(computeAuthoredChainUnlockState([{ authored: true, percent: 0 }], false)).toEqual([true]);
+  });
+
+  it('al doilea set autorat, apărut DUPĂ un placeholder neautorat, se deblochează pe baza procentului primului set autorat — nu e blocat de placeholder-ul dintre ele', () => {
+    const entries = [
+      { authored: true, percent: 80 }, // set autorat #1 — la prag, deblochează ce urmează
+      { authored: false, percent: null }, // placeholder "conținut în lucru"
+      { authored: true, percent: null }, // set autorat #2, neînceput încă
+    ];
+    expect(computeAuthoredChainUnlockState(entries, false)).toEqual([true, true, true]);
+  });
+
+  it('al doilea set autorat, după un placeholder neautorat, rămâne blocat dacă primul set autorat e sub prag — placeholder-ul nu "resetează" lanțul la null', () => {
+    const entries = [
+      { authored: true, percent: 50 }, // sub pragul de 80
+      { authored: false, percent: null },
+      { authored: true, percent: null },
+    ];
+    expect(computeAuthoredChainUnlockState(entries, false)).toEqual([true, false, false]);
+  });
+
+  it('în mod index liber (indexModeActive=true), totul e deblocat necondiționat, indiferent de procente', () => {
+    const entries = [
+      { authored: true, percent: 10 },
+      { authored: false, percent: null },
+    ];
+    expect(computeAuthoredChainUnlockState(entries, true)).toEqual([true, true]);
+  });
+
+  it('acceptă un prag custom, la fel ca isSetUnlocked', () => {
+    const entries = [
+      { authored: true, percent: 60 },
+      { authored: true, percent: null },
+    ];
+    expect(computeAuthoredChainUnlockState(entries, false, 50)).toEqual([true, true]);
+    expect(computeAuthoredChainUnlockState(entries, false, 70)).toEqual([true, false]);
   });
 });

@@ -33,6 +33,7 @@ export function ErrorCorrection({ exercise, onSubmit }: Props) {
           <button
             key={index}
             type="button"
+            className="token-button"
             onClick={() => setSelectedIndex(index)}
             aria-pressed={selectedIndex === index}
           >

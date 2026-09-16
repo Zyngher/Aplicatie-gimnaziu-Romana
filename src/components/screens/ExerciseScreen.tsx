@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { getSetById } from '../../lib/content-loader';
-import { markExerciseCompleted, markOpenTextSelfCheck } from '../../lib/progress';
+import { buildProgressKey, markExerciseCompleted, markOpenTextSelfCheck } from '../../lib/progress';
+import { getCorrectAnswerText } from '../../lib/correctAnswer';
 import { useNavigation } from '../../lib/navigation';
 import { MultipleChoice } from '../exercises/MultipleChoice';
 import { FillBlank } from '../exercises/FillBlank';
@@ -20,7 +21,7 @@ export function ExerciseScreen() {
   const set = getSetById(screen.setId);
   const exerciseIndex = screen.exerciseIndex;
   const exercise = set.exercises[exerciseIndex];
-  const progressKey = `${UNIT_ID}:${set.id}`;
+  const progressKey = buildProgressKey(UNIT_ID, set.id);
 
   function handleSubmit(ok: boolean) {
     if (exercise.responseMode === 'openText') {
@@ -41,11 +42,16 @@ export function ExerciseScreen() {
     }
   }
 
+  const correctAnswerText = getCorrectAnswerText(exercise);
+
   return (
     <div>
       <button type="button" onClick={() => navigation.pop()}>
         ← Înapoi
       </button>
+      <p>
+        Exercițiul {exerciseIndex + 1} din {set.exercises.length}
+      </p>
       {exercise.responseMode === 'multipleChoice' && (
         <MultipleChoice key={exercise.id} exercise={exercise} onSubmit={handleSubmit} />
       )}
@@ -66,7 +72,12 @@ export function ExerciseScreen() {
       )}
       {feedback !== null && (
         <div>
-          <p>{feedback === 'correct' ? 'Corect!' : 'Mai încearcă data viitoare.'}</p>
+          <p>
+            {feedback === 'correct'
+              ? 'Corect!'
+              : 'Nu-i nimic! Mergem mai departe — vei exersa din nou acest tip de exercițiu.'}
+          </p>
+          {feedback === 'incorrect' && correctAnswerText && <p>{correctAnswerText}</p>}
           <button type="button" onClick={handleContinue}>
             Continuă
           </button>

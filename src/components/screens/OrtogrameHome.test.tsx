@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { NavigationProvider, useNavigation } from '../../lib/navigation';
-import { markExerciseCompleted } from '../../lib/progress';
+import { markExerciseCompleted, markOpenTextSelfCheck } from '../../lib/progress';
 import { OrtogrameHome } from './OrtogrameHome';
 
 function CurrentScreenProbe() {
@@ -95,5 +95,18 @@ describe('OrtogrameHome — mod index liber', () => {
     render(<NavigationProvider><OrtogrameHome /></NavigationProvider>);
     // ex-set06-free-01 (openText) inca nemarcat -> sub 100%, deci NU e inca in mod index liber
     expect(screen.getByText(/traseu/i)).toBeInTheDocument();
+  });
+
+  // D2: OrtogrameHome.tsx foloseste isIndexModeActive(percentages, 100) — pragul real de
+  // productie. Testul de mai sus verifica doar cazul negativ (sub 100%, al 6-lea exercitiu
+  // nemarcat inca); acesta completeaza si al 6-lea (openText, autoevaluat "Am reusit") ca sa
+  // confirme ca tranzitia reala la "Index liber" chiar se intampla in productie, nu doar la
+  // nivel de unitate pura (vezi si unlock.test.ts).
+  it('cu toate cele 6 exercitii ale singurului set autorat terminate (inclusiv openText autoevaluat "Am reușit"), comută la index liber', () => {
+    ['ex-set06-mcq-01', 'ex-set06-mcq-02', 'ex-set06-fillblank-01', 'ex-set06-error-01', 'ex-set06-wordbank-01']
+      .forEach((id) => markExerciseCompleted('ortograme:set-06-sa-sau-ia-iau', id));
+    markOpenTextSelfCheck('ortograme:set-06-sa-sau-ia-iau', 'ex-set06-free-01', true);
+    render(<NavigationProvider><OrtogrameHome /></NavigationProvider>);
+    expect(screen.getByText(/index liber — recapitulare/i)).toBeInTheDocument();
   });
 });

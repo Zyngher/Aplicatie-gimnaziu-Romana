@@ -1,7 +1,7 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import {
   loadProgress, getItemProgress, markExerciseCompleted, markOpenTextSelfCheck,
-  computeSetProgressPercent, getSetProgressPercent,
+  computeSetProgressPercent, getSetProgressPercent, buildProgressKey,
 } from './progress';
 import type { ItemProgress } from '../types/progress';
 
@@ -88,5 +88,37 @@ describe('markOpenTextSelfCheck + getSetProgressPercent (integrare cu localStora
     expect(getSetProgressPercent(KEY, 2)).toBe(50);
     markOpenTextSelfCheck(KEY, 'ex-open', true);
     expect(getSetProgressPercent(KEY, 2)).toBe(100);
+  });
+});
+
+describe('buildProgressKey — C-arch1: helper centralizat pentru construcția cheii de progres', () => {
+  it('construiește cheia din unitId și setId, în formatul așteptat de ProgressStore', () => {
+    expect(buildProgressKey('ortograme', 'set-06-sa-sau-ia-iau')).toBe('ortograme:set-06-sa-sau-ia-iau');
+  });
+});
+
+describe('saveProgress — D1: cade grațios dacă localStorage aruncă la scriere (quotă depășită / mod privat)', () => {
+  it('markExerciseCompleted nu aruncă și tot returnează store-ul actualizat în memorie, chiar dacă scrierea în localStorage eșuează', () => {
+    const setItemSpy = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new Error('QuotaExceededError');
+    });
+    try {
+      expect(() => markExerciseCompleted(KEY, 'ex-degradare')).not.toThrow();
+      const result = markExerciseCompleted(KEY, 'ex-degradare');
+      expect(result[KEY].completedExerciseIds).toContain('ex-degradare');
+    } finally {
+      setItemSpy.mockRestore();
+    }
+  });
+
+  it('markOpenTextSelfCheck nu aruncă, chiar dacă scrierea în localStorage eșuează', () => {
+    const setItemSpy = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new Error('QuotaExceededError');
+    });
+    try {
+      expect(() => markOpenTextSelfCheck(KEY, 'ex-open-degradare', true)).not.toThrow();
+    } finally {
+      setItemSpy.mockRestore();
+    }
   });
 });

@@ -37,3 +37,21 @@ describe('getErrorLog', () => {
     expect(getErrorLog()).toEqual([]);
   });
 });
+
+describe('logError — D1: cade grațios dacă localStorage aruncă la scriere (quotă depășită / mod privat)', () => {
+  it('nu aruncă și tot trimite eroarea în consolă, chiar dacă scrierea în localStorage eșuează', () => {
+    const setItemSpy = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new Error('QuotaExceededError');
+    });
+    const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    try {
+      expect(() => logError(new Error('eroare in mod privat'), 'ExerciseScreen')).not.toThrow();
+      expect(consoleSpy).toHaveBeenCalled();
+      // degradare gratioasa: jurnalul ramane necitibil/gol, nu arunca la citire nici el
+      expect(() => getErrorLog()).not.toThrow();
+    } finally {
+      setItemSpy.mockRestore();
+      consoleSpy.mockRestore();
+    }
+  });
+});

@@ -31,10 +31,14 @@ export function WordBank({ exercise, onSubmit }: Props) {
           const match = part.match(/^\{\{(\w+)\}\}$/);
           if (!match) return <span key={i}>{part}</span>;
           const marker = match[1];
+          // Eticheta pentru cititor de ecran trebuie sa fie pozitionala (indexul real din
+          // `blanks`, 1-indexat pentru un om), nu markerul brut de continut ("b1"/"b2") —
+          // markerul e un id intern de autor, fara sens pentru un elev care asculta exercitiul.
+          const blankPosition = blanks.findIndex((b) => b.marker === marker) + 1;
           return (
             <select
               key={marker}
-              aria-label={`Spațiu ${marker}`}
+              aria-label={`Spațiu ${blankPosition}`}
               value={selections[marker] ?? ''}
               onChange={(e) => setSelections((s) => ({ ...s, [marker]: e.target.value }))}
             >

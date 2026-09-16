@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { getManifest, getCharacterById, getSetById } from '../../lib/content-loader';
-import { getSetProgressPercent } from '../../lib/progress';
-import { isSetUnlocked, isIndexModeActive } from '../../lib/unlock';
+import { buildProgressKey, getSetProgressPercent } from '../../lib/progress';
+import { computeAuthoredChainUnlockState, isIndexModeActive } from '../../lib/unlock';
 import { useNavigation } from '../../lib/navigation';
 import type { GuideCharacter, ManifestEntry } from '../../types/content';
 
@@ -57,7 +57,7 @@ export function OrtogrameHome() {
   const percentages: Array<number | null> = sortedEntries.map((entry) => {
     if (entry.filePath === null) return null;
     const set = getSetById(entry.id);
-    return getSetProgressPercent(`${UNIT_ID}:${entry.id}`, set.exercises.length);
+    return getSetProgressPercent(buildProgressKey(UNIT_ID, entry.id), set.exercises.length);
   });
 
   // Index liber pornește doar la finalizarea completă (100%) a conținutului autorat existent —
@@ -67,23 +67,17 @@ export function OrtogrameHome() {
   // Lanțul de deblocare pe traseu ține cont doar de seturile autorate: un set neautorat
   // ("conținut în lucru") nu are progres propriu, deci nu poate fi folosit ca "set precedent"
   // pentru un set autorat aflat mai departe în manifest (vezi fix #5 — primul set autorat
-  // trebuie să fie mereu deblocat, nu doar primul rând din manifest).
-  let authoredIndex = 0;
-  let previousAuthoredPercent: number | null = null;
-  const withState: EntryWithState[] = sortedEntries.map((entry, index) => {
-    const percent = percentages[index];
-    const authored = entry.filePath !== null;
-    const unlocked = indexMode
-      ? true
-      : authored
-        ? isSetUnlocked(authoredIndex, previousAuthoredPercent)
-        : isSetUnlocked(index, percentages[index - 1] ?? null);
-    if (authored) {
-      previousAuthoredPercent = percent;
-      authoredIndex += 1;
-    }
-    return { entry, percent, unlocked };
-  });
+  // trebuie să fie mereu deblocat, nu doar primul rând din manifest). Logica propriu-zisă
+  // e o funcție pură, testată separat, în lib/unlock.ts.
+  const unlockedStates = computeAuthoredChainUnlockState(
+    sortedEntries.map((entry, index) => ({ authored: entry.filePath !== null, percent: percentages[index] })),
+    indexMode,
+  );
+  const withState: EntryWithState[] = sortedEntries.map((entry, index) => ({
+    entry,
+    percent: percentages[index],
+    unlocked: unlockedStates[index],
+  }));
 
   const groups = new Map<string, EntryWithState[]>();
   withState.forEach((item) => {

@@ -15,7 +15,7 @@ describe('SetDetail', () => {
   it('afiseaza regula si exemplele contrastive pentru fiecare pereche', () => {
     render(<NavigationProvider initialStack={initialStack}><SetDetail /></NavigationProvider>);
     expect(screen.getByText(/adjectiv posesiv/i)).toBeInTheDocument();
-    expect(screen.getByText(/camera sa \(a ei\) de streaming/i)).toBeInTheDocument();
+    expect(screen.getByText(/ruta sa \(a lui\) de călătorie/i)).toBeInTheDocument();
   });
 
   it('fix #7: etapele exercitiilor apar in romana, nu ca enum englezesc', () => {

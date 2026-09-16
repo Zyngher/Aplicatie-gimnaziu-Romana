@@ -25,7 +25,36 @@ button {
   cursor: pointer;
 }
 
+/* Tinte de atingere de minim 44x44px (recomandare standard de accesibilitate mobila),
+   cu padding generos — public tinta e 10-14 ani, pe mobil, iar butoanele cu continut
+   scurt (Ordering ↑/↓, tokenurile din ErrorCorrection) ar fi altfel prea mici de atins.
+   Radio/checkbox raman la dimensiunea nativa — tinta lor de atingere e eticheta <label>
+   care ii inconjoara, nu inputul insusi. */
+button,
+select,
+input:not([type='checkbox']):not([type='radio']) {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.5em 0.9em;
+}
+
 button:disabled {
   cursor: default;
   opacity: 0.6;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ErrorCorrection: confirmare vizuala pentru tokenul selectat ca fiind gresit. aria-pressed
+   e deja corect semantic (bun pentru cititor de ecran), dar fara acest stil un elev care
+   vede ecranul nu are nicio dovada ca tap-ul a "prins". Scopat la .token-button, nu global
+   pe [aria-pressed="true"], ca sa nu afecteze alte butoane care ar folosi aria-pressed in
+   viitor pentru alt scop. */
+.token-button[aria-pressed='true'] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--paper);
 }
