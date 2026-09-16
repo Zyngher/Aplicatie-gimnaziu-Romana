@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { Exercise } from '../../types/exercise';
+import styles from './MultipleChoice.module.css';
 
 type MultipleChoiceExercise = Extract<Exercise, { responseMode: 'multipleChoice' }>;
 
@@ -37,11 +38,11 @@ export function MultipleChoice({ exercise, onSubmit }: Props) {
 
   return (
     <div>
-      <p>{exercise.prompt}</p>
-      <p>{exercise.response.text}</p>
-      <div role="group" aria-label="Opțiuni de răspuns">
+      <p className={styles.prompt}>{exercise.prompt}</p>
+      <p className={styles.text}>{exercise.response.text}</p>
+      <div className={styles.options} role="group" aria-label="Opțiuni de răspuns">
         {exercise.response.options.map((option, index) => (
-          <label key={option}>
+          <label key={option} className={styles.option}>
             <input
               type={isMulti ? 'checkbox' : 'radio'}
               name={isMulti ? undefined : exercise.id}

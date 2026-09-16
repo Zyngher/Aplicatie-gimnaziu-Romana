@@ -3,6 +3,7 @@ import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MultipleChoice } from './MultipleChoice';
 import type { Exercise } from '../../types/exercise';
+import styles from './MultipleChoice.module.css';
 
 const singleAnswerExercise: Extract<Exercise, { responseMode: 'multipleChoice' }> = {
   id: 'ex-1', stage: 'guided', responseMode: 'multipleChoice', difficulty: 1,
@@ -42,6 +43,12 @@ describe('MultipleChoice — răspuns unic', () => {
     await user.click(screen.getByRole('radio', { name: 'sa' }));
     await user.click(screen.getByRole('button', { name: /verifică/i }));
     expect(onSubmit).toHaveBeenCalledWith(false);
+  });
+
+  it('foloseste clasa temei vizuale pe optiunile de raspuns', () => {
+    render(<MultipleChoice exercise={singleAnswerExercise} onSubmit={vi.fn()} />);
+    const [firstOption] = screen.getAllByRole('radio');
+    expect(firstOption.closest('label')).toHaveClass(styles.option);
   });
 });
 
