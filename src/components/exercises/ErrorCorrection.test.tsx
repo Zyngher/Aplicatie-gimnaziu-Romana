@@ -2,6 +2,7 @@ import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ErrorCorrection } from './ErrorCorrection';
+import styles from './ErrorCorrection.module.css';
 import type { Exercise } from '../../types/exercise';
 
 const exercise: Extract<Exercise, { responseMode: 'errorCorrection' }> = {
@@ -38,5 +39,11 @@ describe('ErrorCorrection', () => {
     await user.type(screen.getByRole('textbox'), 'orice');
     await user.click(screen.getByRole('button', { name: /verifică/i }));
     expect(screen.getByText(/adjectiv posesiv/i)).toBeInTheDocument();
+  });
+
+  it('foloseste clasa temei vizuale pe tokenurile de cuvant', () => {
+    render(<ErrorCorrection exercise={exercise} onSubmit={vi.fn()} />);
+    const [firstToken] = screen.getAllByRole('button', { name: exercise.response.tokens[0] });
+    expect(firstToken).toHaveClass(styles.token);
   });
 });

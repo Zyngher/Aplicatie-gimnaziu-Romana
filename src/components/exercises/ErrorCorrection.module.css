@@ -1,0 +1,47 @@
+.prompt {
+  composes: exercise-text from global;
+  font-weight: 700;
+}
+
+.tokens {
+  composes: exercise-text from global;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+/* Migrat din src/index.css — acelasi comportament (confirmare vizuala a selectiei),
+   scopat acum la modulul propriu in loc de o clasa globala. */
+.token {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.token[aria-pressed='true'] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--paper);
+}
+
+.label {
+  composes: eyebrow from global;
+  display: block;
+  color: var(--sub);
+  margin-bottom: var(--space-2);
+}
+
+.input {
+  composes: exercise-text from global;
+  width: 100%;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.explanation {
+  composes: exercise-text from global;
+  color: var(--sub);
+  margin-top: var(--space-4);
+}

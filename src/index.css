@@ -64,17 +64,6 @@ button:disabled {
   outline-offset: 2px;
 }
 
-/* ErrorCorrection: confirmare vizuala pentru tokenul selectat ca fiind gresit. aria-pressed
-   e deja corect semantic (bun pentru cititor de ecran), dar fara acest stil un elev care
-   vede ecranul nu are nicio dovada ca tap-ul a "prins". Scopat la .token-button, nu global
-   pe [aria-pressed="true"], ca sa nu afecteze alte butoane care ar folosi aria-pressed in
-   viitor pentru alt scop. */
-.token-button[aria-pressed='true'] {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--paper);
-}
-
 /* Utilitati globale de tema — consumate din module CSS locale via "composes: X from global".
    Centralizate aici (nu repetate per componenta) fiindca sunt identice pe toate ecranele. */
 

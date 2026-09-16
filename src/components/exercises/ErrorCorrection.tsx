@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import styles from './ErrorCorrection.module.css';
 import type { Exercise } from '../../types/exercise';
 
 type ErrorCorrectionExercise = Extract<Exercise, { responseMode: 'errorCorrection' }>;
@@ -27,13 +28,13 @@ export function ErrorCorrection({ exercise, onSubmit }: Props) {
 
   return (
     <div>
-      <p>{exercise.prompt}</p>
-      <p>
+      <p className={styles.prompt}>{exercise.prompt}</p>
+      <p className={styles.tokens}>
         {tokens.map((token, index) => (
           <button
             key={index}
             type="button"
-            className="token-button"
+            className={styles.token}
             onClick={() => setSelectedIndex(index)}
             aria-pressed={selectedIndex === index}
           >
@@ -41,9 +42,9 @@ export function ErrorCorrection({ exercise, onSubmit }: Props) {
           </button>
         ))}
       </p>
-      <label>
+      <label className={styles.label}>
         Forma corectă
-        <input value={correction} onChange={(e) => setCorrection(e.target.value)} />
+        <input className={styles.input} value={correction} onChange={(e) => setCorrection(e.target.value)} />
       </label>
       <button
         type="button"
@@ -52,7 +53,7 @@ export function ErrorCorrection({ exercise, onSubmit }: Props) {
       >
         Verifică
       </button>
-      {submitted && <p>{explanation}</p>}
+      {submitted && <p className={styles.explanation}>{explanation}</p>}
     </div>
   );
 }
