@@ -1,0 +1,21 @@
+.companion {
+  width: 120px;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.hero {
+  width: 220px;
+  height: 330px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 20%;
+  mix-blend-mode: multiply;
+}
