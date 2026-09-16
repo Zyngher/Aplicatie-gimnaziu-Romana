@@ -9,6 +9,7 @@ import { WordBank } from '../exercises/WordBank';
 import { Ordering } from '../exercises/Ordering';
 import { ErrorCorrection } from '../exercises/ErrorCorrection';
 import { OpenText } from '../exercises/OpenText';
+import styles from './ExerciseScreen.module.css';
 
 const UNIT_ID = 'ortograme';
 
@@ -45,11 +46,11 @@ export function ExerciseScreen() {
   const correctAnswerText = getCorrectAnswerText(exercise);
 
   return (
-    <div>
+    <div className={styles.screen}>
       <button type="button" onClick={() => navigation.pop()}>
         ← Înapoi
       </button>
-      <p>
+      <p className={styles.progress}>
         Exercițiul {exerciseIndex + 1} din {set.exercises.length}
       </p>
       {exercise.responseMode === 'multipleChoice' && (
@@ -72,13 +73,15 @@ export function ExerciseScreen() {
       )}
       {feedback !== null && (
         <div>
-          <p>
+          <p className={feedback === 'correct' ? styles.feedbackCorrect : styles.feedbackIncorrect}>
             {feedback === 'correct'
               ? 'Corect!'
               : 'Nu-i nimic! Mergem mai departe — vei exersa din nou acest tip de exercițiu.'}
           </p>
-          {feedback === 'incorrect' && correctAnswerText && <p>{correctAnswerText}</p>}
-          <button type="button" onClick={handleContinue}>
+          {feedback === 'incorrect' && correctAnswerText && (
+            <p className={styles.correctAnswerHint}>{correctAnswerText}</p>
+          )}
+          <button type="button" className={styles.continueButton} onClick={handleContinue}>
             Continuă
           </button>
         </div>

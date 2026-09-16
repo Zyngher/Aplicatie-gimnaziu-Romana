@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { NavigationProvider, useNavigation, type Screen } from '../../lib/navigation';
 import { loadProgress } from '../../lib/progress';
 import { ExerciseScreen } from './ExerciseScreen';
+import styles from './ExerciseScreen.module.css';
 
 function CurrentScreenProbe() {
   const navigation = useNavigation();
@@ -74,6 +75,19 @@ describe('ExerciseScreen', () => {
     // fie in starea initiala proaspata.
     expect(screen.getByRole('radio', { name: /s-au/i })).not.toBeChecked();
     expect(screen.getByRole('button', { name: /^verifică$/i })).toBeDisabled();
+  });
+
+  it('foloseste clasa temei vizuale pe ecran', () => {
+    const { container } = render(<NavigationProvider initialStack={initialStack}><ExerciseScreen /></NavigationProvider>);
+    expect(container.firstElementChild).toHaveClass(styles.screen);
+  });
+
+  it('marcheaza vizual raspunsul corect cu motivul de corectura', async () => {
+    const user = userEvent.setup();
+    render(<NavigationProvider initialStack={initialStack}><ExerciseScreen /></NavigationProvider>);
+    await user.click(screen.getByRole('radio', { name: 'sa' }));
+    await user.click(screen.getByRole('button', { name: /^verifică$/i }));
+    expect(screen.getByText(/corect!/i)).toHaveClass(styles.feedbackCorrect);
   });
 });
 

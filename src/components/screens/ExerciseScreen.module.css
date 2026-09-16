@@ -1,0 +1,41 @@
+.screen {
+  composes: notebook-page content-column from global;
+}
+
+.progress {
+  composes: eyebrow from global;
+  color: var(--sub);
+  margin: var(--space-4) 0 var(--space-3);
+}
+
+.feedbackCorrect {
+  composes: heading-2 from global;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--accent-pen);
+}
+
+.feedbackCorrect::after {
+  content: '✓';
+  display: inline-block;
+  font-family: var(--font-speech);
+  font-size: 1.4em;
+  color: var(--accent-pen);
+  transform: rotate(-4deg);
+}
+
+.feedbackIncorrect {
+  composes: heading-2 from global;
+  color: var(--ink);
+}
+
+.correctAnswerHint {
+  composes: exercise-text from global;
+  color: var(--accent-pen);
+  font-style: italic;
+}
+
+.continueButton {
+  margin-top: var(--space-4);
+}
