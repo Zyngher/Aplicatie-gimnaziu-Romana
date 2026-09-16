@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Ordering } from './Ordering';
 import type { Exercise } from '../../types/exercise';
+import styles from './Ordering.module.css';
 
 const exercise: Extract<Exercise, { responseMode: 'ordering' }> = {
   id: 'ex-ord-1', stage: 'guided', responseMode: 'ordering', difficulty: 1,
@@ -33,5 +34,11 @@ describe('Ordering', () => {
     render(<Ordering exercise={exercise} onSubmit={onSubmit} />);
     await user.click(screen.getByRole('button', { name: /verifică/i }));
     expect(onSubmit).toHaveBeenCalledWith(false);
+  });
+
+  it('foloseste clasa temei vizuale pe elementele listei', () => {
+    const { container } = render(<Ordering exercise={exercise} onSubmit={vi.fn()} />);
+    const [firstItem] = container.querySelectorAll('li');
+    expect(firstItem).toHaveClass(styles.item);
   });
 });

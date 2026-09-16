@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { Exercise } from '../../types/exercise';
+import styles from './Ordering.module.css';
 
 type OrderingExercise = Extract<Exercise, { responseMode: 'ordering' }>;
 
@@ -42,10 +43,10 @@ export function Ordering({ exercise, onSubmit }: Props) {
 
   return (
     <div>
-      <p>{exercise.prompt}</p>
-      <ol>
+      <p className={styles.prompt}>{exercise.prompt}</p>
+      <ol className={styles.list}>
         {order.map((itemIndex, position) => (
-          <li key={itemIndex}>
+          <li key={itemIndex} className={styles.item}>
             {items[itemIndex]}
             <button
               type="button"
