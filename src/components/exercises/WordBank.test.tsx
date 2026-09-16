@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { WordBank } from './WordBank';
 import type { Exercise } from '../../types/exercise';
+import styles from './WordBank.module.css';
 
 const exercise: Extract<Exercise, { responseMode: 'wordBank' }> = {
   id: 'ex-wb-1', stage: 'guided', responseMode: 'wordBank', difficulty: 2,
@@ -43,5 +44,11 @@ describe('WordBank', () => {
     await user.selectOptions(selects[1], 'wb-sa');
     await user.click(screen.getByRole('button', { name: /verifică/i }));
     expect(onSubmit).toHaveBeenCalledWith(false);
+  });
+
+  it('foloseste clasa temei vizuale pe selectoarele de spatiu', () => {
+    render(<WordBank exercise={exercise} onSubmit={vi.fn()} />);
+    const [firstSelect] = screen.getAllByRole('combobox');
+    expect(firstSelect).toHaveClass(styles.blank);
   });
 });

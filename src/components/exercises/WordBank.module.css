@@ -1,0 +1,17 @@
+.prompt {
+  composes: exercise-text from global;
+  font-weight: 700;
+}
+
+.text {
+  composes: exercise-text from global;
+}
+
+.blank {
+  composes: exercise-text from global;
+  background: var(--paper);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  padding: 0 var(--space-2);
+  margin: 0 var(--space-1);
+}

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { Exercise } from '../../types/exercise';
+import styles from './WordBank.module.css';
 
 type WordBankExercise = Extract<Exercise, { responseMode: 'wordBank' }>;
 
@@ -25,19 +26,17 @@ export function WordBank({ exercise, onSubmit }: Props) {
 
   return (
     <div>
-      <p>{exercise.prompt}</p>
-      <p>
+      <p className={styles.prompt}>{exercise.prompt}</p>
+      <p className={styles.text}>
         {parts.map((part, i) => {
           const match = part.match(/^\{\{(\w+)\}\}$/);
           if (!match) return <span key={i}>{part}</span>;
           const marker = match[1];
-          // Eticheta pentru cititor de ecran trebuie sa fie pozitionala (indexul real din
-          // `blanks`, 1-indexat pentru un om), nu markerul brut de continut ("b1"/"b2") —
-          // markerul e un id intern de autor, fara sens pentru un elev care asculta exercitiul.
           const blankPosition = blanks.findIndex((b) => b.marker === marker) + 1;
           return (
             <select
               key={marker}
+              className={styles.blank}
               aria-label={`Spațiu ${blankPosition}`}
               value={selections[marker] ?? ''}
               onChange={(e) => setSelections((s) => ({ ...s, [marker]: e.target.value }))}
