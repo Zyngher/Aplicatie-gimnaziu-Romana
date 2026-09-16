@@ -1,6 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { ErrorBoundary } from './ErrorBoundary';
+import styles from './ErrorBoundary.module.css';
 
 function Bomb(): never {
   throw new Error('boom');
@@ -26,5 +27,16 @@ describe('ErrorBoundary', () => {
       </ErrorBoundary>,
     );
     expect(screen.getByText('Continut normal')).toBeInTheDocument();
+  });
+
+  it('foloseste clasele temei vizuale pe mesajul de eroare', () => {
+    const spy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(
+      <ErrorBoundary>
+        <Bomb />
+      </ErrorBoundary>,
+    );
+    expect(container.querySelector('[role="alert"]')).toHaveClass(styles.errorBox);
+    spy.mockRestore();
   });
 });

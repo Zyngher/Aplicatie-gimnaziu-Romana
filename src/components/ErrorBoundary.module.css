@@ -1,0 +1,9 @@
+.errorBox {
+  composes: notebook-page content-column from global;
+  text-align: center;
+}
+
+.message {
+  composes: heading-2 from global;
+  margin-bottom: var(--space-4);
+}
