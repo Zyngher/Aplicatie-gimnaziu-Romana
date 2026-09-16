@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { NavigationProvider, useNavigation } from '../../lib/navigation';
 import { markExerciseCompleted, markOpenTextSelfCheck } from '../../lib/progress';
 import { OrtogrameHome } from './OrtogrameHome';
+import styles from './OrtogrameHome.module.css';
 
 function CurrentScreenProbe() {
   const navigation = useNavigation();
@@ -70,6 +71,12 @@ describe('OrtogrameHome — mod traseu (implicit)', () => {
     await user.click(screen.getByRole('button', { name: /sa \/ s-a/i }));
     expect(screen.getByTestId('current')).toHaveTextContent('setDetail');
     expect(screen.getByTestId('current')).toHaveTextContent('set-06-sa-sau-ia-iau');
+  });
+
+  it('foloseste clasele temei vizuale pe ecran si pe titlu', () => {
+    const { container } = render(<NavigationProvider initialStack={[{ name: 'ortogrameHome' }]}><OrtogrameHome /></NavigationProvider>);
+    expect(container.firstElementChild).toHaveClass(styles.screen);
+    expect(screen.getByRole('heading', { level: 1 })).toHaveClass(styles.title);
   });
 });
 

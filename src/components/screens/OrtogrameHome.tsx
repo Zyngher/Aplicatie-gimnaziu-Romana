@@ -4,6 +4,7 @@ import { buildProgressKey, getSetProgressPercent } from '../../lib/progress';
 import { computeAuthoredChainUnlockState, isIndexModeActive } from '../../lib/unlock';
 import { useNavigation } from '../../lib/navigation';
 import type { GuideCharacter, ManifestEntry } from '../../types/content';
+import styles from './OrtogrameHome.module.css';
 
 const UNIT_ID = 'ortograme';
 
@@ -87,16 +88,18 @@ export function OrtogrameHome() {
   });
 
   return (
-    <div>
-      <button type="button" onClick={() => navigation.pop()}>
-        ← Înapoi
-      </button>
-      <h1>Ortograme</h1>
-      <p>{indexMode ? 'Index liber — recapitulare' : 'Traseu'}</p>
+    <div className={styles.screen}>
+      <div className={styles.header}>
+        <button type="button" onClick={() => navigation.pop()}>
+          ← Înapoi
+        </button>
+        <h1 className={styles.title}>Ortograme</h1>
+        <p className={styles.modeLabel}>{indexMode ? 'Index liber — recapitulare' : 'Traseu'}</p>
+      </div>
       {[...groups.entries()].map(([groupLabel, items]) => (
-        <section key={groupLabel}>
-          <h2>{groupLabel}</h2>
-          <ul>
+        <section key={groupLabel} className={styles.group}>
+          <h2 className={styles.groupTitle}>{groupLabel}</h2>
+          <ul className={styles.setList}>
             {items.map(({ entry, percent, unlocked }) => {
               const authored = entry.filePath !== null;
               const character = getCharacterById(entry.characterId);
@@ -106,6 +109,7 @@ export function OrtogrameHome() {
                 <li key={entry.id}>
                   <button
                     type="button"
+                    className={styles.setButton}
                     disabled={!clickable}
                     onClick={() => {
                       if (clickable) navigation.push({ name: 'setDetail', setId: entry.id });
@@ -113,8 +117,8 @@ export function OrtogrameHome() {
                   >
                     {character && <CharacterAvatar character={character} />}
                     {entry.title}
-                    {!authored && <span> (Conținut în lucru)</span>}
-                    {authored && <span> ({percent}%)</span>}
+                    {!authored && <span className={styles.workInProgress}> (Conținut în lucru)</span>}
+                    {authored && <span className={styles.percent}> ({percent}%)</span>}
                   </button>
                 </li>
               );
