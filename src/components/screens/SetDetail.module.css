@@ -1,0 +1,48 @@
+.screen {
+  composes: notebook-page content-column from global;
+}
+
+.title {
+  composes: heading-1 from global;
+  margin: var(--space-4) 0 var(--space-4);
+}
+
+.pair {
+  margin-bottom: var(--space-6);
+}
+
+.pairTitle {
+  composes: heading-2 from global;
+  margin-bottom: var(--space-2);
+}
+
+.explanation {
+  composes: exercise-text from global;
+}
+
+.examples {
+  margin: var(--space-2) 0 0;
+  padding-left: var(--space-5);
+}
+
+.example {
+  composes: exercise-text from global;
+}
+
+.exerciseList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.exerciseButton {
+  width: 100%;
+  text-align: left;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: var(--space-3) var(--space-4);
+}

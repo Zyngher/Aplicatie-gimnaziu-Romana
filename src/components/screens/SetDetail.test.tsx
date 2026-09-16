@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { NavigationProvider, useNavigation, type Screen } from '../../lib/navigation';
 import { SetDetail } from './SetDetail';
+import styles from './SetDetail.module.css';
 
 function CurrentScreenProbe() {
   const navigation = useNavigation();
@@ -38,5 +39,11 @@ describe('SetDetail', () => {
     await user.click(screen.getAllByRole('button')[1]); // primul buton = "Înapoi"
     expect(screen.getByTestId('current')).toHaveTextContent('"name":"exercise"');
     expect(screen.getByTestId('current')).toHaveTextContent('"exerciseIndex":0');
+  });
+
+  it('foloseste clasele temei vizuale pe ecran, titlu si exemplele contrastive', () => {
+    const { container } = render(<NavigationProvider initialStack={initialStack}><SetDetail /></NavigationProvider>);
+    expect(container.firstElementChild).toHaveClass(styles.screen);
+    expect(screen.getByRole('heading', { level: 1 })).toHaveClass(styles.title);
   });
 });
