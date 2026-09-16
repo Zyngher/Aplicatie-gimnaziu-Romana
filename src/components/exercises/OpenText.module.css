@@ -1,0 +1,40 @@
+.prompt {
+  composes: exercise-text from global;
+  font-weight: 700;
+}
+
+.instructions {
+  composes: exercise-text from global;
+  color: var(--sub);
+  margin-bottom: var(--space-4);
+}
+
+.label {
+  composes: eyebrow from global;
+  display: block;
+  color: var(--sub);
+  margin-bottom: var(--space-2);
+}
+
+.textarea {
+  composes: exercise-text from global;
+  width: 100%;
+  min-height: 96px;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.modelAnswer {
+  composes: exercise-text from global;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.criteria {
+  margin: var(--space-2) 0 var(--space-4);
+  padding-left: var(--space-5);
+}

@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { OpenText } from './OpenText';
 import type { Exercise } from '../../types/exercise';
+import styles from './OpenText.module.css';
 
 const exercise: Extract<Exercise, { responseMode: 'openText' }> = {
   id: 'ex-ot-1', stage: 'transfer', responseMode: 'openText', difficulty: 2,
@@ -40,5 +41,10 @@ describe('OpenText', () => {
     await user.click(screen.getByRole('button', { name: /arată răspunsul model/i }));
     await user.click(screen.getByRole('button', { name: /mai exersez/i }));
     expect(onSubmit).toHaveBeenCalledWith(false);
+  });
+
+  it('foloseste clasa temei vizuale pe zona de raspuns', () => {
+    render(<OpenText exercise={exercise} onSubmit={vi.fn()} />);
+    expect(screen.getByRole('textbox')).toHaveClass(styles.textarea);
   });
 });

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { Exercise } from '../../types/exercise';
+import styles from './OpenText.module.css';
 
 type OpenTextExercise = Extract<Exercise, { responseMode: 'openText' }>;
 
@@ -21,11 +22,11 @@ export function OpenText({ exercise, onSubmit }: Props) {
 
   return (
     <div>
-      <p>{exercise.prompt}</p>
-      <p>{exercise.response.instructions}</p>
-      <label>
+      <p className={styles.prompt}>{exercise.prompt}</p>
+      <p className={styles.instructions}>{exercise.response.instructions}</p>
+      <label className={styles.label}>
         Răspunsul tău
-        <textarea value={answer} onChange={(e) => setAnswer(e.target.value)} />
+        <textarea className={styles.textarea} value={answer} onChange={(e) => setAnswer(e.target.value)} />
       </label>
       {!revealed && (
         <button type="button" onClick={() => setRevealed(true)} disabled={answer.trim().length === 0}>
@@ -33,9 +34,9 @@ export function OpenText({ exercise, onSubmit }: Props) {
         </button>
       )}
       {revealed && (
-        <div>
+        <div className={styles.modelAnswer}>
           <p>Răspuns model: {exercise.response.modelAnswer}</p>
-          <ul>
+          <ul className={styles.criteria}>
             {exercise.response.selfCheckCriteria.map((criterion) => (
               <li key={criterion}>{criterion}</li>
             ))}
