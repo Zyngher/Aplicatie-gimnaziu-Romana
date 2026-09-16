@@ -48,14 +48,15 @@ describe('ExerciseScreen', () => {
   it('randeaza componenta corecta pentru modul exercitiului curent (multipleChoice) si salveaza progresul', async () => {
     const user = userEvent.setup();
     render(<NavigationProvider initialStack={initialStack}><ExerciseScreen /></NavigationProvider>);
-    await user.click(screen.getByRole('radio', { name: /s-a/i }));
+    // ex-set06-mcq-01 (conținut rescris): „sa” (adjectiv posesiv, „echipa ei”) e forma corectă.
+    await user.click(screen.getByRole('radio', { name: 'sa' }));
     await user.click(screen.getByRole('button', { name: /^verifică$/i }));
     expect(screen.getByText(/corect!/i)).toBeInTheDocument();
     const store = loadProgress();
     expect(store['ortograme:set-06-sa-sau-ia-iau'].completedExerciseIds).toContain('ex-set06-mcq-01');
   });
 
-  it('Continua avanseaza la exercitiul urmator', async () => {
+  it('Continua avanseaza la exercitiul urmator, cu stare proaspata (regresie key={exercise.id})', async () => {
     const user = userEvent.setup();
     render(<NavigationProvider initialStack={initialStack}><ExerciseScreen /></NavigationProvider>);
     await user.click(screen.getByRole('radio', { name: /s-a/i }));
@@ -63,6 +64,54 @@ describe('ExerciseScreen', () => {
     await user.click(screen.getByRole('button', { name: /continuă/i }));
     // al 2-lea exercitiu (index 1) e tot multipleChoice, cu alt text
     expect(screen.getByText(/unboxing/i)).toBeInTheDocument();
+    // Critical (audit teste): asertiunile de mai sus ar trece si fara key={exercise.id}, pentru
+    // ca textul vine direct din props. Asertiunile de mai jos chiar discrimineaza regresia:
+    // ex-set06-mcq-02 are optiunile ["sau","s-au"] — fara un remount fortat de key, starea
+    // interna din MultipleChoice.tsx (selected: Set<number>, submitted: boolean) ar ramane cea
+    // de la exercitiul anterior (unde indexul 1 era "s-a", selectat si trimis), deci radio-ul
+    // "s-au" (acelasi index 1, in noul exercitiu) ar aparea deja bifat, iar butonul Verifica ar
+    // ramane dezactivat (submitted inca true). Cu key={exercise.id} prezent, ambele trebuie sa
+    // fie in starea initiala proaspata.
+    expect(screen.getByRole('radio', { name: /s-au/i })).not.toBeChecked();
+    expect(screen.getByRole('button', { name: /^verifică$/i })).toBeDisabled();
+  });
+});
+
+describe('ExerciseScreen — A1: raspunsul corect e aratat dupa un raspuns gresit, pentru modurile auto-corectate fara explicatie proprie', () => {
+  it('multipleChoice (ex-set06-mcq-01): un raspuns gresit arata "Răspunsul corect: sa"', async () => {
+    const user = userEvent.setup();
+    render(<NavigationProvider initialStack={initialStack}><ExerciseScreen /></NavigationProvider>);
+    // "s-a" e optiunea gresita la ex-set06-mcq-01 (conținut rescris: corect e "sa")
+    await user.click(screen.getByRole('radio', { name: /^s-a$/i }));
+    await user.click(screen.getByRole('button', { name: /^verifică$/i }));
+    expect(screen.getByText(/răspunsul corect: sa/i)).toBeInTheDocument();
+  });
+
+  it('fillBlank (ex-set06-fillblank-01): un raspuns gresit arata "Răspunsul corect: ia"', async () => {
+    const user = userEvent.setup();
+    render(<NavigationProvider initialStack={stackAt(2)}><ExerciseScreen /></NavigationProvider>);
+    await user.type(screen.getByRole('textbox'), 'gresit');
+    await user.click(screen.getByRole('button', { name: /^verifică$/i }));
+    expect(screen.getByText(/răspunsul corect: ia/i)).toBeInTheDocument();
+  });
+
+  it('wordBank (ex-set06-wordbank-01): o selectie gresita arata "Răspunsurile corecte: iau, sa"', async () => {
+    const user = userEvent.setup();
+    render(<NavigationProvider initialStack={stackAt(4)}><ExerciseScreen /></NavigationProvider>);
+    const selects = screen.getAllByRole('combobox');
+    await user.selectOptions(selects[0], 'wb-i-au');
+    await user.selectOptions(selects[1], 'wb-s-a');
+    await user.click(screen.getByRole('button', { name: /^verifică$/i }));
+    expect(screen.getByText(/răspunsurile corecte: iau, sa/i)).toBeInTheDocument();
+  });
+
+  it('un raspuns corect NU arata textul "Răspunsul corect" (afisat doar la gresit)', async () => {
+    const user = userEvent.setup();
+    render(<NavigationProvider initialStack={initialStack}><ExerciseScreen /></NavigationProvider>);
+    await user.click(screen.getByRole('radio', { name: 'sa' }));
+    await user.click(screen.getByRole('button', { name: /^verifică$/i }));
+    expect(screen.getByText(/corect!/i)).toBeInTheDocument();
+    expect(screen.queryByText(/răspunsul corect/i)).not.toBeInTheDocument();
   });
 });
 
@@ -70,9 +119,9 @@ describe('ExerciseScreen — Critical #1: explicatia errorCorrection trebuie sa 
   it('dupa un raspuns corect la ex-set06-error-01, explicatia e in DOM alaturi de feedback', async () => {
     const user = userEvent.setup();
     render(<NavigationProvider initialStack={stackAt(3)}><ExerciseScreen /></NavigationProvider>);
-    // ex-set06-error-01: tokenul gresit e "s-a" (index 1), forma corecta e "sa"
-    await user.click(screen.getByRole('button', { name: 's-a' }));
-    await user.type(screen.getByRole('textbox'), 'sa');
+    // ex-set06-error-01 (conținut rescris): tokenul gresit e "sa" (index 1), forma corecta e "s-a"
+    await user.click(screen.getByRole('button', { name: 'sa' }));
+    await user.type(screen.getByRole('textbox'), 's-a');
     await user.click(screen.getByRole('button', { name: /^verifică$/i }));
     expect(screen.getByText(/corect!/i)).toBeInTheDocument();
     // exercitiul nu mai e demontat la trimitere — explicatia chiar apare in pagina

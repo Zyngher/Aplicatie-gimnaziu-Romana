@@ -9,10 +9,10 @@
       "id": "og-sa-s-a",
       "formA": "sa",
       "formB": "s-a",
-      "explanation": "„Sa” e adjectiv posesiv (poate fi înlocuit cu „a lui”/„a ei”). „S-a” e verb, forma scurtă de la „s-a întâmplat” (două cuvinte, „s” și „a”, rostite împreună).",
+      "explanation": "„Sa” răspunde la întrebarea „a cui e?” — e adjectiv posesiv și poate fi înlocuit cu „a lui”/„a ei”. „S-a” e verb, două cuvinte („s” și „a”) rostite împreună.",
       "contrastExamples": [
-        "Camera sa (a ei) de streaming e nouă.",
-        "Jocul s-a (se) terminat abia la miezul nopții."
+        "Ruta sa (a lui) de călătorie include trei orașe noi.",
+        "Clipul s-a (se) încheiat chiar înainte de partea cea mai bună."
       ]
     },
     {
@@ -32,7 +32,7 @@
       "explanation": "„Ia” înseamnă „a lua”, „a cumpăra”. „I-a” e verb, două cuvinte („i” și „a”) rostite împreună.",
       "contrastExamples": [
         "Andrei ia (a lua) căștile din geantă.",
-        "Antrenorul i-a (a spus lui) spus strategia înainte de meci."
+        "Antrenorul i-a (îi) spus strategia înainte de meci."
       ]
     },
     {
@@ -42,7 +42,7 @@
       "explanation": "„Iau” înseamnă „a lua”, „a primi”. „I-au” e verb, două cuvinte („i” și „au”) rostite împreună.",
       "contrastExamples": [
         "Eu iau (primesc) note bune la română.",
-        "Colegii i-au (au trimis lui) trimis linkul către clipul nou."
+        "Colegii i-au (îi) trimis linkul către clipul nou."
       ]
     }
   ],
@@ -56,9 +56,9 @@
       "targetIds": ["og-sa-s-a"],
       "prompt": "Alege forma corectă.",
       "response": {
-        "text": "Echipa ___ pregătit strategia dinaintea turneului.",
+        "text": "Andra a câștigat finala, iar echipa ___ sărbătorește pe server.",
         "options": ["sa", "s-a"],
-        "correctIndices": [1]
+        "correctIndices": [0]
       }
     },
     {
@@ -97,10 +97,10 @@
       "targetIds": ["og-sa-s-a"],
       "prompt": "Găsește și corectează greșeala.",
       "response": {
-        "tokens": ["Vlogger-ul", "s-a", "pregătit", "canalul", "nou", "de", "conținut."],
+        "tokens": ["Studioul", "sa", "mutat", "într-o", "clădire", "nouă", "săptămâna", "trecută."],
         "errorTokenIndex": 1,
-        "correctToken": "sa",
-        "explanation": "Aici e vorba de „canalul lui”, deci adjectiv posesiv → „sa”, nu verbul „s-a”."
+        "correctToken": "s-a",
+        "explanation": "Aici e nevoie de verb, nu de adjectiv posesiv: „s-a mutat” arată o acțiune deja întâmplată. „Sa” (adjectiv posesiv, spune a cui e un lucru) ar avea sens doar dacă ar urma un substantiv deținut, de exemplu „geanta sa” — aici nu urmează niciun substantiv, deci forma corectă e „s-a”."
       }
     },
     {

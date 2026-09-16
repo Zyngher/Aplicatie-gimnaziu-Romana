@@ -33,7 +33,9 @@ describe('App — flux complet capăt-la-capăt (fix #8)', () => {
     await user.click(guidedChoiceButtons[0]);
 
     // ExerciseScreen — răspunde corect
-    await user.click(screen.getByRole('radio', { name: /s-a/i }));
+    // ex-set06-mcq-01 (conținut rescris): „Andra a câștigat finala, iar echipa ___ sărbătorește
+    // pe server.” — „sa” (adjectiv posesiv, „echipa ei”) e forma corectă, nu „s-a”.
+    await user.click(screen.getByRole('radio', { name: 'sa' }));
     await user.click(screen.getByRole('button', { name: /^verifică$/i }));
     expect(screen.getByText(/corect!/i)).toBeInTheDocument();
 
