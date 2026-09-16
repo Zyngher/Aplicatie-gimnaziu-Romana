@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { NavigationProvider, useNavigation } from '../../lib/navigation';
 import { Home } from './Home';
+import styles from './Home.module.css';
 
 function CurrentScreenProbe() {
   const navigation = useNavigation();
@@ -34,5 +35,11 @@ describe('Home (selector de unități)', () => {
     );
     await user.click(screen.getByRole('button', { name: /ortograme/i }));
     expect(screen.getByTestId('current')).toHaveTextContent('ortogrameHome');
+  });
+
+  it('foloseste clasele temei vizuale pe ecran si pe titlu', () => {
+    const { container } = render(<NavigationProvider><Home /></NavigationProvider>);
+    expect(container.firstElementChild).toHaveClass(styles.screen);
+    expect(screen.getByRole('heading', { level: 1 })).toHaveClass(styles.title);
   });
 });
