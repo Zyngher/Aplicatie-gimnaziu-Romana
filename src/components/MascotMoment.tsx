@@ -34,23 +34,23 @@ export function MascotMoment({ variant, size }: Props) {
 
     let frameId = 0;
 
-    function checkEnd() {
-      if (video!.currentTime >= segment!.end) {
-        video!.pause();
+    const checkEnd = () => {
+      if (video.currentTime >= segment.end) {
+        video.pause();
         return;
       }
       frameId = requestAnimationFrame(checkEnd);
-    }
+    };
 
-    function handleSeeked() {
+    const handleSeeked = () => {
       // video.play() poate arunca/respinge (politica de autoplay a browserului) — nu blocam
       // fluxul daca esueaza, doar nu pornim redarea.
-      const playResult = video!.play();
+      const playResult = video.play();
       if (playResult && typeof playResult.catch === 'function') {
         playResult.catch(() => {});
       }
       frameId = requestAnimationFrame(checkEnd);
-    }
+    };
 
     video.addEventListener('seeked', handleSeeked, { once: true });
     video.currentTime = segment.start;
