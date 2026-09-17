@@ -124,3 +124,21 @@ button:disabled {
   line-height: 1.5;
   margin: 0;
 }
+
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #f5cf5a, #c99a1e);
+  transform: rotate(-6deg);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  font-family: var(--font-speech);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  text-align: center;
+  padding: var(--space-2);
+}
