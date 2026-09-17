@@ -14,7 +14,7 @@ describe('App — flux complet capăt-la-capăt (fix #8)', () => {
     render(<App />);
 
     // Home (pagina principala)
-    expect(screen.getByText('EvaluareaRO')).toBeInTheDocument();
+    expect(screen.getByText('Dascăl în acțiune')).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: /ortograme —/i }));
 
     // OrtogrameHome (traseu)
@@ -51,7 +51,7 @@ describe('App — flux complet capăt-la-capăt (fix #8)', () => {
     await user.click(screen.getByRole('button', { name: /^← înapoi$/i }));
     await user.click(screen.getByRole('button', { name: /^← înapoi$/i }));
 
-    expect(screen.getByText('EvaluareaRO')).toBeInTheDocument();
+    expect(screen.getByText('Dascăl în acțiune')).toBeInTheDocument();
 
     const store = loadProgress();
     expect(store['ortograme:set-06-sa-sau-ia-iau'].completedExerciseIds).toContain('ex-set06-mcq-01');

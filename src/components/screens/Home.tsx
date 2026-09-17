@@ -24,7 +24,7 @@ export function Home() {
 
   return (
     <div className={styles.screen}>
-      <h1 className={styles.title}>EvaluareaRO</h1>
+      <h1 className={styles.title}>Dascăl în acțiune</h1>
       <p className={styles.subtitle}>Exersează limba română alături de personajele-ghid, în ritmul tău.</p>
       <ul className={styles.unitList}>
         {UNITS.map((unit) => (

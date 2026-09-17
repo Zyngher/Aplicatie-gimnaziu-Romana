@@ -3,6 +3,7 @@ import { getManifest, getCharacterById, getSetById } from '../../lib/content-loa
 import { buildProgressKey, getSetProgressPercent } from '../../lib/progress';
 import { computeAuthoredChainUnlockState, isIndexModeActive } from '../../lib/unlock';
 import { useNavigation } from '../../lib/navigation';
+import { HomeButton } from '../HomeButton';
 import type { GuideCharacter, ManifestEntry } from '../../types/content';
 import styles from './OrtogrameHome.module.css';
 
@@ -93,6 +94,7 @@ export function OrtogrameHome() {
         <button type="button" onClick={() => navigation.pop()}>
           ← Înapoi
         </button>
+        <HomeButton />
         <h1 className={styles.title}>Ortograme</h1>
         <p className={styles.modeLabel}>{indexMode ? 'Index liber — recapitulare' : 'Traseu'}</p>
       </div>

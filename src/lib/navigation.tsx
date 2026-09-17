@@ -12,6 +12,7 @@ interface NavigationContextValue {
   push: (screen: Screen) => void;
   pop: () => void;
   replace: (screen: Screen) => void;
+  goHome: () => void;
 }
 
 const NavigationContext = createContext<NavigationContextValue | null>(null);
@@ -31,6 +32,7 @@ export function NavigationProvider({
       push: (screen) => setStack((s) => [...s, screen]),
       pop: () => setStack((s) => (s.length > 1 ? s.slice(0, -1) : s)),
       replace: (screen) => setStack((s) => [...s.slice(0, -1), screen]),
+      goHome: () => setStack([{ name: 'home' }]),
     }),
     [stack],
   );

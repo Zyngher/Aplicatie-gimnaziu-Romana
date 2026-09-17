@@ -1,6 +1,7 @@
 import { getSetById } from '../../lib/content-loader';
 import { stageLabels } from '../../lib/labels';
 import { useNavigation } from '../../lib/navigation';
+import { HomeButton } from '../HomeButton';
 import styles from './SetDetail.module.css';
 
 export function SetDetail() {
@@ -14,6 +15,7 @@ export function SetDetail() {
       <button type="button" onClick={() => navigation.pop()}>
         ← Înapoi
       </button>
+      <HomeButton />
       <h1 className={styles.title}>{set.title}</h1>
       {set.pairs.map((pair) => (
         <section key={pair.id} className={styles.pair}>

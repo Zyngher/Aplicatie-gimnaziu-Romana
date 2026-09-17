@@ -3,6 +3,7 @@ import { getSetById } from '../../lib/content-loader';
 import { buildProgressKey, markExerciseCompleted, markOpenTextSelfCheck } from '../../lib/progress';
 import { getCorrectAnswerText } from '../../lib/correctAnswer';
 import { useNavigation } from '../../lib/navigation';
+import { HomeButton } from '../HomeButton';
 import { MascotMoment } from '../MascotMoment';
 import { MultipleChoice } from '../exercises/MultipleChoice';
 import { FillBlank } from '../exercises/FillBlank';
@@ -58,6 +59,7 @@ export function ExerciseScreen() {
       <button type="button" onClick={() => navigation.pop()}>
         ← Înapoi
       </button>
+      <HomeButton />
       <div className={styles.mascotSlot}>
         <MascotMoment variant={feedback === 'correct' ? 'ras' : 'idle'} size="companion" />
       </div>

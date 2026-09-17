@@ -1,6 +1,7 @@
 import { getSetById } from '../../lib/content-loader';
 import { buildProgressKey, getSetProgressPercent } from '../../lib/progress';
 import { useNavigation } from '../../lib/navigation';
+import { HomeButton } from '../HomeButton';
 import { MascotMoment } from '../MascotMoment';
 import styles from './SetComplete.module.css';
 
@@ -20,6 +21,7 @@ export function SetComplete() {
 
   return (
     <div className={styles.screen}>
+      <HomeButton />
       <MascotMoment variant="sarbatorire" size="hero" />
       <h1 className={styles.title}>Ai terminat setul!</h1>
       <p className={styles.percent}>{percent}% completat</p>

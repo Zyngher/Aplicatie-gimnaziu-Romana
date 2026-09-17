@@ -36,7 +36,10 @@ describe('SetDetail', () => {
         <CurrentScreenProbe />
       </NavigationProvider>,
     );
-    await user.click(screen.getAllByRole('button')[1]); // primul buton = "Înapoi"
+    // Set 6 are 2 exerciții "Ghidat" cu exact același text afișat ("Ghidat — Alege forma
+    // corectă."), la fel ca in App.test.tsx — getAllByRole, alegem primul (ex-set06-mcq-01,
+    // exerciseIndex 0, verificat mai jos).
+    await user.click(screen.getAllByRole('button', { name: 'Ghidat — Alege forma corectă.' })[0]);
     expect(screen.getByTestId('current')).toHaveTextContent('"name":"exercise"');
     expect(screen.getByTestId('current')).toHaveTextContent('"exerciseIndex":0');
   });
