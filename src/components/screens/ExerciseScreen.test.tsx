@@ -89,6 +89,45 @@ describe('ExerciseScreen', () => {
     await user.click(screen.getByRole('button', { name: /^verifică$/i }));
     expect(screen.getByText(/corect!/i)).toHaveClass(styles.feedbackCorrect);
   });
+
+  it('la un raspuns gresit, arata butonul "Incearca din nou" alaturi de "Continua"', async () => {
+    const user = userEvent.setup();
+    render(<NavigationProvider initialStack={initialStack}><ExerciseScreen /></NavigationProvider>);
+    await user.click(screen.getByRole('radio', { name: /s-a/i }));
+    await user.click(screen.getByRole('button', { name: /^verifică$/i }));
+    expect(screen.getByRole('button', { name: /încearcă din nou/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /continuă/i })).toBeInTheDocument();
+  });
+
+  it('"Incearca din nou" remonteaza exercitiul cu stare proaspata', async () => {
+    const user = userEvent.setup();
+    render(<NavigationProvider initialStack={initialStack}><ExerciseScreen /></NavigationProvider>);
+    await user.click(screen.getByRole('radio', { name: /s-a/i }));
+    await user.click(screen.getByRole('button', { name: /^verifică$/i }));
+    await user.click(screen.getByRole('button', { name: /încearcă din nou/i }));
+    expect(screen.getByRole('radio', { name: /s-a/i })).not.toBeChecked();
+    expect(screen.getByRole('button', { name: /^verifică$/i })).toBeDisabled();
+  });
+
+  it('la ultimul exercitiu din set, Continua navigheaza la setComplete', async () => {
+    const user = userEvent.setup();
+    render(
+      <NavigationProvider initialStack={stackAt(5)}>
+        <ExerciseScreen />
+        <CurrentScreenProbe />
+      </NavigationProvider>,
+    );
+    await user.type(screen.getByRole('textbox'), 'Raspunsul meu propriu.');
+    await user.click(screen.getByRole('button', { name: /arată răspunsul model/i }));
+    await user.click(screen.getByRole('button', { name: /am reușit/i }));
+    await user.click(screen.getByRole('button', { name: /continuă/i }));
+    expect(screen.getByTestId('current')).toHaveTextContent('"name":"setComplete"');
+  });
+
+  it('afiseaza componenta de mascota', () => {
+    const { container } = render(<NavigationProvider initialStack={initialStack}><ExerciseScreen /></NavigationProvider>);
+    expect(container.querySelector('video')).not.toBeNull();
+  });
 });
 
 describe('ExerciseScreen — A1: raspunsul corect e aratat dupa un raspuns gresit, pentru modurile auto-corectate fara explicatie proprie', () => {

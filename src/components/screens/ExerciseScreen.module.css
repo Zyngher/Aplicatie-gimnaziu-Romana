@@ -39,3 +39,20 @@
 .continueButton {
   margin-top: var(--space-4);
 }
+
+.mascotSlot {
+  margin-bottom: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .screen {
+    position: relative;
+  }
+
+  .mascotSlot {
+    position: absolute;
+    top: var(--space-6);
+    left: calc(50% + 300px);
+    margin-bottom: 0;
+  }
+}

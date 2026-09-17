@@ -3,6 +3,7 @@ import { getSetById } from '../../lib/content-loader';
 import { buildProgressKey, markExerciseCompleted, markOpenTextSelfCheck } from '../../lib/progress';
 import { getCorrectAnswerText } from '../../lib/correctAnswer';
 import { useNavigation } from '../../lib/navigation';
+import { MascotMoment } from '../MascotMoment';
 import { MultipleChoice } from '../exercises/MultipleChoice';
 import { FillBlank } from '../exercises/FillBlank';
 import { WordBank } from '../exercises/WordBank';
@@ -17,6 +18,7 @@ export function ExerciseScreen() {
   const navigation = useNavigation();
   const screen = navigation.current;
   const [feedback, setFeedback] = useState<'correct' | 'incorrect' | null>(null);
+  const [attempt, setAttempt] = useState(0);
 
   if (screen.name !== 'exercise') return null;
   const set = getSetById(screen.setId);
@@ -33,53 +35,67 @@ export function ExerciseScreen() {
     setFeedback(ok ? 'correct' : 'incorrect');
   }
 
+  function handleRetry() {
+    setFeedback(null);
+    setAttempt((a) => a + 1);
+  }
+
   function handleContinue() {
     setFeedback(null);
     const nextIndex = exerciseIndex + 1;
     if (nextIndex < set.exercises.length) {
       navigation.replace({ name: 'exercise', setId: set.id, exerciseIndex: nextIndex });
     } else {
-      navigation.pop();
+      navigation.replace({ name: 'setComplete', setId: set.id });
     }
   }
 
   const correctAnswerText = getCorrectAnswerText(exercise);
+  const exerciseKey = `${exercise.id}-${attempt}`;
 
   return (
     <div className={styles.screen}>
       <button type="button" onClick={() => navigation.pop()}>
         ← Înapoi
       </button>
+      <div className={styles.mascotSlot}>
+        <MascotMoment variant={feedback === 'correct' ? 'ras' : 'idle'} size="companion" />
+      </div>
       <p className={styles.progress}>
         Exercițiul {exerciseIndex + 1} din {set.exercises.length}
       </p>
       {exercise.responseMode === 'multipleChoice' && (
-        <MultipleChoice key={exercise.id} exercise={exercise} onSubmit={handleSubmit} />
+        <MultipleChoice key={exerciseKey} exercise={exercise} onSubmit={handleSubmit} />
       )}
       {exercise.responseMode === 'fillBlank' && (
-        <FillBlank key={exercise.id} exercise={exercise} onSubmit={handleSubmit} />
+        <FillBlank key={exerciseKey} exercise={exercise} onSubmit={handleSubmit} />
       )}
       {exercise.responseMode === 'wordBank' && (
-        <WordBank key={exercise.id} exercise={exercise} onSubmit={handleSubmit} />
+        <WordBank key={exerciseKey} exercise={exercise} onSubmit={handleSubmit} />
       )}
       {exercise.responseMode === 'ordering' && (
-        <Ordering key={exercise.id} exercise={exercise} onSubmit={handleSubmit} />
+        <Ordering key={exerciseKey} exercise={exercise} onSubmit={handleSubmit} />
       )}
       {exercise.responseMode === 'errorCorrection' && (
-        <ErrorCorrection key={exercise.id} exercise={exercise} onSubmit={handleSubmit} />
+        <ErrorCorrection key={exerciseKey} exercise={exercise} onSubmit={handleSubmit} />
       )}
       {exercise.responseMode === 'openText' && (
-        <OpenText key={exercise.id} exercise={exercise} onSubmit={handleSubmit} />
+        <OpenText key={exerciseKey} exercise={exercise} onSubmit={handleSubmit} />
       )}
       {feedback !== null && (
         <div>
           <p className={feedback === 'correct' ? styles.feedbackCorrect : styles.feedbackIncorrect}>
             {feedback === 'correct'
               ? 'Corect!'
-              : 'Nu-i nimic! Mergem mai departe — vei exersa din nou acest tip de exercițiu.'}
+              : 'Nu-i nimic! Mai încearcă o dată, sau treci mai departe.'}
           </p>
           {feedback === 'incorrect' && correctAnswerText && (
             <p className={styles.correctAnswerHint}>{correctAnswerText}</p>
+          )}
+          {feedback === 'incorrect' && (
+            <button type="button" onClick={handleRetry}>
+              Încearcă din nou
+            </button>
           )}
           <button type="button" className={styles.continueButton} onClick={handleContinue}>
             Continuă
