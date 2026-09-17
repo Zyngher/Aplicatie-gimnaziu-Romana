@@ -4,6 +4,7 @@ import { Home } from './components/screens/Home';
 import { OrtogrameHome } from './components/screens/OrtogrameHome';
 import { SetDetail } from './components/screens/SetDetail';
 import { ExerciseScreen } from './components/screens/ExerciseScreen';
+import { SetComplete } from './components/screens/SetComplete';
 
 function Router() {
   const navigation = useNavigation();
@@ -16,6 +17,8 @@ function Router() {
       return <SetDetail />;
     case 'exercise':
       return <ExerciseScreen />;
+    case 'setComplete':
+      return <SetComplete />;
     default: {
       const _exhaustive: never = navigation.current;
       return _exhaustive;

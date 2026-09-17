@@ -4,7 +4,8 @@ export type Screen =
   | { name: 'home' }
   | { name: 'ortogrameHome' }
   | { name: 'setDetail'; setId: string }
-  | { name: 'exercise'; setId: string; exerciseIndex: number };
+  | { name: 'exercise'; setId: string; exerciseIndex: number }
+  | { name: 'setComplete'; setId: string };
 
 interface NavigationContextValue {
   current: Screen;
