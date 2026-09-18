@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styles from './ErrorCorrection.module.css';
 import type { Exercise } from '../../types/exercise';
+import { MarkerButton } from '../MarkerButton';
 
 type ErrorCorrectionExercise = Extract<Exercise, { responseMode: 'errorCorrection' }>;
 
@@ -46,13 +47,13 @@ export function ErrorCorrection({ exercise, onSubmit }: Props) {
         Forma corectă
         <input className={styles.input} value={correction} onChange={(e) => setCorrection(e.target.value)} />
       </label>
-      <button
-        type="button"
+      <MarkerButton
+        color="var(--marker-ortograme)"
         onClick={handleSubmit}
         disabled={selectedIndex === null || correction.trim().length === 0 || submitted}
       >
         Verifică
-      </button>
+      </MarkerButton>
       {submitted && <p className={styles.explanation}>{explanation}</p>}
     </div>
   );

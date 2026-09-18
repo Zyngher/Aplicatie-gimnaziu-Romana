@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { Exercise } from '../../types/exercise';
 import styles from './Ordering.module.css';
+import { MarkerButton } from '../MarkerButton';
 
 type OrderingExercise = Extract<Exercise, { responseMode: 'ordering' }>;
 
@@ -65,9 +66,9 @@ export function Ordering({ exercise, onSubmit }: Props) {
           </li>
         ))}
       </ol>
-      <button type="button" onClick={handleSubmit} disabled={submitted}>
+      <MarkerButton color="var(--marker-ortograme)" onClick={handleSubmit} disabled={submitted}>
         Verifică
-      </button>
+      </MarkerButton>
     </div>
   );
 }

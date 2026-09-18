@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { Exercise } from '../../types/exercise';
 import styles from './WordBank.module.css';
+import { MarkerButton } from '../MarkerButton';
 
 type WordBankExercise = Extract<Exercise, { responseMode: 'wordBank' }>;
 
@@ -53,9 +54,9 @@ export function WordBank({ exercise, onSubmit }: Props) {
           );
         })}
       </p>
-      <button type="button" onClick={handleSubmit} disabled={!allFilled || submitted}>
+      <MarkerButton color="var(--marker-ortograme)" onClick={handleSubmit} disabled={!allFilled || submitted}>
         Verifică
-      </button>
+      </MarkerButton>
     </div>
   );
 }

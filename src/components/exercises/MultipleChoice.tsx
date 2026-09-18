@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { Exercise } from '../../types/exercise';
 import styles from './MultipleChoice.module.css';
+import { MarkerButton } from '../MarkerButton';
 
 type MultipleChoiceExercise = Extract<Exercise, { responseMode: 'multipleChoice' }>;
 
@@ -53,9 +54,13 @@ export function MultipleChoice({ exercise, onSubmit }: Props) {
           </label>
         ))}
       </div>
-      <button type="button" onClick={handleSubmit} disabled={selected.size === 0 || submitted}>
+      <MarkerButton
+        color="var(--marker-ortograme)"
+        onClick={handleSubmit}
+        disabled={selected.size === 0 || submitted}
+      >
         Verifică
-      </button>
+      </MarkerButton>
     </div>
   );
 }

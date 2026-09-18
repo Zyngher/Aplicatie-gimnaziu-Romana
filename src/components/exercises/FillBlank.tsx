@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { Exercise } from '../../types/exercise';
 import styles from './FillBlank.module.css';
+import { MarkerButton } from '../MarkerButton';
 
 type FillBlankExercise = Extract<Exercise, { responseMode: 'fillBlank' }>;
 
@@ -34,9 +35,13 @@ export function FillBlank({ exercise, onSubmit }: Props) {
         Răspunsul tău
         <input className={styles.input} value={value} onChange={(e) => setValue(e.target.value)} />
       </label>
-      <button type="button" onClick={handleSubmit} disabled={value.trim().length === 0 || submitted}>
+      <MarkerButton
+        color="var(--marker-ortograme)"
+        onClick={handleSubmit}
+        disabled={value.trim().length === 0 || submitted}
+      >
         Verifică
-      </button>
+      </MarkerButton>
     </div>
   );
 }
