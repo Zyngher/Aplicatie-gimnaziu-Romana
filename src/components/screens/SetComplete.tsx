@@ -3,6 +3,7 @@ import { buildProgressKey, getSetProgressPercent } from '../../lib/progress';
 import { useNavigation } from '../../lib/navigation';
 import { HomeButton } from '../HomeButton';
 import { MascotMoment } from '../MascotMoment';
+import { MarkerButton } from '../MarkerButton';
 import styles from './SetComplete.module.css';
 
 const UNIT_ID = 'ortograme';
@@ -26,9 +27,9 @@ export function SetComplete() {
       <h1 className={styles.title}>Ai terminat setul!</h1>
       <p className={styles.percent}>{percent}% completat</p>
       <div className={styles.stamp}>Bravo!</div>
-      <button type="button" onClick={handleBackToTraseu}>
+      <MarkerButton color="var(--marker-ortograme)" onClick={handleBackToTraseu}>
         Înapoi la traseu
-      </button>
+      </MarkerButton>
     </div>
   );
 }
