@@ -2,6 +2,10 @@
   composes: notebook-page from global;
 }
 
+.backButton {
+  composes: action-button from global;
+}
+
 .header {
   max-width: 560px;
   margin: 0 auto;

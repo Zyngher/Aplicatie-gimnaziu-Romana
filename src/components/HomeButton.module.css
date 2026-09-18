@@ -1,0 +1,3 @@
+.button {
+  composes: action-button from global;
+}

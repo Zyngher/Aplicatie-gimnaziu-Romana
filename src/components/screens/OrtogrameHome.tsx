@@ -91,7 +91,7 @@ export function OrtogrameHome() {
   return (
     <div className={styles.screen}>
       <div className={styles.header}>
-        <button type="button" onClick={() => navigation.pop()}>
+        <button type="button" className={styles.backButton} onClick={() => navigation.pop()}>
           ← Înapoi
         </button>
         <HomeButton />

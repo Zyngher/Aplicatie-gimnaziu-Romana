@@ -12,7 +12,7 @@ export function SetDetail() {
 
   return (
     <div className={styles.screen}>
-      <button type="button" onClick={() => navigation.pop()}>
+      <button type="button" className={styles.backButton} onClick={() => navigation.pop()}>
         ← Înapoi
       </button>
       <HomeButton />

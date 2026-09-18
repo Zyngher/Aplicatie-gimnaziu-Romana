@@ -2,6 +2,10 @@
   composes: notebook-page content-column from global;
 }
 
+.backButton {
+  composes: action-button from global;
+}
+
 .title {
   composes: heading-1 from global;
   margin: var(--space-4) 0 var(--space-4);
