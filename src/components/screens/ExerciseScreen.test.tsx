@@ -1,9 +1,10 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { NavigationProvider, useNavigation, type Screen } from '../../lib/navigation';
 import { loadProgress } from '../../lib/progress';
 import { ExerciseScreen } from './ExerciseScreen';
+import { ErrorBoundary } from '../ErrorBoundary';
 import styles from './ExerciseScreen.module.css';
 
 function CurrentScreenProbe() {
@@ -209,5 +210,27 @@ describe('ExerciseScreen — Important #7: acoperire de integrare pentru celelal
     await user.click(screen.getByRole('button', { name: /am reușit/i }));
     const store = loadProgress();
     expect(store['ortograme:set-06-sa-sau-ia-iau'].openTextSelfMarkedOk['ex-set06-free-01']).toBe(true);
+  });
+});
+
+describe('ExerciseScreen — index de exercitiu invalid', () => {
+  it('un index in afara intervalului valid e prins de ErrorBoundary, nu lasa pagina alba', () => {
+    const spy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    // set-06 are exact 6 exercitii (indici 0-5) — indexul 6 e primul invalid, real, nu construit sintetic.
+    const invalidStack: Screen[] = [
+      { name: 'home' },
+      { name: 'ortogrameHome' },
+      { name: 'setDetail', setId: 'set-06-sa-sau-ia-iau' },
+      { name: 'exercise', setId: 'set-06-sa-sau-ia-iau', exerciseIndex: 6 },
+    ];
+    render(
+      <ErrorBoundary>
+        <NavigationProvider initialStack={invalidStack}>
+          <ExerciseScreen />
+        </NavigationProvider>
+      </ErrorBoundary>,
+    );
+    expect(screen.getByRole('alert')).toBeInTheDocument();
+    spy.mockRestore();
   });
 });

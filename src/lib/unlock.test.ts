@@ -26,6 +26,14 @@ describe('isSetUnlocked — fix #9: regula nu era niciodată testată cu un set 
     expect(isSetUnlocked(1, 60, 50)).toBe(true);
     expect(isSetUnlocked(1, 40, 50)).toBe(false);
   });
+
+  it('setul următor rămâne blocat la 79%, imediat sub pragul de 80', () => {
+    expect(isSetUnlocked(1, 79)).toBe(false);
+  });
+
+  it('setul următor e deblocat la 81%, imediat peste pragul de 80', () => {
+    expect(isSetUnlocked(1, 81)).toBe(true);
+  });
 });
 
 describe('isIndexModeActive', () => {

@@ -56,10 +56,4 @@ describe('App — flux complet capăt-la-capăt (fix #8)', () => {
     const store = loadProgress();
     expect(store['ortograme:set-06-sa-sau-ia-iau'].completedExerciseIds).toContain('ex-set06-mcq-01');
   });
-
-  it('o eroare de randare intr-un ecran e prinsa de Error Boundary, nu lasa pagina alba', () => {
-    // Verificat separat, izolat, in ErrorBoundary.test.tsx (Task 6) — aici doar confirmam ca
-    // App.tsx chiar infasoara continutul in <ErrorBoundary>, citind sursa componentei.
-    expect(App.toString()).toContain('ErrorBoundary');
-  });
 });

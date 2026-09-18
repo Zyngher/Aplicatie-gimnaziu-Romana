@@ -32,6 +32,10 @@ export type Exercise =
   | (ExerciseBase & { responseMode: 'errorCorrection'; response: ErrorCorrectionResponse })
   | (ExerciseBase & { responseMode: 'openText'; response: OpenTextResponse });
 
+// Testata (exercise.test.ts), inca neconsumata de nicio componenta de productie — infrastructura
+// intentionata pentru un eventual UI care distinge vizual modurile auto-corectate de cele cu
+// auto-evaluare (ex. o iconita/eticheta pe SetDetail), nu cod mort. Acelasi tratament ca
+// getErrorLog (errorLog.ts) — vezi C-arch3, fix-cod-report.md, 2026-09-16.
 export function isAutoCorrected(mode: ResponseMode): boolean {
   return mode !== 'openText';
 }
