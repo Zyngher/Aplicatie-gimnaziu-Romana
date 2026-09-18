@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { NavigationProvider, useNavigation, type Screen } from '../../lib/navigation';
@@ -14,6 +14,10 @@ function CurrentScreenProbe() {
 const initialStack: Screen[] = [{ name: 'home' }, { name: 'setDetail', setId: 'set-06-sa-sau-ia-iau' }];
 
 describe('SetDetail', () => {
+  beforeEach(() => {
+    window.localStorage.clear();
+  });
+
   it('afiseaza regula si exemplele contrastive pentru fiecare pereche', () => {
     render(<NavigationProvider initialStack={initialStack}><SetDetail /></NavigationProvider>);
     expect(screen.getByText(/adjectiv posesiv/i)).toBeInTheDocument();
@@ -52,7 +56,6 @@ describe('SetDetail', () => {
   });
 
   it('arata o bifa langa exercitiile deja completate', () => {
-    window.localStorage.clear();
     markExerciseCompleted('ortograme:set-06-sa-sau-ia-iau', 'ex-set06-mcq-01');
     render(<NavigationProvider initialStack={initialStack}><SetDetail /></NavigationProvider>);
     const completedButtons = screen.getAllByRole('button', { name: /✓/ });

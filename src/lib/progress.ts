@@ -80,12 +80,22 @@ export function markOpenTextSelfCheck(key: string, exerciseId: string, ok: boole
   return next;
 }
 
-export function computeSetProgressPercent(item: ItemProgress, totalExerciseCount: number): number {
-  if (totalExerciseCount <= 0) return 0;
+/**
+ * Reuneste completedExerciseIds cu exercitiile openText auto-evaluate ca "ok" de elev, intr-un
+ * singur set — definitia canonica a "exercitiu rezolvat", consumata atat de calculul de procent
+ * cat si de orice afisare vizuala a starii de completare (ex. bife pe lista de exercitii), ca sa
+ * nu poata diverge silentios intre cele doua.
+ */
+export function getCompletedExerciseIds(item: ItemProgress): Set<string> {
   const openTextOkIds = Object.entries(item.openTextSelfMarkedOk)
     .filter(([, ok]) => ok)
     .map(([id]) => id);
-  const allCompletedIds = new Set([...item.completedExerciseIds, ...openTextOkIds]);
+  return new Set([...item.completedExerciseIds, ...openTextOkIds]);
+}
+
+export function computeSetProgressPercent(item: ItemProgress, totalExerciseCount: number): number {
+  if (totalExerciseCount <= 0) return 0;
+  const allCompletedIds = getCompletedExerciseIds(item);
   return Math.round((allCompletedIds.size / totalExerciseCount) * 100);
 }
 

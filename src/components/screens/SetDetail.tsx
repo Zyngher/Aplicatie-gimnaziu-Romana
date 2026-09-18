@@ -1,7 +1,7 @@
 import { getSetById } from '../../lib/content-loader';
 import { stageLabels } from '../../lib/labels';
 import { useNavigation } from '../../lib/navigation';
-import { buildProgressKey, loadProgress, getItemProgress } from '../../lib/progress';
+import { buildProgressKey, loadProgress, getItemProgress, getCompletedExerciseIds } from '../../lib/progress';
 import { HomeButton } from '../HomeButton';
 import styles from './SetDetail.module.css';
 
@@ -14,12 +14,7 @@ export function SetDetail() {
   const set = getSetById(screen.setId);
   const progressKey = buildProgressKey(UNIT_ID, set.id);
   const itemProgress = getItemProgress(loadProgress(), progressKey);
-  const completedIds = new Set([
-    ...itemProgress.completedExerciseIds,
-    ...Object.entries(itemProgress.openTextSelfMarkedOk)
-      .filter(([, ok]) => ok)
-      .map(([id]) => id),
-  ]);
+  const completedIds = getCompletedExerciseIds(itemProgress);
 
   return (
     <div className={styles.screen}>
