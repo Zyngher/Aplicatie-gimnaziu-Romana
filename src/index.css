@@ -8,6 +8,7 @@
   --accent: #c23b33;
   --accent-pen: #b5342b;
   --border: #e8e0d2;
+  --marker-ortograme: #7ec8e3;
 
   --font-ui: 'Baloo 2', system-ui, sans-serif;
   --font-exercise: 'Kalam', var(--font-ui);
@@ -141,4 +142,22 @@ button:disabled {
   color: var(--ink);
   text-align: center;
   padding: var(--space-2);
+}
+
+/* Anatomie de baza pentru orice buton de actiune — fara umplere solida, contur usor neregulat,
+   "desenat de mana". Vezi docs/superpowers/specs/2026-09-18-butoane-actiune-marker-zigzag-design.md. */
+.action-button {
+  background: transparent;
+  border: 2px solid var(--ink);
+  color: var(--ink);
+  border-radius: 3px 9px 4px 8px / 8px 4px 9px 3px;
+}
+
+/* Varianta secundara — alaturi de o actiune principala (ex. "Incearca din nou" langa "Continua"),
+   fara animatie de marker, culoare estompata. */
+.action-button-secondary {
+  background: transparent;
+  border: 2px solid var(--sub);
+  color: var(--sub);
+  border-radius: 3px 9px 4px 8px / 8px 4px 9px 3px;
 }
