@@ -1,14 +1,25 @@
 import { getSetById } from '../../lib/content-loader';
 import { stageLabels } from '../../lib/labels';
 import { useNavigation } from '../../lib/navigation';
+import { buildProgressKey, loadProgress, getItemProgress } from '../../lib/progress';
 import { HomeButton } from '../HomeButton';
 import styles from './SetDetail.module.css';
+
+const UNIT_ID = 'ortograme';
 
 export function SetDetail() {
   const navigation = useNavigation();
   const screen = navigation.current;
   if (screen.name !== 'setDetail') return null;
   const set = getSetById(screen.setId);
+  const progressKey = buildProgressKey(UNIT_ID, set.id);
+  const itemProgress = getItemProgress(loadProgress(), progressKey);
+  const completedIds = new Set([
+    ...itemProgress.completedExerciseIds,
+    ...Object.entries(itemProgress.openTextSelfMarkedOk)
+      .filter(([, ok]) => ok)
+      .map(([id]) => id),
+  ]);
 
   return (
     <div className={styles.screen}>
@@ -41,6 +52,7 @@ export function SetDetail() {
               onClick={() => navigation.push({ name: 'exercise', setId: set.id, exerciseIndex: index })}
             >
               {stageLabels[exercise.stage]} — {exercise.prompt}
+              {completedIds.has(exercise.id) && <span className={styles.completedMark}>✓</span>}
             </button>
           </li>
         ))}

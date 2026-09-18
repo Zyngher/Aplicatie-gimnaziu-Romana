@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { NavigationProvider, useNavigation, type Screen } from '../../lib/navigation';
 import { SetDetail } from './SetDetail';
 import styles from './SetDetail.module.css';
+import { markExerciseCompleted } from '../../lib/progress';
 
 function CurrentScreenProbe() {
   const navigation = useNavigation();
@@ -48,5 +49,13 @@ describe('SetDetail', () => {
     const { container } = render(<NavigationProvider initialStack={initialStack}><SetDetail /></NavigationProvider>);
     expect(container.firstElementChild).toHaveClass(styles.screen);
     expect(screen.getByRole('heading', { level: 1 })).toHaveClass(styles.title);
+  });
+
+  it('arata o bifa langa exercitiile deja completate', () => {
+    window.localStorage.clear();
+    markExerciseCompleted('ortograme:set-06-sa-sau-ia-iau', 'ex-set06-mcq-01');
+    render(<NavigationProvider initialStack={initialStack}><SetDetail /></NavigationProvider>);
+    const completedButtons = screen.getAllByRole('button', { name: /✓/ });
+    expect(completedButtons.length).toBeGreaterThanOrEqual(1);
   });
 });
