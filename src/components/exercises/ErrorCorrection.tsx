@@ -2,16 +2,13 @@ import { useState } from 'react';
 import styles from './ErrorCorrection.module.css';
 import type { Exercise } from '../../types/exercise';
 import { MarkerButton } from '../MarkerButton';
+import { normalizeAnswer } from '../../lib/textCompare';
 
 type ErrorCorrectionExercise = Extract<Exercise, { responseMode: 'errorCorrection' }>;
 
 interface Props {
   exercise: ErrorCorrectionExercise;
   onSubmit: (correct: boolean) => void;
-}
-
-function normalize(value: string): string {
-  return value.trim().toLowerCase();
 }
 
 export function ErrorCorrection({ exercise, onSubmit }: Props) {
@@ -22,7 +19,8 @@ export function ErrorCorrection({ exercise, onSubmit }: Props) {
 
   function handleSubmit() {
     if (submitted) return;
-    const correct = selectedIndex === errorTokenIndex && normalize(correction) === normalize(correctToken);
+    const correct =
+      selectedIndex === errorTokenIndex && normalizeAnswer(correction) === normalizeAnswer(correctToken);
     setSubmitted(true);
     onSubmit(correct);
   }

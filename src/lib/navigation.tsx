@@ -40,6 +40,9 @@ export function NavigationProvider({
   return <NavigationContext.Provider value={value}>{children}</NavigationContext.Provider>;
 }
 
+// Conventie fixata a proiectului: fisierul exporta atat NavigationProvider (componenta) cat si
+// useNavigation (hook) din acelasi fisier, tiparul "ecran cu useNavigation" (vezi .agent regula 8).
+// Nu se separa in 2 fisiere, deci warning-ul oxlint react/only-export-components e adesea declansat.
 export function useNavigation(): NavigationContextValue {
   const ctx = useContext(NavigationContext);
   if (!ctx) throw new Error('useNavigation trebuie folosit în interiorul NavigationProvider');

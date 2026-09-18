@@ -28,7 +28,7 @@ export function loadProgress(): ProgressStore {
   }
 }
 
-export function saveProgress(store: ProgressStore): void {
+function saveProgress(store: ProgressStore): void {
   try {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
   } catch {

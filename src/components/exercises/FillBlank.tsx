@@ -2,16 +2,13 @@ import { useState } from 'react';
 import type { Exercise } from '../../types/exercise';
 import styles from './FillBlank.module.css';
 import { MarkerButton } from '../MarkerButton';
+import { normalizeAnswer } from '../../lib/textCompare';
 
 type FillBlankExercise = Extract<Exercise, { responseMode: 'fillBlank' }>;
 
 interface Props {
   exercise: FillBlankExercise;
   onSubmit: (correct: boolean) => void;
-}
-
-function normalize(value: string): string {
-  return value.trim().toLowerCase();
 }
 
 export function FillBlank({ exercise, onSubmit }: Props) {
@@ -21,7 +18,7 @@ export function FillBlank({ exercise, onSubmit }: Props) {
   function handleSubmit() {
     if (submitted) return;
     const correct = exercise.response.correctAnswers.some(
-      (answer) => normalize(answer) === normalize(value),
+      (answer) => normalizeAnswer(answer) === normalizeAnswer(value),
     );
     setSubmitted(true);
     onSubmit(correct);
