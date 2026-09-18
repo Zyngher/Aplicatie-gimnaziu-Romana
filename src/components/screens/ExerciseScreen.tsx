@@ -4,6 +4,7 @@ import { buildProgressKey, markExerciseCompleted, markOpenTextSelfCheck } from '
 import { getCorrectAnswerText } from '../../lib/correctAnswer';
 import { useNavigation } from '../../lib/navigation';
 import { HomeButton } from '../HomeButton';
+import { MarkerButton } from '../MarkerButton';
 import { MascotMoment } from '../MascotMoment';
 import { MultipleChoice } from '../exercises/MultipleChoice';
 import { FillBlank } from '../exercises/FillBlank';
@@ -56,7 +57,7 @@ export function ExerciseScreen() {
 
   return (
     <div className={styles.screen}>
-      <button type="button" onClick={() => navigation.pop()}>
+      <button type="button" className={styles.backButton} onClick={() => navigation.pop()}>
         ← Înapoi
       </button>
       <HomeButton />
@@ -95,13 +96,15 @@ export function ExerciseScreen() {
             <p className={styles.correctAnswerHint}>{correctAnswerText}</p>
           )}
           {feedback === 'incorrect' && (
-            <button type="button" onClick={handleRetry}>
+            <button type="button" className={styles.retryButton} onClick={handleRetry}>
               Încearcă din nou
             </button>
           )}
-          <button type="button" className={styles.continueButton} onClick={handleContinue}>
-            Continuă
-          </button>
+          <div className={styles.continueButton}>
+            <MarkerButton color="var(--marker-ortograme)" onClick={handleContinue}>
+              Continuă
+            </MarkerButton>
+          </div>
         </div>
       )}
     </div>

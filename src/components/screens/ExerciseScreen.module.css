@@ -37,7 +37,20 @@
 }
 
 .continueButton {
+  /* display:inline-block — pastreaza fluxul inline langa .retryButton (button-ul e in mod
+     implicit inline-block; un <div> simplu ar rupe fluxul si ar impinge Continua pe un rand nou). */
+  display: inline-block;
   margin-top: var(--space-4);
+}
+
+.retryButton {
+  composes: action-button-secondary from global;
+  margin-top: var(--space-4);
+  margin-right: var(--space-2);
+}
+
+.backButton {
+  composes: action-button from global;
 }
 
 .mascotSlot {
