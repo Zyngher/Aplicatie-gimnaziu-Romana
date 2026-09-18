@@ -5,6 +5,6 @@ export const stageLabels: Record<PedagogicalStage, string> = {
   example: 'Exemplu',
   guided: 'Ghidat',
   independent: 'Independent',
-  transfer: 'Transfer',
+  transfer: 'Aplică',
   review: 'Recapitulare',
 };

@@ -57,7 +57,8 @@ input:not([type='checkbox']):not([type='radio']) {
 
 button:disabled {
   cursor: default;
-  opacity: 0.6;
+  color: var(--sub);
+  opacity: 1;
 }
 
 :focus-visible {

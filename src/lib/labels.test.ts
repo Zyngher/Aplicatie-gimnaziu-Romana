@@ -13,7 +13,7 @@ describe('stageLabels', () => {
   it('conține exact etichetele așteptate', () => {
     expect(stageLabels.guided).toBe('Ghidat');
     expect(stageLabels.independent).toBe('Independent');
-    expect(stageLabels.transfer).toBe('Transfer');
+    expect(stageLabels.transfer).toBe('Aplică');
     expect(stageLabels.review).toBe('Recapitulare');
   });
 });

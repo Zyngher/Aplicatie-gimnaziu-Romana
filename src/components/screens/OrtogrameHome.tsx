@@ -96,7 +96,11 @@ export function OrtogrameHome() {
         </button>
         <HomeButton />
         <h1 className={styles.title}>Ortograme</h1>
-        <p className={styles.modeLabel}>{indexMode ? 'Index liber — recapitulare' : 'Traseu'}</p>
+        <p className={styles.modeLabel}>
+          {indexMode
+            ? 'Index liber — recapitulare: ai terminat tot, acum poți relua orice set.'
+            : 'Traseu: seturile se deblochează pe rând, pe măsură ce avansezi.'}
+        </p>
       </div>
       {[...groups.entries()].map(([groupLabel, items]) => (
         <section key={groupLabel} className={styles.group}>
