@@ -100,11 +100,13 @@ export function ExerciseScreen() {
               Încearcă din nou
             </button>
           )}
-          <div className={styles.continueButton}>
-            <MarkerButton color="var(--marker-ortograme)" onClick={handleContinue}>
-              Continuă
-            </MarkerButton>
-          </div>
+          <MarkerButton
+            color="var(--marker-ortograme)"
+            className={styles.continueButton}
+            onClick={handleContinue}
+          >
+            Continuă
+          </MarkerButton>
         </div>
       )}
     </div>

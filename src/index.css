@@ -151,13 +151,19 @@ button:disabled {
   border: 2px solid var(--ink);
   color: var(--ink);
   border-radius: 3px 9px 4px 8px / 8px 4px 9px 3px;
+  font-size: 15px;
+  font-weight: 700;
 }
 
 /* Varianta secundara — alaturi de o actiune principala (ex. "Incearca din nou" langa "Continua"),
-   fara animatie de marker, culoare estompata. */
+   fara animatie de marker, culoare estompata. Textul ramane la contrast --ink (nu --sub) pentru a
+   trece WCAG AA (4.5:1) pe fundal --paper — doar bordura ramane estompata (--sub), suficienta cat
+   sa distinga vizual "secundar" de "primar" fara sa compromita lizibilitatea. */
 .action-button-secondary {
   background: transparent;
   border: 2px solid var(--sub);
-  color: var(--sub);
+  color: var(--ink);
   border-radius: 3px 9px 4px 8px / 8px 4px 9px 3px;
+  font-size: 15px;
+  font-weight: 700;
 }

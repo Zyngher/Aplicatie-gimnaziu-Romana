@@ -20,11 +20,16 @@ function mockMatchMedia(matches: boolean) {
   });
 }
 
+const originalMatchMedia = window.matchMedia;
+
 describe('MarkerButton', () => {
   afterEach(() => {
-    vi.unstubAllGlobals();
-    // @ts-expect-error curatam mock-ul intre teste, tipul exact nu conteaza aici
-    delete window.matchMedia;
+    if (originalMatchMedia === undefined) {
+      // @ts-expect-error jsdom nu implementeaza matchMedia implicit — revenim la starea reala (nedefinit)
+      delete window.matchMedia;
+    } else {
+      window.matchMedia = originalMatchMedia;
+    }
   });
 
   it('randeaza textul dat ca accessible name si raspunde la click', async () => {

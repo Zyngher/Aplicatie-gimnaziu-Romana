@@ -47,15 +47,14 @@ export function OpenText({ exercise, onSubmit }: Props) {
               <li key={criterion}>{criterion}</li>
             ))}
           </ul>
-          <div className={styles.successButton}>
-            <MarkerButton
-              color="var(--marker-ortograme)"
-              onClick={() => handleSelfCheck(true)}
-              disabled={submitted}
-            >
-              Am reușit
-            </MarkerButton>
-          </div>
+          <MarkerButton
+            color="var(--marker-ortograme)"
+            className={styles.successButton}
+            onClick={() => handleSelfCheck(true)}
+            disabled={submitted}
+          >
+            Am reușit
+          </MarkerButton>
           <button
             type="button"
             className={styles.retryButton}

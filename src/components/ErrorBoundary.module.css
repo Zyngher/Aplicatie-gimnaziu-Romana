@@ -7,3 +7,7 @@
   composes: heading-2 from global;
   margin-bottom: var(--space-4);
 }
+
+.retryButton {
+  composes: action-button from global;
+}

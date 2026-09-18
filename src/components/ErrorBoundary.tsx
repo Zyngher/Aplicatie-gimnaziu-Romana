@@ -26,7 +26,7 @@ export class ErrorBoundary extends Component<Props, State> {
       return (
         <div role="alert" className={styles.errorBox}>
           <p className={styles.message}>Ceva n-a mers. Reia aplicația.</p>
-          <button type="button" onClick={() => window.location.reload()}>
+          <button type="button" className={styles.retryButton} onClick={() => window.location.reload()}>
             Reia
           </button>
         </div>

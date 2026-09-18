@@ -2,7 +2,7 @@ import { useEffect, useRef, type ButtonHTMLAttributes, type ReactNode } from 're
 import rough from 'roughjs';
 import styles from './MarkerButton.module.css';
 
-interface MarkerButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className'> {
+interface MarkerButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   color: string;
   children: ReactNode;
 }
@@ -16,9 +16,9 @@ const BAND_DELAY_MS = 130;
 const BAND_TRANSITION_MS = 220;
 const STROKE_WIDTH_RATIO = 1.7;
 
-export function MarkerButton({ color, children, ...buttonProps }: MarkerButtonProps) {
+export function MarkerButton({ color, children, className, ...buttonProps }: MarkerButtonProps) {
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const fillWrapRef = useRef<HTMLDivElement>(null);
+  const fillWrapRef = useRef<HTMLSpanElement>(null);
   const timeoutsRef = useRef<number[]>([]);
 
   useEffect(() => {
@@ -103,6 +103,13 @@ export function MarkerButton({ color, children, ...buttonProps }: MarkerButtonPr
           roughness: 2.2,
           bowing: 1.2,
         });
+        // rough.js seteaza stroke ca atribut de prezentare SVG (path.setAttribute('stroke', color)),
+        // iar rezolvarea var() in interiorul unui atribut de prezentare NU e garantata pe toate motoarele
+        // de randare (neverificat pe WebKit/Safari). Fortam culoarea prin cascada CSS (style.stroke),
+        // care rezolva var() in mod fiabil peste tot.
+        node.querySelectorAll('path').forEach((path) => {
+          (path as SVGPathElement).style.stroke = color;
+        });
         svg.appendChild(node);
 
         const delay = i * BAND_DELAY_MS;
@@ -121,23 +128,69 @@ export function MarkerButton({ color, children, ...buttonProps }: MarkerButtonPr
       fillWrap!.innerHTML = '';
     }
 
-    button.addEventListener('mouseenter', reveal);
-    button.addEventListener('focus', reveal);
-    button.addEventListener('mouseleave', hide);
-    button.addEventListener('blur', hide);
+    // reveal()/hide() nu sunt idempotente pe cont propriu — reveal() sterge si reconstruieste
+    // intreaga umplere de fiecare data cand e apelat. Click pe un buton in hover declanseaza si
+    // focus imediat dupa mouseenter (comportament standard de browser), ceea ce ar reporni
+    // animatia de ~610ms la mijlocul ei. Urmarim starea de hover/focus separat si revelam o
+    // singura data, ascunzand doar cand NICIUNA dintre ele nu mai e activa.
+    let isHovering = false;
+    let isFocused = false;
+    let isRevealed = false;
+
+    function maybeReveal() {
+      if (isRevealed) return;
+      isRevealed = true;
+      reveal();
+    }
+
+    function maybeHide() {
+      if (isHovering || isFocused) return;
+      isRevealed = false;
+      hide();
+    }
+
+    function handleMouseEnter() {
+      isHovering = true;
+      maybeReveal();
+    }
+
+    function handleFocus() {
+      isFocused = true;
+      maybeReveal();
+    }
+
+    function handleMouseLeave() {
+      isHovering = false;
+      maybeHide();
+    }
+
+    function handleBlur() {
+      isFocused = false;
+      maybeHide();
+    }
+
+    button.addEventListener('mouseenter', handleMouseEnter);
+    button.addEventListener('focus', handleFocus);
+    button.addEventListener('mouseleave', handleMouseLeave);
+    button.addEventListener('blur', handleBlur);
 
     return () => {
       clearScheduled();
-      button.removeEventListener('mouseenter', reveal);
-      button.removeEventListener('focus', reveal);
-      button.removeEventListener('mouseleave', hide);
-      button.removeEventListener('blur', hide);
+      button.removeEventListener('mouseenter', handleMouseEnter);
+      button.removeEventListener('focus', handleFocus);
+      button.removeEventListener('mouseleave', handleMouseLeave);
+      button.removeEventListener('blur', handleBlur);
     };
   }, [color]);
 
   return (
-    <button ref={buttonRef} type="button" className={styles.button} {...buttonProps}>
-      <div className={styles.fillWrap} ref={fillWrapRef} data-marker-fill aria-hidden="true" />
+    <button
+      ref={buttonRef}
+      type="button"
+      className={[styles.button, className].filter(Boolean).join(' ')}
+      {...buttonProps}
+    >
+      <span className={styles.fillWrap} ref={fillWrapRef} data-marker-fill aria-hidden="true" />
       <span className={styles.label}>{children}</span>
     </button>
   );
