@@ -131,10 +131,18 @@ export function MarkerButton({ color, children, className, ...buttonProps }: Mar
     // reveal()/hide() nu sunt idempotente pe cont propriu — reveal() sterge si reconstruieste
     // intreaga umplere de fiecare data cand e apelat. Click pe un buton in hover declanseaza si
     // focus imediat dupa mouseenter (comportament standard de browser), ceea ce ar reporni
-    // animatia de ~610ms la mijlocul ei. Urmarim starea de hover/focus separat si revelam o
-    // singura data, ascunzand doar cand NICIUNA dintre ele nu mai e activa.
-    let isHovering = false;
-    let isFocused = false;
+    // animatia de ~610ms la mijlocul ei. Pentru revelare, isRevealed asigura idempotenta simpla.
+    //
+    // Pentru ascundere NU ne bazam pe flag-uri de hover/focus tinute manual: 6 din cele 8 puncte
+    // de apel din aplicatie dezactiveaza butonul chiar pe click-ul care declanseaza revelarea, iar
+    // controalele dezactivate nu emit fiabil evenimente mouse (mouseleave etc.) in Chromium/WebKit.
+    // Un guard "AND ambele flag-uri false" ar necesita ambele evenimente de clearing ca sa se
+    // declanseze vreodata, ceea ce e mai probabil sa lase umplerea blocata pe un buton dezactivat
+    // decat comportamentul simplu, independent, dinaintea acestui fix. In loc, interogam starea
+    // reala in DOM in momentul in care mouseleave/blur chiar se declanseaza: :hover reflecta
+    // pozitia curenta a cursorului fata de cutia elementului si ramane corecta inclusiv pentru un
+    // element dezactivat — desi evenimentele mouse pot fi suprimate pe controale dezactivate,
+    // matching-ul :hover nu e suprimat (e o interogare de stil live, nu un eveniment).
     let isRevealed = false;
 
     function maybeReveal() {
@@ -144,42 +152,22 @@ export function MarkerButton({ color, children, className, ...buttonProps }: Mar
     }
 
     function maybeHide() {
-      if (isHovering || isFocused) return;
+      if (button!.matches(':hover') || document.activeElement === button) return;
       isRevealed = false;
       hide();
     }
 
-    function handleMouseEnter() {
-      isHovering = true;
-      maybeReveal();
-    }
-
-    function handleFocus() {
-      isFocused = true;
-      maybeReveal();
-    }
-
-    function handleMouseLeave() {
-      isHovering = false;
-      maybeHide();
-    }
-
-    function handleBlur() {
-      isFocused = false;
-      maybeHide();
-    }
-
-    button.addEventListener('mouseenter', handleMouseEnter);
-    button.addEventListener('focus', handleFocus);
-    button.addEventListener('mouseleave', handleMouseLeave);
-    button.addEventListener('blur', handleBlur);
+    button.addEventListener('mouseenter', maybeReveal);
+    button.addEventListener('focus', maybeReveal);
+    button.addEventListener('mouseleave', maybeHide);
+    button.addEventListener('blur', maybeHide);
 
     return () => {
       clearScheduled();
-      button.removeEventListener('mouseenter', handleMouseEnter);
-      button.removeEventListener('focus', handleFocus);
-      button.removeEventListener('mouseleave', handleMouseLeave);
-      button.removeEventListener('blur', handleBlur);
+      button.removeEventListener('mouseenter', maybeReveal);
+      button.removeEventListener('focus', maybeReveal);
+      button.removeEventListener('mouseleave', maybeHide);
+      button.removeEventListener('blur', maybeHide);
     };
   }, [color]);
 
