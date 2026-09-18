@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { Exercise } from '../../types/exercise';
 import styles from './OpenText.module.css';
+import { MarkerButton } from '../MarkerButton';
 
 type OpenTextExercise = Extract<Exercise, { responseMode: 'openText' }>;
 
@@ -29,7 +30,12 @@ export function OpenText({ exercise, onSubmit }: Props) {
         <textarea className={styles.textarea} value={answer} onChange={(e) => setAnswer(e.target.value)} />
       </label>
       {!revealed && (
-        <button type="button" onClick={() => setRevealed(true)} disabled={answer.trim().length === 0}>
+        <button
+          type="button"
+          className={styles.revealButton}
+          onClick={() => setRevealed(true)}
+          disabled={answer.trim().length === 0}
+        >
           Arată răspunsul model
         </button>
       )}
@@ -41,10 +47,21 @@ export function OpenText({ exercise, onSubmit }: Props) {
               <li key={criterion}>{criterion}</li>
             ))}
           </ul>
-          <button type="button" onClick={() => handleSelfCheck(true)} disabled={submitted}>
-            Am reușit
-          </button>
-          <button type="button" onClick={() => handleSelfCheck(false)} disabled={submitted}>
+          <div className={styles.successButton}>
+            <MarkerButton
+              color="var(--marker-ortograme)"
+              onClick={() => handleSelfCheck(true)}
+              disabled={submitted}
+            >
+              Am reușit
+            </MarkerButton>
+          </div>
+          <button
+            type="button"
+            className={styles.retryButton}
+            onClick={() => handleSelfCheck(false)}
+            disabled={submitted}
+          >
             Mai exersez
           </button>
         </div>

@@ -38,3 +38,19 @@
   margin: var(--space-2) 0 var(--space-4);
   padding-left: var(--space-5);
 }
+
+.revealButton {
+  composes: action-button from global;
+}
+
+.successButton {
+  /* display:inline-block — pastreaza fluxul inline langa .retryButton (button-ul e in mod
+     implicit inline-block; un <div>/<span> simplu ar rupe fluxul si ar impinge Mai exersez pe
+     un rand nou). */
+  display: inline-block;
+  margin-right: var(--space-2);
+}
+
+.retryButton {
+  composes: action-button-secondary from global;
+}
