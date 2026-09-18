@@ -109,4 +109,24 @@ describe('MarkerButton', () => {
     const fillAfterFocus = container.querySelector('[data-marker-fill]')!.innerHTML;
     expect(fillAfterFocus).toBe(fillAfterHover);
   });
+
+  it('la disable in timpul hover-ului, umplerea se sterge chiar daca :hover ramane adevarat', () => {
+    mockMatchMedia(false);
+    const { container, rerender } = render(<MarkerButton color="#7ec8e3" disabled={false}>Verifică</MarkerButton>);
+    const button = screen.getByRole('button', { name: 'Verifică' });
+    Object.defineProperty(button, 'offsetWidth', { value: 100, configurable: true });
+    Object.defineProperty(button, 'offsetHeight', { value: 44, configurable: true });
+
+    fireEvent.mouseOver(button);
+    fireEvent.mouseEnter(button);
+    expect(container.querySelectorAll('[data-marker-fill] > *').length).toBeGreaterThan(0);
+
+    // simuleaza ce face un browser real automat: disable-ul unui element focusat declanseaza blur
+    // (jsdom nu face asta singur - vezi jsdom/jsdom#2931) - :hover ramane insa adevarat in jsdom
+    // (nu s-a tras niciun mouseout), exact scenariul care trebuia acoperit
+    rerender(<MarkerButton color="#7ec8e3" disabled>Verifică</MarkerButton>);
+    fireEvent.blur(button);
+
+    expect(container.querySelectorAll('[data-marker-fill] > *').length).toBe(0);
+  });
 });

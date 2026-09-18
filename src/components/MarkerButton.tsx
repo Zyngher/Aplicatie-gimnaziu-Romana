@@ -143,6 +143,16 @@ export function MarkerButton({ color, children, className, ...buttonProps }: Mar
     // pozitia curenta a cursorului fata de cutia elementului si ramane corecta inclusiv pentru un
     // element dezactivat — desi evenimentele mouse pot fi suprimate pe controale dezactivate,
     // matching-ul :hover nu e suprimat (e o interogare de stil live, nu un eveniment).
+    //
+    // Ramane insa un caz limita: hover + click + disable din propriul onClick (exact tiparul de
+    // mai sus, 6 din 8 puncte de apel). blur se declanseaza fiabil in browsere reale in chiar
+    // clipa in care elementul focusat devine disabled — dar in ACEA clipa cursorul nu s-a miscat
+    // inca, deci :hover e inca adevarat, iar guard-ul de mai sus pastreaza gresit umplerea. Ea
+    // ar depinde atunci de un mouseleave ULTERIOR ca sa se stearga, iar mouseleave e documentat
+    // nesigur pe controale disabled in Chromium/WebKit (vezi react#4251, jquery#11382,
+    // grommet#1511). De aceea button.disabled e un override neconditionat mai jos: un buton
+    // disabled nu ar trebui sa mai afiseze o animatie de hover/focus in desfasurare, indiferent
+    // de starea stale de hover/focus.
     let isRevealed = false;
 
     function maybeReveal() {
@@ -152,7 +162,7 @@ export function MarkerButton({ color, children, className, ...buttonProps }: Mar
     }
 
     function maybeHide() {
-      if (button!.matches(':hover') || document.activeElement === button) return;
+      if (!button!.disabled && (button!.matches(':hover') || document.activeElement === button)) return;
       isRevealed = false;
       hide();
     }
