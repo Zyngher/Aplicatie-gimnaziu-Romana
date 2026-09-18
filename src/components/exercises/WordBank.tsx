@@ -31,7 +31,7 @@ export function WordBank({ exercise, onSubmit }: Props) {
       <p className={styles.text}>
         {parts.map((part, i) => {
           const match = part.match(/^\{\{(\w+)\}\}$/);
-          if (!match) return <span key={i}>{part}</span>;
+          if (!match) return <span key={`text-${i}`}>{part}</span>;
           const marker = match[1];
           const blankPosition = blanks.findIndex((b) => b.marker === marker) + 1;
           return (

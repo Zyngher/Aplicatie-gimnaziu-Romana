@@ -43,12 +43,13 @@ export function MultipleChoice({ exercise, onSubmit }: Props) {
       <p className={styles.text}>{exercise.response.text}</p>
       <div className={styles.options} role="group" aria-label="Opțiuni de răspuns">
         {exercise.response.options.map((option, index) => (
-          <label key={option} className={styles.option}>
+          <label key={index} className={styles.option}>
             <input
               type={isMulti ? 'checkbox' : 'radio'}
               name={isMulti ? undefined : exercise.id}
               checked={selected.has(index)}
               onChange={() => toggle(index)}
+              disabled={submitted}
             />
             {option}
           </label>

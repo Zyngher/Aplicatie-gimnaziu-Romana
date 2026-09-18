@@ -50,6 +50,15 @@ describe('MultipleChoice — răspuns unic', () => {
     const [firstOption] = screen.getAllByRole('radio');
     expect(firstOption.closest('label')).toHaveClass(styles.option);
   });
+
+  it('input-urile radio se dezactiveaza dupa trimitere, elevul nu mai poate schimba selectia', async () => {
+    const user = userEvent.setup();
+    render(<MultipleChoice exercise={singleAnswerExercise} onSubmit={vi.fn()} />);
+    await user.click(screen.getByRole('radio', { name: /s-a/i }));
+    await user.click(screen.getByRole('button', { name: /verifică/i }));
+    expect(screen.getByRole('radio', { name: /s-a/i })).toBeDisabled();
+    expect(screen.getByRole('radio', { name: 'sa' })).toBeDisabled();
+  });
 });
 
 describe('MultipleChoice — mai multe raspunsuri corecte (fix #4)', () => {
