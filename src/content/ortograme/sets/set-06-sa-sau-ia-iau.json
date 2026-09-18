@@ -1,4 +1,4 @@
-{
+﻿{
   "schemaVersion": 1,
   "id": "set-06-sa-sau-ia-iau",
   "order": 6,
@@ -9,7 +9,7 @@
       "id": "og-sa-s-a",
       "formA": "sa",
       "formB": "s-a",
-      "explanation": "Dacă poți înlocui „sa” cu „a lui”/„a ei” fără să schimbi sensul propoziției, e adjectiv posesiv — arată cui îi aparține ceva. „S-a” e verb, două cuvinte („s” și „a”) rostite împreună.",
+      "explanation": "Dacă poți înlocui „sa” cu „a lui”/„a ei” fără să schimbi sensul propoziției, e adjectiv posesiv — arată cui îi aparține ceva. „S-a” e pronume + verb, două cuvinte („s” și „a”) rostite împreună.",
       "contrastExamples": [
         "Ruta sa (a lui) de călătorie include trei orașe noi.",
         "Clipul s-a (se) încheiat chiar înainte de partea cea mai bună."
@@ -19,7 +19,7 @@
       "id": "og-sau-s-au",
       "formA": "sau",
       "formB": "s-au",
-      "explanation": "„Sau” se poate înlocui cu „ori”. „S-au” e verb, două cuvinte („s” și „au”) rostite împreună.",
+      "explanation": "„Sau” se poate înlocui cu „ori”. „S-au” e pronume + verb, două cuvinte („s” și „au”) rostite împreună.",
       "contrastExamples": [
         "Vrei ceai sau (ori) cafea?",
         "Echipele s-au (se) întâlnit deja de două ori anul ăsta."
@@ -29,7 +29,7 @@
       "id": "og-ia-i-a",
       "formA": "ia",
       "formB": "i-a",
-      "explanation": "„Ia” înseamnă „a lua”, „a cumpăra”. „I-a” e verb, două cuvinte („i” și „a”) rostite împreună.",
+      "explanation": "„Ia” înseamnă „a lua”, „a cumpăra”. „I-a” e pronume + verb, două cuvinte („i” și „a”) rostite împreună.",
       "contrastExamples": [
         "Andrei ia (a lua) căștile din geantă.",
         "Antrenorul i-a (îi) spus strategia înainte de meci."
@@ -39,7 +39,7 @@
       "id": "og-iau-i-au",
       "formA": "iau",
       "formB": "i-au",
-      "explanation": "„Iau” înseamnă „a lua”, „a primi”. „I-au” e verb, două cuvinte („i” și „au”) rostite împreună.",
+      "explanation": "„Iau” înseamnă „a lua”, „a primi”. „I-au” e pronume + verb, două cuvinte („i” și „au”) rostite împreună.",
       "contrastExamples": [
         "Eu iau (primesc) note bune la română.",
         "Colegii i-au (îi) trimis linkul către clipul nou."
