@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "id": "set-11-cas-cor-dune-lei-nas",
+  "order": 11,
+  "characterId": null,
+  "title": "Caș / C-aș, Cor / C-or, Dune / Du-ne, Lei / Le-i, Naș / N-aș",
+  "pairs": [
+    {
+      "id": "og-cas-c-as",
+      "formA": "caș",
+      "formB": "c-aș",
+      "explanation": "„Caș” e substantiv — un tip de brânză proaspătă, nesărată. „C-aș” e conjuncție + verb, două cuvinte („c” și „aș”) rostite împreună — poți înlocui cu „că aș”.",
+      "contrastExamples": [
+        "Bunica face caș (brânza) proaspăt din lapte de oaie.",
+        "Cred c-aș (că aș) vrea o înghețată acum."
+      ]
+    },
+    {
+      "id": "og-cor-c-or",
+      "formA": "cor",
+      "formB": "c-or",
+      "explanation": "„Cor” e substantiv — un grup de oameni care cântă împreună. „C-or” e conjuncție + verb, două cuvinte („c” și „or”) rostite împreună — poți înlocui cu „că or” (că vor).",
+      "contrastExamples": [
+        "Corul (grupul) școlii cântă la serbarea de sfârșit de an.",
+        "Cred c-or (că vor) întârzia, pentru că e trafic mare azi."
+      ]
+    },
+    {
+      "id": "og-dune-du-ne",
+      "formA": "dune",
+      "formB": "du-ne",
+      "explanation": "„Dune” e substantiv la plural — movile de nisip, de obicei la mare sau în deșert. „Du-ne” e verb la imperativ + pronume, două cuvinte („du” și „ne”) rostite împreună — o cerere adresată cuiva.",
+      "contrastExamples": [
+        "Am urcat pe dune (movile de nisip) mari la malul mării.",
+        "Te rog, du-ne (pe noi) mai repede la meci, întârziem!"
+      ]
+    },
+    {
+      "id": "og-lei-le-i",
+      "formA": "lei",
+      "formB": "le-i",
+      "explanation": "„Lei” e substantiv la plural — poate însemna animalul „leu” sau moneda românească. „Le-i” e pronume + verb, două cuvinte („le” și „i”) rostite împreună — arată o acțiune viitoare făcută cuiva.",
+      "contrastExamples": [
+        "Am văzut trei lei (animale) puternici la grădina zoologică.",
+        "Dacă le dai jucăriile înapoi, le-i (le vei) face o bucurie mare copiilor."
+      ]
+    },
+    {
+      "id": "og-nas-n-as",
+      "formA": "naș",
+      "formB": "n-aș",
+      "explanation": "„Naș” e substantiv — persoana care e martor la o cununie sau la un botez. „N-aș” e negația „nu” + verbul „aș”, două cuvinte rostite împreună — arată ceva ce nu ai vrea să faci.",
+      "contrastExamples": [
+        "Unchiul meu e naș (persoana) la nunta verișoarei mele.",
+        "N-aș (nu aș) vrea să pierd antrenamentul de sâmbătă."
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex-set11-mcq-01",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "hobbies",
+      "targetIds": ["og-cas-c-as"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Bunica face ___ proaspăt din lapte de oaie în fiecare vară.",
+        "options": ["caș", "c-aș"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set11-mcq-02",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "school",
+      "targetIds": ["og-cor-c-or"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Elevii cântă în ___ la serbarea de sfârșit de an.",
+        "options": ["cor", "c-or"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set11-mcq-03",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "movies",
+      "targetIds": ["og-nas-n-as"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Pentru nimic în lume, ___ vrea să ratez premiera filmului ăsta.",
+        "options": ["naș", "n-aș"],
+        "correctIndices": [1]
+      }
+    },
+    {
+      "id": "ex-set11-fillblank-01",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "theme": "travel",
+      "targetIds": ["og-dune-du-ne"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "Te rog, ___ mai repede la plajă, ne așteaptă prietenii!",
+        "correctAnswers": ["du-ne"]
+      }
+    },
+    {
+      "id": "ex-set11-fillblank-02",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "theme": "gaming",
+      "targetIds": ["og-lei-le-i"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "Dacă îi ajuți cu misiunea, ___ faci o mare bucurie coechipierilor.",
+        "correctAnswers": ["le-i"]
+      }
+    },
+    {
+      "id": "ex-set11-error-01",
+      "stage": "independent",
+      "responseMode": "errorCorrection",
+      "difficulty": 2,
+      "theme": "hobbies",
+      "targetIds": ["og-nas-n-as"],
+      "prompt": "Găsește și corectează greșeala.",
+      "response": {
+        "tokens": ["Sincer,", "naș", "vrea", "să", "ratez", "finala", "campionatului."],
+        "errorTokenIndex": 1,
+        "correctToken": "n-aș",
+        "explanation": "Aici e nevoie de negație + verb, nu de substantiv: „n-aș vrea” arată ceva ce nu dorești, poate fi înlocuit cu „nu aș vrea”. „Naș” (substantiv, persoana de la nuntă/botez) ar avea sens doar dacă se referea la o persoană — aici urmează verbul „vrea”, deci forma corectă e „n-aș”."
+      }
+    },
+    {
+      "id": "ex-set11-wordbank-01",
+      "stage": "guided",
+      "responseMode": "wordBank",
+      "difficulty": 2,
+      "targetIds": ["og-cas-c-as", "og-cor-c-or"],
+      "prompt": "Alege din bancă forma potrivită pentru fiecare spațiu.",
+      "response": {
+        "text": "Cred {{b1}} vrea să cânt și eu în {{b2}} de la școală anul viitor.",
+        "bank": [
+          { "id": "wb-cas", "word": "caș" },
+          { "id": "wb-c-as", "word": "c-aș" },
+          { "id": "wb-cor", "word": "cor" },
+          { "id": "wb-c-or", "word": "c-or" }
+        ],
+        "blanks": [
+          { "marker": "b1", "correctWordId": "wb-c-as" },
+          { "marker": "b2", "correctWordId": "wb-cor" }
+        ]
+      }
+    },
+    {
+      "id": "ex-set11-free-01",
+      "stage": "transfer",
+      "responseMode": "openText",
+      "difficulty": 2,
+      "targetIds": ["og-dune-du-ne", "og-lei-le-i"],
+      "prompt": "Scrie două propoziții proprii: una cu „dune”/„du-ne”, una cu „lei”/„le-i”.",
+      "response": {
+        "instructions": "Folosește fiecare pereche cel puțin o dată.",
+        "modelAnswer": "Am construit un castel de nisip lângă dune, pe malul mării. Dacă le dai cărțile înapoi la timp, le-i face o bucurie mare colegilor.",
+        "selfCheckCriteria": [
+          "Am folosit „dune”/„du-ne” corect?",
+          "Am folosit „lei”/„le-i” corect?",
+          "Propozițiile au sens?"
+        ]
+      }
+    }
+  ]
+}
