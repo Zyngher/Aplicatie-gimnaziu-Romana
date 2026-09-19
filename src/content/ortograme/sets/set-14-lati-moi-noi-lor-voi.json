@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "id": "set-14-lati-moi-noi-lor-voi",
+  "order": 14,
+  "characterId": null,
+  "title": "Lați / L-ați, Moi / M-oi, Noi / N-oi, Lor / L-or, Voi / V-oi",
+  "pairs": [
+    {
+      "id": "og-lati-l-ati",
+      "formA": "lați",
+      "formB": "l-ați",
+      "explanation": "„Lați” e adjectiv la plural — descrie ceva larg, nu îngust. „L-ați” e pronume + verb, două cuvinte („l” și „ați”) rostite împreună — arată o acțiune pe care voi ați făcut-o cu privire la el.",
+      "contrastExamples": [
+        "Pantofii ăștia sunt prea lați (largi) pentru piciorul meu.",
+        "L-ați (pe el l-) văzut pe noul coleg de clasă?"
+      ]
+    },
+    {
+      "id": "og-moi-m-oi",
+      "formA": "moi",
+      "formB": "m-oi",
+      "explanation": "„Moi” e adjectiv la plural — descrie ceva care nu e tare, opusul lui „tare”. „M-oi” e o formă mai rar întâlnită, scrisă cu cratimă, din pronumele „m-” (mă) + auxiliarul de viitor „oi” — arată ce voi face eu, într-un stil mai vechi sau popular.",
+      "contrastExamples": [
+        "Pernele astea sunt foarte moi (nu tari), perfecte pentru somn.",
+        "M-oi (eu mă voi) duce mâine să vizitez bunicii."
+      ]
+    },
+    {
+      "id": "og-noi-n-oi",
+      "formA": "noi",
+      "formB": "n-oi",
+      "explanation": "„Noi” e pronume personal („noi mergem”) sau adjectivul „nou” la plural. „N-oi” e o formă mai rar întâlnită, scrisă cu cratimă, din negația „nu” + auxiliarul de viitor „oi” — arată ceva ce nu voi face eu, într-un stil mai vechi sau popular.",
+      "contrastExamples": [
+        "Noi (pronumele) mergem împreună la film sâmbătă.",
+        "N-oi (eu nu voi) uita niciodată ziua asta."
+      ]
+    },
+    {
+      "id": "og-lor-l-or",
+      "formA": "lor",
+      "formB": "l-or",
+      "explanation": "„Lor” e pronume personal, cazul dativ — arată cui aparține ceva sau cui i se dă ceva („cartea lor”). „L-or” e pronume + verb, două cuvinte („l” și „or”) rostite împreună — arată ce vor face ei cu privire la el.",
+      "contrastExamples": [
+        "Jucăriile lor (ale lor) sunt împrăștiate prin toată camera.",
+        "Cred că l-or (îl vor) găsi repede pe câinele pierdut."
+      ]
+    },
+    {
+      "id": "og-voi-v-oi",
+      "formA": "voi",
+      "formB": "v-oi",
+      "explanation": "„Voi” e pronume personal („voi veniți”) sau auxiliarul de viitor la persoana I („eu voi merge”). „V-oi” e o formă mai rar întâlnită, scrisă cu cratimă, din pronumele „v-” (vă) + auxiliarul de viitor „oi” — arată ce vă voi face eu vouă.",
+      "contrastExamples": [
+        "Voi (pronumele) veniți cu noi la excursie mâine?",
+        "V-oi (eu vă voi) vizita de îndată ce ajung în oraș."
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex-set14-mcq-01",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "hobbies",
+      "targetIds": ["og-lati-l-ati"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Pantofii ăștia sunt prea ___ pentru piciorul meu.",
+        "options": ["lați", "l-ați"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set14-mcq-02",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "animals",
+      "targetIds": ["og-lor-l-or"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Cred că ___ găsi repede pe câinele pierdut.",
+        "options": ["lor", "l-or"],
+        "correctIndices": [1]
+      }
+    },
+    {
+      "id": "ex-set14-mcq-03",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "travel",
+      "targetIds": ["og-voi-v-oi"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "___ veniți cu noi la excursie mâine?",
+        "options": ["Voi", "V-oi"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set14-fillblank-01",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "theme": "hobbies",
+      "targetIds": ["og-moi-m-oi"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "Pernele astea sunt foarte ___, perfecte pentru somn.",
+        "correctAnswers": ["moi"]
+      }
+    },
+    {
+      "id": "ex-set14-fillblank-02",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "theme": "school",
+      "targetIds": ["og-noi-n-oi"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "Sunt sigur că ___ uita niciodată prima zi de școală.",
+        "correctAnswers": ["n-oi"]
+      }
+    },
+    {
+      "id": "ex-set14-error-01",
+      "stage": "independent",
+      "responseMode": "errorCorrection",
+      "difficulty": 2,
+      "theme": "school",
+      "targetIds": ["og-lati-l-ati"],
+      "prompt": "Găsește și corectează greșeala.",
+      "response": {
+        "tokens": ["Voi", "lați", "văzut", "pe", "noul", "coleg", "de", "clasă?"],
+        "errorTokenIndex": 1,
+        "correctToken": "l-ați",
+        "explanation": "Aici e nevoie de pronume + verb, nu de adjectiv: „l-ați văzut” arată o acțiune făcută de voi asupra cuiva („pe el”), poate fi înlocuit cu „ați văzut pe el”. „Lați” (adjectiv, descrie ceva larg) ar avea sens doar dacă descria un obiect — aici urmează verbul „văzut”, deci forma corectă e „l-ați”."
+      }
+    },
+    {
+      "id": "ex-set14-wordbank-01",
+      "stage": "guided",
+      "responseMode": "wordBank",
+      "difficulty": 2,
+      "targetIds": ["og-lor-l-or", "og-voi-v-oi"],
+      "prompt": "Alege din bancă forma potrivită pentru fiecare spațiu.",
+      "response": {
+        "text": "Jucăriile {{b1}} sunt împrăștiate prin cameră, dar {{b2}} ajuta să le strângeți.",
+        "bank": [
+          { "id": "wb-lor", "word": "lor" },
+          { "id": "wb-l-or", "word": "l-or" },
+          { "id": "wb-voi", "word": "voi" },
+          { "id": "wb-v-oi", "word": "v-oi" }
+        ],
+        "blanks": [
+          { "marker": "b1", "correctWordId": "wb-lor" },
+          { "marker": "b2", "correctWordId": "wb-v-oi" }
+        ]
+      }
+    },
+    {
+      "id": "ex-set14-free-01",
+      "stage": "transfer",
+      "responseMode": "openText",
+      "difficulty": 2,
+      "targetIds": ["og-moi-m-oi", "og-noi-n-oi"],
+      "prompt": "Scrie două propoziții proprii: una cu „moi”/„m-oi”, una cu „noi”/„n-oi”.",
+      "response": {
+        "instructions": "Folosește fiecare pereche cel puțin o dată.",
+        "modelAnswer": "Covorașele din cameră sunt moi și călduroase. Noi mergem des la bibliotecă în weekend.",
+        "selfCheckCriteria": [
+          "Am folosit „moi”/„m-oi” corect?",
+          "Am folosit „noi”/„n-oi” corect?",
+          "Propozițiile au sens?"
+        ]
+      }
+    }
+  ]
+}
