@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "id": "set-10-cei-cel-dea-mie-tie",
+  "order": 10,
+  "characterId": null,
+  "title": "Cei / Ce-i, Cel / Ce-l, Dea / De-a, Mie / Mi-e, Ție / Ți-e",
+  "pairs": [
+    {
+      "id": "og-cei-ce-i",
+      "formA": "cei",
+      "formB": "ce-i",
+      "explanation": "„Cei” e pronume/articol demonstrativ, plural masculin — arată un grup, de obicei urmat de un adjectiv („cei mari”, „cei trei”). „Ce-i” e pronume + pronume, două cuvinte („ce” și „i”) rostite împreună — e prescurtarea de la „ce îi”.",
+      "contrastExamples": [
+        "Cei (aceia) trei prieteni au ajuns primii la linia de sosire.",
+        "Ce-i (ce îi) spui lui Radu despre meciul de mâine?"
+      ]
+    },
+    {
+      "id": "og-cel-ce-l",
+      "formA": "cel",
+      "formB": "ce-l",
+      "explanation": "„Cel” e pronume/articol demonstrativ, singular masculin — arată un singur lucru sau o persoană, de obicei urmat de un adjectiv („cel mare”, „cel mai bun”). „Ce-l” e pronume + pronume, două cuvinte („ce” și „l”) rostite împreună — e prescurtarea de la „ce îl”.",
+      "contrastExamples": [
+        "Cel (acela) mai rapid dintre noi câștigă cursa.",
+        "Nu știu ce-l (ce îl) supără atât de tare pe câine."
+      ]
+    },
+    {
+      "id": "og-dea-de-a",
+      "formA": "dea",
+      "formB": "de-a",
+      "explanation": "„Dea” e verbul „a da” la conjunctiv („să dea”), persoana a III-a. „De-a” e prepoziție + articol, două cuvinte („de” și „a”) rostite împreună — apare în jocuri („de-a v-ați ascunselea”) sau în expresii ca „de-a lungul”.",
+      "contrastExamples": [
+        "Sper să-mi dea (verbul „a da”) voie să merg la petrecere.",
+        "Copiii se joacă de-a (jocul) prinselea în parc."
+      ]
+    },
+    {
+      "id": "og-mie-mi-e",
+      "formA": "mie",
+      "formB": "mi-e",
+      "explanation": "„Mie” e pronume personal, cazul dativ — răspunde la întrebarea „cui?” („mie îmi place”). „Mi-e” e pronume + verb, două cuvinte („mi” și „e”) rostite împreună — arată o stare sau un sentiment, poate fi înlocuit cu „îmi este”.",
+      "contrastExamples": [
+        "Mie (cui?) îmi place cel mai mult desenul animat cu roboți.",
+        "Mi-e (îmi este) frică de întuneric când sunt singur acasă."
+      ]
+    },
+    {
+      "id": "og-tie-ti-e",
+      "formA": "ție",
+      "formB": "ți-e",
+      "explanation": "„Ție” e pronume personal, cazul dativ — răspunde la întrebarea „cui?” („ție îți place”). „Ți-e” e pronume + verb, două cuvinte („ți” și „e”) rostite împreună — arată o stare sau un sentiment, poate fi înlocuit cu „îți este”.",
+      "contrastExamples": [
+        "Ție (cui?) îți spun secretul, pentru că am încredere în tine.",
+        "Ți-e (îți este) foame după atâta alergat?"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex-set10-mcq-01",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "gaming",
+      "targetIds": ["og-cei-ce-i"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Antrenorul a ales ___ mai buni jucători pentru meciul decisiv.",
+        "options": ["cei", "ce-i"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set10-mcq-02",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "hobbies",
+      "targetIds": ["og-cel-ce-l"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Radu e ___ mai talentat desenator din clasă.",
+        "options": ["cel", "ce-l"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set10-mcq-03",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "animals",
+      "targetIds": ["og-mie-mi-e"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Când plec în tabără, ___ dor de cățelul meu.",
+        "options": ["mie", "mi-e"],
+        "correctIndices": [1]
+      }
+    },
+    {
+      "id": "ex-set10-fillblank-01",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "theme": "school",
+      "targetIds": ["og-dea-de-a"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "Profesoara vrea să-mi ___ un indiciu pentru exercițiul greu.",
+        "correctAnswers": ["dea"]
+      }
+    },
+    {
+      "id": "ex-set10-fillblank-02",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "theme": "content_creators",
+      "targetIds": ["og-tie-ti-e"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "Dacă ___ teamă de camera video, exersează mai întâi fără să filmezi.",
+        "correctAnswers": ["ți-e"]
+      }
+    },
+    {
+      "id": "ex-set10-error-01",
+      "stage": "independent",
+      "responseMode": "errorCorrection",
+      "difficulty": 2,
+      "theme": "hobbies",
+      "targetIds": ["og-cel-ce-l"],
+      "prompt": "Găsește și corectează greșeala.",
+      "response": {
+        "tokens": ["Nimeni", "nu", "știe", "cel", "supără", "pe", "motanul", "nostru."],
+        "errorTokenIndex": 3,
+        "correctToken": "ce-l",
+        "explanation": "Aici e nevoie de pronume + pronume, nu de pronume demonstrativ: „ce-l supără” arată o întrebare despre cauza supărării, poate fi înlocuit cu „ce îl supără”. „Cel” (pronume demonstrativ) ar avea sens doar urmat de un adjectiv, ca „cel mare” — aici urmează direct un verb („supără”), deci forma corectă e „ce-l”."
+      }
+    },
+    {
+      "id": "ex-set10-wordbank-01",
+      "stage": "guided",
+      "responseMode": "wordBank",
+      "difficulty": 2,
+      "targetIds": ["og-cei-ce-i", "og-dea-de-a"],
+      "prompt": "Alege din bancă forma potrivită pentru fiecare spațiu.",
+      "response": {
+        "text": "{{b1}} mici din echipă se joacă {{b2}} v-ați ascunselea în pauză.",
+        "bank": [
+          { "id": "wb-cei", "word": "Cei" },
+          { "id": "wb-ce-i", "word": "Ce-i" },
+          { "id": "wb-dea", "word": "dea" },
+          { "id": "wb-de-a", "word": "de-a" }
+        ],
+        "blanks": [
+          { "marker": "b1", "correctWordId": "wb-cei" },
+          { "marker": "b2", "correctWordId": "wb-de-a" }
+        ]
+      }
+    },
+    {
+      "id": "ex-set10-free-01",
+      "stage": "transfer",
+      "responseMode": "openText",
+      "difficulty": 2,
+      "targetIds": ["og-mie-mi-e", "og-tie-ti-e"],
+      "prompt": "Scrie două propoziții proprii: una cu „mie”/„mi-e”, una cu „ție”/„ți-e”.",
+      "response": {
+        "instructions": "Folosește fiecare pereche cel puțin o dată.",
+        "modelAnswer": "Mie îmi place cel mai mult să citesc benzi desenate. Ți-e somn după antrenamentul de azi?",
+        "selfCheckCriteria": [
+          "Am folosit „mie”/„mi-e” corect?",
+          "Am folosit „ție”/„ți-e” corect?",
+          "Propozițiile au sens?"
+        ]
+      }
+    }
+  ]
+}
