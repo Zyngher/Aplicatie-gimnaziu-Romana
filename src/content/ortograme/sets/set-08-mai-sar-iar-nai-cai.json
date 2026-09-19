@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "id": "set-08-mai-sar-iar-nai-cai",
+  "order": 8,
+  "characterId": null,
+  "title": "Mai / M-ai, Sar / S-ar, Iar / I-ar, Nai / N-ai, Căi / Că-i",
+  "pairs": [
+    {
+      "id": "og-mai-m-ai",
+      "formA": "mai",
+      "formB": "m-ai",
+      "explanation": "„Mai” e adverb — arată că ceva se repetă sau continuă, poate fi înlocuit cu „din nou”/„încă”. „M-ai” e pronume + verb, două cuvinte („m” și „ai”) rostite împreună — poți verifica introducând „pe mine” după el.",
+      "contrastExamples": [
+        "Vrei să mai (din nou) încerci o dată nivelul ăsta greu?",
+        "M-ai (pe mine) surprins cu cadoul de ziua mea."
+      ]
+    },
+    {
+      "id": "og-sar-s-ar",
+      "formA": "sar",
+      "formB": "s-ar",
+      "explanation": "„Sar” e verbul „a sări” la persoana I sau a III-a („eu sar”, „ei sar”). „S-ar” e pronume + verb, două cuvinte („s” și „ar”) rostite împreună — arată o acțiune posibilă, la condițional.",
+      "contrastExamples": [
+        "Eu sar (a sări) coarda de zece ori la rând.",
+        "S-ar (se) putea să plouă în weekend, deci ia o umbrelă."
+      ]
+    },
+    {
+      "id": "og-iar-i-ar",
+      "formA": "iar",
+      "formB": "i-ar",
+      "explanation": "„Iar” e adverb — poate fi înlocuit cu „din nou”, „dar” sau „și”. „I-ar” e pronume + verb, două cuvinte („i” și „ar”) rostite împreună — arată o dorință sau o posibilitate, la condițional.",
+      "contrastExamples": [
+        "A pierdut meciul, iar (dar) antrenorul tot l-a felicitat.",
+        "I-ar (lui) plăcea să vină și el la film."
+      ]
+    },
+    {
+      "id": "og-nai-n-ai",
+      "formA": "nai",
+      "formB": "n-ai",
+      "explanation": "„Nai” e substantiv — un instrument muzical de suflat, cu mai multe țevi de lungimi diferite. „N-ai” e negația „nu” + verbul „ai”, două cuvinte rostite împreună — arată ceva ce lipsește sau nu e permis.",
+      "contrastExamples": [
+        "Bunicul cântă la nai la fiecare sărbătoare de sat.",
+        "N-ai (nu ai) voie să folosești telefonul în timpul testului."
+      ]
+    },
+    {
+      "id": "og-cai-ca-i",
+      "formA": "căi",
+      "formB": "că-i",
+      "explanation": "„Căi” e substantiv la plural — înseamnă „drumuri” sau „trasee”. „Că-i” e conjuncție + pronume, două cuvinte („că” și „i”) rostite împreună — poți înlocui „-i” cu „el/ea este” sau „îi”.",
+      "contrastExamples": [
+        "Există mai multe căi (drumuri) spre vârful muntelui.",
+        "Toată lumea știe că-i (el este) cel mai bun jucător din echipă."
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex-set08-mcq-01",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "gaming",
+      "targetIds": ["og-mai-m-ai"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Vrei să ___ încerci o dată nivelul ăsta greu?",
+        "options": ["mai", "m-ai"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set08-mcq-02",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "hobbies",
+      "targetIds": ["og-sar-s-ar"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "În fiecare dimineață, eu ___ coarda de zece ori.",
+        "options": ["sar", "s-ar"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set08-mcq-03",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "school",
+      "targetIds": ["og-iar-i-ar"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "A pierdut meciul, ___ antrenorul tot l-a felicitat.",
+        "options": ["iar", "i-ar"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set08-fillblank-01",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "theme": "school",
+      "targetIds": ["og-nai-n-ai"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "Din păcate, ___ voie să folosești telefonul în timpul testului.",
+        "correctAnswers": ["n-ai"]
+      }
+    },
+    {
+      "id": "ex-set08-fillblank-02",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "theme": "travel",
+      "targetIds": ["og-cai-ca-i"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "Ghidul ne-a explicat că există mai multe ___ spre vârful muntelui.",
+        "correctAnswers": ["căi"]
+      }
+    },
+    {
+      "id": "ex-set08-error-01",
+      "stage": "independent",
+      "responseMode": "errorCorrection",
+      "difficulty": 2,
+      "theme": "content_creators",
+      "targetIds": ["og-mai-m-ai"],
+      "prompt": "Găsește și corectează greșeala.",
+      "response": {
+        "tokens": ["Videoclipul", "tău", "mai", "făcut", "să", "râd", "toată", "seara."],
+        "errorTokenIndex": 2,
+        "correctToken": "m-ai",
+        "explanation": "Aici e nevoie de pronume + verb, nu de adverb: „m-ai făcut” arată o acțiune asupra mea („pe mine”). „Mai” (adverb) ar avea sens doar cu înțelesul „din nou”/„încă” — aici urmează un verb la participiu („făcut”) care arată cine a făcut acțiunea cuiva, deci forma corectă e „m-ai”."
+      }
+    },
+    {
+      "id": "ex-set08-wordbank-01",
+      "stage": "guided",
+      "responseMode": "wordBank",
+      "difficulty": 2,
+      "targetIds": ["og-sar-s-ar", "og-iar-i-ar"],
+      "prompt": "Alege din bancă forma potrivită pentru fiecare spațiu.",
+      "response": {
+        "text": "Echipa {{b1}} bucura mult dacă am câștiga concursul, {{b2}} eu chiar cred că avem șanse.",
+        "bank": [
+          { "id": "wb-sar", "word": "sar" },
+          { "id": "wb-s-ar", "word": "s-ar" },
+          { "id": "wb-iar", "word": "iar" },
+          { "id": "wb-i-ar", "word": "i-ar" }
+        ],
+        "blanks": [
+          { "marker": "b1", "correctWordId": "wb-s-ar" },
+          { "marker": "b2", "correctWordId": "wb-iar" }
+        ]
+      }
+    },
+    {
+      "id": "ex-set08-free-01",
+      "stage": "transfer",
+      "responseMode": "openText",
+      "difficulty": 2,
+      "targetIds": ["og-nai-n-ai", "og-cai-ca-i"],
+      "prompt": "Scrie două propoziții proprii: una cu „nai”/„n-ai”, una cu „căi”/„că-i”.",
+      "response": {
+        "instructions": "Folosește fiecare pereche cel puțin o dată.",
+        "modelAnswer": "N-ai nevoie de mult echipament ca să începi să cânți la nai. Cred că-i mai bine să alegem cea mai scurtă dintre căile posibile.",
+        "selfCheckCriteria": [
+          "Am folosit „nai”/„n-ai” corect?",
+          "Am folosit „căi”/„că-i” corect?",
+          "Propozițiile au sens?"
+        ]
+      }
+    }
+  ]
+}
