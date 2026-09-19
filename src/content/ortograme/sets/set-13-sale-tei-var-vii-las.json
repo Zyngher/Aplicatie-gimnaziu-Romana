@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "id": "set-13-sale-tei-var-vii-las",
+  "order": 13,
+  "characterId": null,
+  "title": "Șale / Ș-ale, Tei / Te-i, Var / V-ar, Vii / Vi-i, Laș / L-aș",
+  "pairs": [
+    {
+      "id": "og-shale-sh-ale",
+      "formA": "șale",
+      "formB": "ș-ale",
+      "explanation": "„Șale” e substantiv la plural — partea de jos a spatelui, la om sau la animale. „Ș-ale” e o formă mai rar întâlnită, scrisă cu cratimă, din „și” + „ale” („și ale”), rostite împreună — apare mai ales în povești, cu sensul de „și ale mele”, „și ale lui”.",
+      "contrastExamples": [
+        "După ziua de grădinărit, mă dor șalele (partea de jos a spatelui).",
+        "A adunat jucăriile lui, ș-ale (și ale) surorii mai mici."
+      ]
+    },
+    {
+      "id": "og-tei-te-i",
+      "formA": "tei",
+      "formB": "te-i",
+      "explanation": "„Tei” e substantiv — un copac cu flori parfumate, folosite și la ceai. „Te-i” e o formă mai rar întâlnită, scrisă cu cratimă, din pronumele „te” + auxiliarul de viitor „i” — arată ce vei face tu, într-un stil mai vechi sau popular.",
+      "contrastExamples": [
+        "În curtea bunicilor crește un tei (copacul) bătrân și înflorit.",
+        "Dacă te-i (tu vei) grăbi, prinzi autobuzul la timp."
+      ]
+    },
+    {
+      "id": "og-var-v-ar",
+      "formA": "var",
+      "formB": "v-ar",
+      "explanation": "„Var” e substantiv — o substanță albă folosită la construcții sau la zugrăvit. „V-ar” e pronume + verb, două cuvinte („v” și „ar”) rostite împreună — arată ceva ce v-ar putea face cineva.",
+      "contrastExamples": [
+        "Zidarii au adus var (substanța) pentru pereții noi.",
+        "V-ar (vă ar) plăcea o excursie la munte în weekend?"
+      ]
+    },
+    {
+      "id": "og-vii-vi-i",
+      "formA": "vii",
+      "formB": "vi-i",
+      "explanation": "„Vii” e forma verbului „a veni” la persoana a II-a („tu vii”) sau adjectivul care înseamnă „care au viață”. „Vi-i” e pronume + pronume, două cuvinte („vi” și „i”) rostite împreună — arată o acțiune făcută vouă, cu privire la ei.",
+      "contrastExamples": [
+        "Tu vii (verbul „a veni”) cu noi la film diseară?",
+        "Dacă găsesc pantofii pierduți, vi-i (vouă îi) aduc înapoi imediat."
+      ]
+    },
+    {
+      "id": "og-las-l-as",
+      "formA": "laș",
+      "formB": "l-aș",
+      "explanation": "„Laș” e adjectiv/substantiv — descrie pe cineva căruia îi e frică să înfrunte o situație. „L-aș” e pronume + verb, două cuvinte („l” și „aș”) rostite împreună — arată ceva ce ai face cu privire la el.",
+      "contrastExamples": [
+        "Nimeni nu vrea să fie numit laș (fricos) în fața prietenilor.",
+        "Dacă ar fi mai ieftin, l-aș (pe el l-) cumpăra imediat."
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex-set13-mcq-01",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "travel",
+      "targetIds": ["og-tei-te-i"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "În curtea bunicilor crește un ___ bătrân și înflorit.",
+        "options": ["tei", "te-i"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set13-mcq-02",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "school",
+      "targetIds": ["og-var-v-ar"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Zidarii au adus ___ pentru pereții noi ai școlii.",
+        "options": ["var", "v-ar"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set13-mcq-03",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "movies",
+      "targetIds": ["og-las-l-as"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Personajul din film nu voia să fie numit ___ de nimeni.",
+        "options": ["laș", "l-aș"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set13-fillblank-01",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "theme": "hobbies",
+      "targetIds": ["og-shale-sh-ale"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "După o zi întreagă de alergat, simt o durere în ___.",
+        "correctAnswers": ["șale"]
+      }
+    },
+    {
+      "id": "ex-set13-fillblank-02",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "theme": "gaming",
+      "targetIds": ["og-vii-vi-i"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "Tu ___ cu noi la turneul de mâine?",
+        "correctAnswers": ["vii"]
+      }
+    },
+    {
+      "id": "ex-set13-error-01",
+      "stage": "independent",
+      "responseMode": "errorCorrection",
+      "difficulty": 2,
+      "theme": "movies",
+      "targetIds": ["og-las-l-as"],
+      "prompt": "Găsește și corectează greșeala.",
+      "response": {
+        "tokens": ["Dacă", "ar", "fi", "mai", "ieftin,", "laș", "cumpăra", "imediat."],
+        "errorTokenIndex": 5,
+        "correctToken": "l-aș",
+        "explanation": "Aici e nevoie de pronume + verb, nu de adjectiv: „l-aș cumpăra” arată o acțiune posibilă asupra unui lucru („pe el”), poate fi înlocuit cu „aș cumpăra pe el”. „Laș” (adjectiv, lipsă de curaj) ar avea sens doar dacă descria o persoană — aici urmează verbul „cumpăra”, deci forma corectă e „l-aș”."
+      }
+    },
+    {
+      "id": "ex-set13-wordbank-01",
+      "stage": "guided",
+      "responseMode": "wordBank",
+      "difficulty": 2,
+      "targetIds": ["og-tei-te-i", "og-var-v-ar"],
+      "prompt": "Alege din bancă forma potrivită pentru fiecare spațiu.",
+      "response": {
+        "text": "La umbra unui {{b1}} bătrân, ne-am gândit că {{b2}} plăcea o limonadă rece.",
+        "bank": [
+          { "id": "wb-tei", "word": "tei" },
+          { "id": "wb-te-i", "word": "te-i" },
+          { "id": "wb-var", "word": "var" },
+          { "id": "wb-v-ar", "word": "v-ar" }
+        ],
+        "blanks": [
+          { "marker": "b1", "correctWordId": "wb-tei" },
+          { "marker": "b2", "correctWordId": "wb-v-ar" }
+        ]
+      }
+    },
+    {
+      "id": "ex-set13-free-01",
+      "stage": "transfer",
+      "responseMode": "openText",
+      "difficulty": 2,
+      "targetIds": ["og-shale-sh-ale", "og-vii-vi-i"],
+      "prompt": "Scrie două propoziții proprii: una cu „șale”/„ș-ale”, una cu „vii”/„vi-i”.",
+      "response": {
+        "instructions": "Folosește fiecare pereche cel puțin o dată.",
+        "modelAnswer": "După antrenament, mă dor puțin șalele. Vii cu bicicleta la mine mâine dimineață?",
+        "selfCheckCriteria": [
+          "Am folosit „șale”/„ș-ale” corect?",
+          "Am folosit „vii”/„vi-i” corect?",
+          "Propozițiile au sens?"
+        ]
+      }
+    }
+  ]
+}
