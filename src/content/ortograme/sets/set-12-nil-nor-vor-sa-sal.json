@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "id": "set-12-nil-nor-vor-sa-sal",
+  "order": 12,
+  "characterId": null,
+  "title": "Nil / Ni-l, Nor / N-or, Vor / V-or, Șa / Ș-a, Șal / Ș-al",
+  "pairs": [
+    {
+      "id": "og-nil-ni-l",
+      "formA": "Nil",
+      "formB": "ni-l",
+      "explanation": "„Nil” e numele fluviului Nil, din Africa — se scrie cu majusculă, ca orice nume propriu. „Ni-l” e pronume + pronume, două cuvinte („ni” și „l”) rostite împreună — poți înlocui cu „nouă îl”.",
+      "contrastExamples": [
+        "Fluviul Nil (numele) e unul dintre cele mai lungi râuri din lume.",
+        "Dacă găsești caietul, ni-l (nouă îl) aduci înapoi, te rog?"
+      ]
+    },
+    {
+      "id": "og-nor-n-or",
+      "formA": "nor",
+      "formB": "n-or",
+      "explanation": "„Nor” e substantiv — o masă de vapori de apă pe cer. „N-or” e negația „nu” + verbul auxiliar „or”, două cuvinte rostite împreună — arată ceva ce nu se va întâmpla, la persoana a III-a plural.",
+      "contrastExamples": [
+        "Un nor (masă de vapori) mare acoperă soarele acum.",
+        "Cred că n-or (nu vor) ajunge la timp din cauza traficului."
+      ]
+    },
+    {
+      "id": "og-vor-v-or",
+      "formA": "vor",
+      "formB": "v-or",
+      "explanation": "„Vor” e verbul auxiliar de viitor, persoana a III-a plural — arată ce vor face „ei”/„ele”. „V-or” e pronume + verb, două cuvinte („v” și „or”) rostite împreună — arată ce vă vor face „ei”/„ele” vouă.",
+      "contrastExamples": [
+        "Colegii vor (ei) veni mâine la antrenament.",
+        "V-or (vă vor) ajuta profesorii, dacă aveți nevoie."
+      ]
+    },
+    {
+      "id": "og-sha-sh-a",
+      "formA": "șa",
+      "formB": "ș-a",
+      "explanation": "„Șa” e substantiv — piesa de piele sau plastic care se pune pe spinarea calului sau pe bicicletă, pe care stă călărețul. „Ș-a” e o formă mai rar întâlnită, scrisă cu cratimă, din „și” + „a” („și a”), rostite împreună — apare mai ales în povești, cu sensul de „și a făcut ceva”.",
+      "contrastExamples": [
+        "Pe spinarea calului stă o șa (piesa) nouă, din piele fină.",
+        "A ajuns acasă, ș-a (și a) pus imediat rucsacul jos."
+      ]
+    },
+    {
+      "id": "og-shal-sh-al",
+      "formA": "șal",
+      "formB": "ș-al",
+      "explanation": "„Șal” e substantiv — o bucată de material purtată pe umeri, pentru cald. „Ș-al” e o formă mai rar întâlnită, scrisă cu cratimă, din „și” + „al” („și al”), rostite împreună — apare mai ales în povești, cu sensul de „și al doilea”, „și al meu”.",
+      "contrastExamples": [
+        "Bunica mi-a tricotat un șal (bucata de material) călduros pentru iarnă.",
+        "Am citit primul capitol, ș-al (și al) doilea l-am lăsat pe mâine."
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex-set12-mcq-01",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "travel",
+      "targetIds": ["og-nil-ni-l"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Fluviul ___ e unul dintre cele mai lungi râuri din lume.",
+        "options": ["Nil", "Ni-l"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set12-mcq-02",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "targetIds": ["og-nor-n-or"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Un ___ mare acoperă soarele chiar acum.",
+        "options": ["nor", "n-or"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set12-mcq-03",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "school",
+      "targetIds": ["og-vor-v-or"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Colegii ___ veni mâine la antrenamentul de dimineață.",
+        "options": ["vor", "v-or"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set12-fillblank-01",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "theme": "hobbies",
+      "targetIds": ["og-sha-sh-a"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "Pe spinarea calului stă o ___ nouă, din piele fină.",
+        "correctAnswers": ["șa"]
+      }
+    },
+    {
+      "id": "ex-set12-fillblank-02",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "theme": "school",
+      "targetIds": ["og-shal-sh-al"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "Bunica mi-a tricotat un ___ călduros pentru iarnă.",
+        "correctAnswers": ["șal"]
+      }
+    },
+    {
+      "id": "ex-set12-error-01",
+      "stage": "independent",
+      "responseMode": "errorCorrection",
+      "difficulty": 2,
+      "theme": "school",
+      "targetIds": ["og-vor-v-or"],
+      "prompt": "Găsește și corectează greșeala.",
+      "response": {
+        "tokens": ["Vor", "ajuta", "profesorii,", "dacă", "aveți", "nevoie."],
+        "errorTokenIndex": 0,
+        "correctToken": "V-or",
+        "explanation": "Aici e nevoie de pronume + verb, nu doar de verb: „v-or ajuta” arată o acțiune viitoare făcută vouă, poate fi înlocuit cu „vă vor ajuta”. „Vor” (fără pronume) ar avea sens doar dacă urma cine anume vor ajuta ei — aici propoziția are nevoie de „vouă” inclus în cuvânt, deci forma corectă e „v-or”."
+      }
+    },
+    {
+      "id": "ex-set12-wordbank-01",
+      "stage": "guided",
+      "responseMode": "wordBank",
+      "difficulty": 2,
+      "theme": "travel",
+      "targetIds": ["og-nil-ni-l", "og-nor-n-or"],
+      "prompt": "Alege din bancă forma potrivită pentru fiecare spațiu.",
+      "response": {
+        "text": "Fluviul {{b1}} e uriaș, dar mă tem că părinții {{b2}} lăsa să înot în el.",
+        "bank": [
+          { "id": "wb-nil", "word": "Nil" },
+          { "id": "wb-ni-l", "word": "Ni-l" },
+          { "id": "wb-nor", "word": "nor" },
+          { "id": "wb-n-or", "word": "n-or" }
+        ],
+        "blanks": [
+          { "marker": "b1", "correctWordId": "wb-nil" },
+          { "marker": "b2", "correctWordId": "wb-n-or" }
+        ]
+      }
+    },
+    {
+      "id": "ex-set12-free-01",
+      "stage": "transfer",
+      "responseMode": "openText",
+      "difficulty": 2,
+      "targetIds": ["og-sha-sh-a", "og-shal-sh-al"],
+      "prompt": "Scrie două propoziții proprii: una cu „șa”/„ș-a”, una cu „șal”/„ș-al”.",
+      "response": {
+        "instructions": "Folosește fiecare pereche cel puțin o dată.",
+        "modelAnswer": "Am cumpărat o șa nouă pentru bicicletă. A terminat prima poveste, ș-a început imediat pe a doua.",
+        "selfCheckCriteria": [
+          "Am folosit „șa”/„ș-a” corect?",
+          "Am folosit „șal”/„ș-al” corect?",
+          "Propozițiile au sens?"
+        ]
+      }
+    }
+  ]
+}
