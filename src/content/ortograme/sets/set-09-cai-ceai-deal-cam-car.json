@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "id": "set-09-cai-ceai-deal-cam-car",
+  "order": 9,
+  "characterId": null,
+  "title": "Cai / C-ai, Ceai / Ce-ai, Deal / De-al, Cam / C-am, Car / C-ar",
+  "pairs": [
+    {
+      "id": "og-cai-c-ai",
+      "formA": "cai",
+      "formB": "c-ai",
+      "explanation": "„Cai” e substantiv la plural — înseamnă mai mulți „cal”. „C-ai” e conjuncție + verb, două cuvinte („c” și „ai”) rostite împreună — poți înlocui cu „că ai”.",
+      "contrastExamples": [
+        "La ferma bunicilor sunt mulți cai (plural de la „cal”) frumoși și puternici.",
+        "Am observat c-ai (că ai) terminat deja tema la matematică."
+      ]
+    },
+    {
+      "id": "og-ceai-ce-ai",
+      "formA": "ceai",
+      "formB": "ce-ai",
+      "explanation": "„Ceai” e substantiv — băutura caldă. „Ce-ai” e pronume + verb, două cuvinte („ce” și „ai”) rostite împreună — întreabă despre o acțiune făcută de cineva.",
+      "contrastExamples": [
+        "Bunica ne-a făcut ceai (băutura) cald cu miere.",
+        "Vreau să știu ce-ai (ce ai) făcut în vacanță anul ăsta."
+      ]
+    },
+    {
+      "id": "og-deal-de-al",
+      "formA": "deal",
+      "formB": "de-al",
+      "explanation": "„Deal” e substantiv — o ridicătură de pământ, mai mică decât muntele. „De-al” e prepoziție + articol, două cuvinte („de” și „al”) rostite împreună — arată că ceva îi aparține cuiva („de-al meu”, „de-al doilea”).",
+      "contrastExamples": [
+        "Ne-am urcat pe deal (ridicătură) ca să vedem apusul mai bine.",
+        "E un prieten de-al (al) meu din echipa de fotbal."
+      ]
+    },
+    {
+      "id": "og-cam-c-am",
+      "formA": "cam",
+      "formB": "c-am",
+      "explanation": "„Cam” e adverb — înseamnă „aproximativ”, „puțin”. „C-am” e conjuncție + verb, două cuvinte („c” și „am”) rostite împreună — poți înlocui cu „că am”.",
+      "contrastExamples": [
+        "Am ajuns cam (aproximativ) târziu la antrenament azi.",
+        "Cred c-am (că am) uitat cheile acasă."
+      ]
+    },
+    {
+      "id": "og-car-c-ar",
+      "formA": "car",
+      "formB": "c-ar",
+      "explanation": "„Car” e substantiv („car cu boi”) sau verbul „a căra” la persoana I („eu car”). „C-ar” e conjuncție + verb, două cuvinte („c” și „ar”) rostite împreună — poți înlocui cu „că ar”.",
+      "contrastExamples": [
+        "Bunicul are un car (vehicul) tras de boi, folosit la fermă.",
+        "Cred c-ar (că ar) fi mai bine să plecăm mai devreme."
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex-set09-mcq-01",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "animals",
+      "targetIds": ["og-cai-c-ai"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "La ferma bunicilor sunt mulți ___ frumoși și puternici.",
+        "options": ["cai", "c-ai"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set09-mcq-02",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "hobbies",
+      "targetIds": ["og-ceai-ce-ai"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Vreau să știu ___ făcut la ultimul antrenament de karate.",
+        "options": ["ceai", "ce-ai"],
+        "correctIndices": [1]
+      }
+    },
+    {
+      "id": "ex-set09-mcq-03",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "travel",
+      "targetIds": ["og-deal-de-al"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Ne-am urcat pe un ___ înalt ca să vedem tot orașul de sus.",
+        "options": ["deal", "de-al"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set09-fillblank-01",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "theme": "school",
+      "targetIds": ["og-cam-c-am"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "Am ajuns ___ devreme la ora de sport azi.",
+        "correctAnswers": ["cam"]
+      }
+    },
+    {
+      "id": "ex-set09-fillblank-02",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "theme": "school",
+      "targetIds": ["og-car-c-ar"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "Colegii mei cred ___ trebui să repetăm mai mult pentru test.",
+        "correctAnswers": ["c-ar"]
+      }
+    },
+    {
+      "id": "ex-set09-error-01",
+      "stage": "independent",
+      "responseMode": "errorCorrection",
+      "difficulty": 2,
+      "theme": "hobbies",
+      "targetIds": ["og-cai-c-ai"],
+      "prompt": "Găsește și corectează greșeala.",
+      "response": {
+        "tokens": ["Antrenorul", "a", "observat", "cai", "învățat", "toate", "mișcările", "corect."],
+        "errorTokenIndex": 3,
+        "correctToken": "c-ai",
+        "explanation": "Aici e nevoie de conjuncție + verb, nu de substantiv: „c-ai învățat” arată ceva ce a observat cineva despre tine, poate fi înlocuit cu „că ai învățat”. „Cai” (substantiv, plural de la „cal”) ar avea sens doar dacă urma un cuvânt despre animale — aici urmează un verb la participiu („învățat”), deci forma corectă e „c-ai”."
+      }
+    },
+    {
+      "id": "ex-set09-wordbank-01",
+      "stage": "guided",
+      "responseMode": "wordBank",
+      "difficulty": 2,
+      "targetIds": ["og-ceai-ce-ai", "og-deal-de-al"],
+      "prompt": "Alege din bancă forma potrivită pentru fiecare spațiu.",
+      "response": {
+        "text": "{{b1}} pregătit pentru excursia de mâine, când urcăm pe {{b2}}?",
+        "bank": [
+          { "id": "wb-ceai", "word": "ceai" },
+          { "id": "wb-ce-ai", "word": "ce-ai" },
+          { "id": "wb-deal", "word": "deal" },
+          { "id": "wb-de-al", "word": "de-al" }
+        ],
+        "blanks": [
+          { "marker": "b1", "correctWordId": "wb-ce-ai" },
+          { "marker": "b2", "correctWordId": "wb-deal" }
+        ]
+      }
+    },
+    {
+      "id": "ex-set09-free-01",
+      "stage": "transfer",
+      "responseMode": "openText",
+      "difficulty": 2,
+      "targetIds": ["og-cam-c-am", "og-car-c-ar"],
+      "prompt": "Scrie două propoziții proprii: una cu „cam”/„c-am”, una cu „car”/„c-ar”.",
+      "response": {
+        "instructions": "Folosește fiecare pereche cel puțin o dată.",
+        "modelAnswer": "Am ajuns cam târziu la meci, dar tot am prins începutul. Bunicul spune c-ar vrea să mai meargă o dată cu mine la pescuit.",
+        "selfCheckCriteria": [
+          "Am folosit „cam”/„c-am” corect?",
+          "Am folosit „car”/„c-ar” corect?",
+          "Propozițiile au sens?"
+        ]
+      }
+    }
+  ]
+}
