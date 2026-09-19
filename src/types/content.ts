@@ -21,7 +21,7 @@ export interface OrthogramSet {
   schemaVersion: number;
   id: string;
   order: number;
-  characterId: string;
+  characterId: string | null;
   title: string;
   pairs: OrthogramPair[];
   exercises: Exercise[];

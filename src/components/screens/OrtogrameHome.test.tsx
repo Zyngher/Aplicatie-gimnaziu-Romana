@@ -45,11 +45,11 @@ describe('OrtogrameHome — mod traseu (implicit)', () => {
     render(<NavigationProvider><OrtogrameHome /></NavigationProvider>);
     const button = screen.getByRole('button', { name: /î și â/i });
     expect(button).toBeDisabled();
-    // fix #5: eticheta trebuie sa apara pentru toate cele 19 seturi neautorate (20 in manifest,
-    // 1 singur autorat), nu doar pentru cele deblocate — altfel 19 din 20 sunt butoane fara
-    // nicio explicatie pentru un elev nou. Assertie pe cardinalitate, nu pe un singur match
-    // (acelasi precedent ca la Task 16, documentat in review-ul final).
-    expect(screen.getAllByText(/conținut în lucru/i)).toHaveLength(19);
+    // fix #5: eticheta trebuie sa apara pentru toate seturile neautorate (20 in manifest,
+    // 2 autorate — set-06 si set-07), nu doar pentru cele deblocate — altfel majoritatea sunt
+    // butoane fara nicio explicatie pentru un elev nou. Assertie pe cardinalitate, nu pe un
+    // singur match (acelasi precedent ca la Task 16, documentat in review-ul final).
+    expect(screen.getAllByText(/conținut în lucru/i)).toHaveLength(18);
   });
 
   it('fix #4: daca avatarul mascotei nu se incarca, arata un fallback cu initialele, nu o imagine spartă', () => {
@@ -95,24 +95,30 @@ describe('OrtogrameHome — buton inapoi catre Home', () => {
 });
 
 describe('OrtogrameHome — mod index liber', () => {
-  it('cu singurul set autorat la 100%, comuta la index liber (fara blocare)', () => {
-    // set-06 are 6 exercitii — le completam pe toate
+  it('cu un set autorat la 100% si celalalt neterminat, ramane in mod traseu (fara blocare completa)', () => {
+    // set-06 are 6 exercitii — le completam pe toate; set-07 (autorat, adaugat ulterior) ramane
+    // neatins, deci NU toate seturile autorate sunt la 100% — index liber cere TOATE, nu doar unul.
     ['ex-set06-mcq-01', 'ex-set06-mcq-02', 'ex-set06-fillblank-01', 'ex-set06-error-01', 'ex-set06-wordbank-01']
       .forEach((id) => markExerciseCompleted('ortograme:set-06-sa-sau-ia-iau', id));
+    markOpenTextSelfCheck('ortograme:set-06-sa-sau-ia-iau', 'ex-set06-free-01', true);
     render(<NavigationProvider><OrtogrameHome /></NavigationProvider>);
-    // ex-set06-free-01 (openText) inca nemarcat -> sub 100%, deci NU e inca in mod index liber
+    // set-06 chiar la 100%, dar set-07 la 0% -> nu toate seturile autorate sunt la prag
     expect(screen.getByText(/traseu/i)).toBeInTheDocument();
   });
 
   // D2: OrtogrameHome.tsx foloseste isIndexModeActive(percentages, 100) — pragul real de
-  // productie. Testul de mai sus verifica doar cazul negativ (sub 100%, al 6-lea exercitiu
-  // nemarcat inca); acesta completeaza si al 6-lea (openText, autoevaluat "Am reusit") ca sa
+  // productie, aplicat la TOATE seturile autorate (set-06 si set-07), nu doar la unul. Testul de
+  // mai sus verifica cazul negativ (un set autorat neterminat); acesta completeaza integral
+  // ambele seturi autorate (inclusiv cele 2 exercitii openText, autoevaluate "Am reusit") ca sa
   // confirme ca tranzitia reala la "Index liber" chiar se intampla in productie, nu doar la
   // nivel de unitate pura (vezi si unlock.test.ts).
-  it('cu toate cele 6 exercitii ale singurului set autorat terminate (inclusiv openText autoevaluat "Am reușit"), comută la index liber', () => {
+  it('cu toate exercitiile ambelor seturi autorate terminate (inclusiv openText autoevaluat "Am reușit"), comută la index liber', () => {
     ['ex-set06-mcq-01', 'ex-set06-mcq-02', 'ex-set06-fillblank-01', 'ex-set06-error-01', 'ex-set06-wordbank-01']
       .forEach((id) => markExerciseCompleted('ortograme:set-06-sa-sau-ia-iau', id));
     markOpenTextSelfCheck('ortograme:set-06-sa-sau-ia-iau', 'ex-set06-free-01', true);
+    ['ex-set07-mcq-01', 'ex-set07-mcq-02', 'ex-set07-fillblank-01', 'ex-set07-error-01', 'ex-set07-wordbank-01']
+      .forEach((id) => markExerciseCompleted('ortograme:set-07-la-sai-nea-neam', id));
+    markOpenTextSelfCheck('ortograme:set-07-la-sai-nea-neam', 'ex-set07-free-01', true);
     render(<NavigationProvider><OrtogrameHome /></NavigationProvider>);
     expect(screen.getByText(/index liber — recapitulare/i)).toBeInTheDocument();
   });

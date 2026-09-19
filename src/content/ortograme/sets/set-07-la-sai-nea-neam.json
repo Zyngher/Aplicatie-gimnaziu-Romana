@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "id": "set-07-la-sai-nea-neam",
+  "order": 7,
+  "characterId": null,
+  "title": "La / L-a, Săi / Să-i, Nea / Ne-a, Neam / Ne-am",
+  "pairs": [
+    {
+      "id": "og-la-l-a",
+      "formA": "la",
+      "formB": "l-a",
+      "explanation": "„La” e prepoziție și arată loc sau moment — răspunde la întrebarea „unde?” sau „când?” și nu se poate despărți în alte cuvinte. „L-a” e pronume + verb, două cuvinte („l” și „a”) rostite împreună — poți verifica introducând „pe el”/„pe ea” între ele.",
+      "contrastExamples": [
+        "Diana ajunge la (unde?) antrenament chiar la timp.",
+        "Antrenorul l-a (pe el) felicitat pe Radu după meci."
+      ]
+    },
+    {
+      "id": "og-sai-sa-i",
+      "formA": "săi",
+      "formB": "să-i",
+      "explanation": "„Săi” e adjectiv pronominal posesiv — arată cui aparține ceva și poate fi înlocuit cu „ai lui”/„ai ei”. „Să-i” e conjuncție + pronume, două cuvinte („să” și „i”) rostite împreună — poți înlocui „-i” cu „lui”/„ei”.",
+      "contrastExamples": [
+        "Toți prietenii săi (ai lui) au uitat de ziua lui de naștere.",
+        "Colegii vor să-i (să îi) dea o mână de ajutor lui Matei."
+      ]
+    },
+    {
+      "id": "og-nea-ne-a",
+      "formA": "nea",
+      "formB": "ne-a",
+      "explanation": "„Nea” e un cuvânt folosit înaintea unui nume de bărbat, ca formă politicoasă de adresare. „Ne-a” e pronume + verb, două cuvinte („ne” și „a”) rostite împreună — poți înlocui „ne” cu „nouă”.",
+      "contrastExamples": [
+        "Nea Vasile, vânzătorul de la chioșc, ne salută mereu cu zâmbetul pe buze.",
+        "Vecina ne-a (nouă) dat rețeta ei secretă de prăjitură."
+      ]
+    },
+    {
+      "id": "og-neam-ne-am",
+      "formA": "neam",
+      "formB": "ne-am",
+      "explanation": "„Neam” e substantiv — înseamnă „rudă”, „familie” sau „popor” și rămâne un singur cuvânt, fără pauză. „Ne-am” e pronume + verb, două cuvinte („ne” și „am”) rostite împreună — poți înlocui „ne” cu „noi”.",
+      "contrastExamples": [
+        "Suntem din același neam, chiar dacă locuim în orașe diferite.",
+        "Ne-am (noi) cunoscut anul trecut, la un turneu de jocuri online."
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex-set07-mcq-01",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "hobbies",
+      "targetIds": ["og-la-l-a"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Diana ajunge ___ antrenament chiar la timp.",
+        "options": ["la", "l-a"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set07-mcq-02",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "school",
+      "targetIds": ["og-sai-sa-i"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Toți prietenii ___ au uitat de ziua lui de naștere.",
+        "options": ["săi", "să-i"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set07-fillblank-01",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "theme": "content_creators",
+      "targetIds": ["og-nea-ne-a"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "Un content creator cunoscut ___ răspuns la comentarii, chiar în timpul transmisiunii live.",
+        "correctAnswers": ["ne-a"]
+      }
+    },
+    {
+      "id": "ex-set07-error-01",
+      "stage": "independent",
+      "responseMode": "errorCorrection",
+      "difficulty": 2,
+      "theme": "movies",
+      "targetIds": ["og-la-l-a"],
+      "prompt": "Găsește și corectează greșeala.",
+      "response": {
+        "tokens": ["Regizorul", "la", "felicitat", "pe", "actorul", "principal", "după", "premieră."],
+        "errorTokenIndex": 1,
+        "correctToken": "l-a",
+        "explanation": "Aici e nevoie de pronume + verb, nu de prepoziție: „l-a felicitat” arată o acțiune asupra cuiva („pe actorul principal”). „La” (prepoziție) ar avea sens doar înaintea unui loc sau moment, de exemplu „a ajuns la premieră” — aici urmează un verb la participiu („felicitat”), deci forma corectă e „l-a”."
+      }
+    },
+    {
+      "id": "ex-set07-wordbank-01",
+      "stage": "guided",
+      "responseMode": "wordBank",
+      "difficulty": 2,
+      "targetIds": ["og-nea-ne-a", "og-neam-ne-am"],
+      "prompt": "Alege din bancă forma potrivită pentru fiecare spațiu.",
+      "response": {
+        "text": "{{b1}} Ilie, vecinul nostru, povestește mereu că venim din același {{b2}} vechi, din Moldova.",
+        "bank": [
+          { "id": "wb-nea", "word": "Nea" },
+          { "id": "wb-ne-a", "word": "ne-a" },
+          { "id": "wb-neam", "word": "neam" },
+          { "id": "wb-ne-am", "word": "ne-am" }
+        ],
+        "blanks": [
+          { "marker": "b1", "correctWordId": "wb-nea" },
+          { "marker": "b2", "correctWordId": "wb-neam" }
+        ]
+      }
+    },
+    {
+      "id": "ex-set07-free-01",
+      "stage": "transfer",
+      "responseMode": "openText",
+      "difficulty": 2,
+      "targetIds": ["og-sai-sa-i", "og-neam-ne-am"],
+      "prompt": "Scrie două propoziții proprii: una cu „săi”/„să-i”, una cu „neam”/„ne-am”.",
+      "response": {
+        "instructions": "Folosește fiecare pereche cel puțin o dată.",
+        "modelAnswer": "Prietenii săi vin în vizită în weekend. Ne-am cunoscut acum doi ani, la un concurs de robotică.",
+        "selfCheckCriteria": [
+          "Am folosit „săi”/„să-i” corect?",
+          "Am folosit „neam”/„ne-am” corect?",
+          "Propozițiile au sens?"
+        ]
+      }
+    }
+  ]
+}
