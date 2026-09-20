@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "id": "set-18-devreme-bineinteles-incat-asadar-deloc",
+  "order": 18,
+  "characterId": null,
+  "title": "Devreme / De vreme, Bineînțeles / Bine înțeles, Încât / În cât, Așadar / Așa dar, Deloc / De loc",
+  "pairs": [
+    {
+      "id": "og-devreme-de-vreme",
+      "formA": "devreme",
+      "formB": "de vreme",
+      "explanation": "„Devreme” e adverb, scris într-un cuvânt — arată un moment din timp, opusul lui „târziu”. „De vreme” sunt două cuvinte separate — se referă la starea vremii de afară, sau apare în expresia „de vreme ce” („din moment ce”).",
+      "contrastExamples": [
+        "M-am trezit devreme (opusul lui „târziu”) azi, ca să prind autobuzul.",
+        "Se plânge mereu de vreme (starea de afară), dar nu poartă haine groase."
+      ]
+    },
+    {
+      "id": "og-bineinteles-bine-inteles",
+      "formA": "bineînțeles",
+      "formB": "bine înțeles",
+      "explanation": "„Bineînțeles” e adverb, scris într-un cuvânt — înseamnă „desigur”, „firește”. „Bine înțeles” sunt două cuvinte separate — arată că ceva a fost priceput corect, cu atenție.",
+      "contrastExamples": [
+        "Bineînțeles (desigur) că vin la petrecerea ta de ziua de naștere!",
+        "Mesajul profesorului a fost bine înțeles (priceput bine) de toată clasa."
+      ]
+    },
+    {
+      "id": "og-incat-in-cat",
+      "formA": "încât",
+      "formB": "în cât",
+      "explanation": "„Încât” e conjuncție, scrisă într-un cuvânt — leagă o cauză de un rezultat („atât de obosit încât am adormit”). „În cât” sunt două cuvinte separate — întreabă despre timp sau cantitate („în cât timp?”).",
+      "contrastExamples": [
+        "A alergat atât de repede încât (deci) a câștigat cursa cu ușurință.",
+        "În cât (ce cantitate de) timp ajungem la munte cu mașina?"
+      ]
+    },
+    {
+      "id": "og-asadar-asa-dar",
+      "formA": "așadar",
+      "formB": "așa dar",
+      "explanation": "„Așadar” e adverb, scris într-un cuvânt — înseamnă „prin urmare”, „deci”. „Așa dar” sunt două cuvinte separate — „dar” înseamnă aici „cadou”, deci „așa dar” descrie un cadou de un anumit fel.",
+      "contrastExamples": [
+        "Așadar (prin urmare), am decis să mergem la munte anul ăsta.",
+        "Un așa dar (un asemenea cadou) nu mai primisem niciodată de ziua mea."
+      ]
+    },
+    {
+      "id": "og-deloc-de-loc",
+      "formA": "deloc",
+      "formB": "de loc",
+      "explanation": "„Deloc” e adverb, scris într-un cuvânt — înseamnă „în niciun fel”, „nicidecum”. „De loc” sunt două cuvinte separate — arată de unde e originar cineva.",
+      "contrastExamples": [
+        "Nu mi-a plăcut deloc (nicidecum) filmul ăsta de groază.",
+        "Antrenorul nostru e de loc (originar) din Cluj, deși locuiește acum la Timișoara."
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex-set18-mcq-01",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "school",
+      "targetIds": ["og-devreme-de-vreme"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "M-am trezit ___ azi, ca să prind autobuzul spre școală.",
+        "options": ["devreme", "de vreme"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set18-mcq-02",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "movies",
+      "targetIds": ["og-deloc-de-loc"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Nu mi-a plăcut ___ filmul ăsta de groază.",
+        "options": ["deloc", "de loc"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set18-mcq-03",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "hobbies",
+      "targetIds": ["og-bineinteles-bine-inteles"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "___ că vom câștiga meciul de sâmbătă, dacă exersăm mult.",
+        "options": ["Bineînțeles", "Bine înțeles"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set18-fillblank-01",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "theme": "travel",
+      "targetIds": ["og-incat-in-cat"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "Nu știu exact ___ timp ajungem la munte cu mașina.",
+        "correctAnswers": ["în cât"]
+      }
+    },
+    {
+      "id": "ex-set18-fillblank-02",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "theme": "school",
+      "targetIds": ["og-asadar-asa-dar"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "Am exersat mult, ___ sunt încrezător că voi lua o notă bună.",
+        "correctAnswers": ["așadar"]
+      }
+    },
+    {
+      "id": "ex-set18-error-01",
+      "stage": "independent",
+      "responseMode": "errorCorrection",
+      "difficulty": 2,
+      "theme": "movies",
+      "targetIds": ["og-deloc-de-loc"],
+      "prompt": "Găsește și corectează greșeala.",
+      "response": {
+        "tokens": ["Antrenorul", "nostru", "e", "deloc", "din", "Cluj,", "deși", "locuiește", "acum", "la", "Timișoara."],
+        "errorTokenIndex": 3,
+        "correctToken": "de loc",
+        "explanation": "Aici e nevoie de prepoziție + substantiv, nu de adverb: „de loc din Cluj” arată originea cuiva, poate fi înlocuit cu „originar din Cluj”. „Deloc” (adverb, „în niciun fel”) ar avea sens doar într-o propoziție negativă, ca „nu-mi place deloc” — aici vorbim despre locul de origine, deci forma corectă e „de loc” (două cuvinte)."
+      }
+    },
+    {
+      "id": "ex-set18-wordbank-01",
+      "stage": "guided",
+      "responseMode": "wordBank",
+      "difficulty": 2,
+      "targetIds": ["og-devreme-de-vreme", "og-bineinteles-bine-inteles"],
+      "prompt": "Alege din bancă forma potrivită pentru fiecare spațiu.",
+      "response": {
+        "text": "M-am trezit {{b1}}, {{b2}} că eram încă obosit de la meciul din ziua precedentă.",
+        "bank": [
+          { "id": "wb-devreme", "word": "devreme" },
+          { "id": "wb-de-vreme", "word": "de vreme" },
+          { "id": "wb-bineinteles", "word": "bineînțeles" },
+          { "id": "wb-bine-inteles", "word": "bine înțeles" }
+        ],
+        "blanks": [
+          { "marker": "b1", "correctWordId": "wb-devreme" },
+          { "marker": "b2", "correctWordId": "wb-bineinteles" }
+        ]
+      }
+    },
+    {
+      "id": "ex-set18-free-01",
+      "stage": "transfer",
+      "responseMode": "openText",
+      "difficulty": 2,
+      "targetIds": ["og-incat-in-cat", "og-asadar-asa-dar"],
+      "prompt": "Scrie două propoziții proprii: una cu „încât”/„în cât”, una cu „așadar”/„așa dar”.",
+      "response": {
+        "instructions": "Folosește fiecare pereche cel puțin o dată.",
+        "modelAnswer": "A plouat atât de tare încât am rămas acasă toată ziua. Am exersat mult, așadar sunt încrezător că voi reuși.",
+        "selfCheckCriteria": [
+          "Am folosit „încât”/„în cât” corect?",
+          "Am folosit „așadar”/„așa dar” corect?",
+          "Propozițiile au sens?"
+        ]
+      }
+    }
+  ]
+}
