@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "id": "set-19-decat-demult-altfel-fii-niciun",
+  "order": 19,
+  "characterId": null,
+  "title": "Decât / De cât, Demult / De mult, Altfel / Alt fel, Fii / Nu fi, Niciun / Nici un",
+  "pairs": [
+    {
+      "id": "og-decat-de-cat",
+      "formA": "decât",
+      "formB": "de cât",
+      "explanation": "„Decât” e adverb, scris într-un cuvânt — apare în comparații („mai mare decât mine”) sau înseamnă „doar”, „numai” („n-am decât două opțiuni”). „De cât” sunt două cuvinte separate — întreabă despre o cantitate („de cât ai nevoie?”).",
+      "contrastExamples": [
+        "Radu aleargă mai repede decât (comparativ) mine la orice cursă.",
+        "De cât (ce cantitate de) timp ai nevoie ca să termini tema?"
+      ]
+    },
+    {
+      "id": "og-demult-de-mult",
+      "formA": "demult",
+      "formB": "de mult",
+      "explanation": "„Demult” e adverb, scris într-un cuvânt — arată un moment îndepărtat în trecut, răspunde la întrebarea „când?”. „De mult” sunt două cuvinte separate — arată o durată, răspunde la întrebarea „de când?” sau „de cât timp?”.",
+      "contrastExamples": [
+        "Demult (cândva, în trecut), pe vremea bunicilor, nu exista internet.",
+        "Nu ne-am mai văzut de mult (de multă vreme) timp, ce mai faci?"
+      ]
+    },
+    {
+      "id": "og-altfel-alt-fel",
+      "formA": "altfel",
+      "formB": "alt fel",
+      "explanation": "„Altfel” e adverb, scris într-un cuvânt — arată un mod diferit de a face ceva, opusul lui „astfel”. „Alt fel” sunt două cuvinte separate — „alt” e adjectiv, „fel” e substantiv, arată un tip diferit de ceva.",
+      "contrastExamples": [
+        "A rezolvat exercițiul altfel (diferit) decât ne-a arătat profesorul.",
+        "Vreau să încerc un alt fel (tip diferit) de înghețată data asta."
+      ]
+    },
+    {
+      "id": "og-fii-nu-fi",
+      "formA": "fii",
+      "formB": "nu fi",
+      "explanation": "„Fii” se scrie cu doi „i” la imperativul afirmativ („Fii cuminte!”) — arată o cerere pozitivă. „Nu fi” se scrie cu un singur „i” la imperativul negativ („Nu fi obraznic!”) — arată o cerere de a NU face ceva. E o greșeală des întâlnită să scrii „fii” și la forma negativă.",
+      "contrastExamples": [
+        "Fii (afirmativ) atent la traversarea străzii!",
+        "Nu fi (negativ) trist, mâine va fi o zi mai bună."
+      ]
+    },
+    {
+      "id": "og-niciun-nici-un",
+      "formA": "niciun",
+      "formB": "nici un",
+      "explanation": "„Niciun” se scrie într-un cuvânt — negație obișnuită, folosită alături de un substantiv („n-am niciun creion”). „Nici un” se scrie în două cuvinte doar în construcții de negare repetată, cu sensul de „nici... nici” („nici un leneș, nici un incult”).",
+      "contrastExamples": [
+        "N-am găsit niciun (nici măcar unul) creion în penar.",
+        "Nu e nici un prost, nici un leneș — doar obosit azi."
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex-set19-mcq-01",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "hobbies",
+      "targetIds": ["og-decat-de-cat"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Radu aleargă mai repede ___ mine la orice cursă.",
+        "options": ["decât", "de cât"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set19-mcq-02",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "school",
+      "targetIds": ["og-demult-de-mult"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Pe vremea bunicilor, ___ nu exista internet.",
+        "options": ["demult", "de mult"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set19-mcq-03",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "movies",
+      "targetIds": ["og-altfel-alt-fel"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "A rezolvat exercițiul ___ decât ne-a arătat profesorul.",
+        "options": ["altfel", "alt fel"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set19-fillblank-01",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "targetIds": ["og-fii-nu-fi"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "Te rog să ___ atent la traversarea străzii.",
+        "correctAnswers": ["fii"]
+      }
+    },
+    {
+      "id": "ex-set19-fillblank-02",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "theme": "school",
+      "targetIds": ["og-niciun-nici-un"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "N-am găsit ___ creion în penarul meu azi.",
+        "correctAnswers": ["niciun"]
+      }
+    },
+    {
+      "id": "ex-set19-error-01",
+      "stage": "independent",
+      "responseMode": "errorCorrection",
+      "difficulty": 2,
+      "theme": "hobbies",
+      "targetIds": ["og-fii-nu-fi"],
+      "prompt": "Găsește și corectează greșeala.",
+      "response": {
+        "tokens": ["Nu", "fii", "trist,", "mâine", "va", "fi", "o", "zi", "mai", "bună."],
+        "errorTokenIndex": 1,
+        "correctToken": "fi",
+        "explanation": "Aici e nevoie de imperativ negativ, cu un singur „i”: „nu fi trist” e o cerere de a NU face ceva. „Fii” (cu doi „i”) se folosește doar la imperativul afirmativ, ca „fii atent!” — aici propoziția e negativă („nu”), deci forma corectă e „fi”, cu un singur „i”."
+      }
+    },
+    {
+      "id": "ex-set19-wordbank-01",
+      "stage": "guided",
+      "responseMode": "wordBank",
+      "difficulty": 2,
+      "targetIds": ["og-decat-de-cat", "og-demult-de-mult"],
+      "prompt": "Alege din bancă forma potrivită pentru fiecare spațiu.",
+      "response": {
+        "text": "Nu am mai jucat acest joc {{b1}} timp, dar cred că e mai distractiv acum {{b2}} înainte.",
+        "bank": [
+          { "id": "wb-decat", "word": "decât" },
+          { "id": "wb-de-cat", "word": "de cât" },
+          { "id": "wb-demult", "word": "demult" },
+          { "id": "wb-de-mult", "word": "de mult" }
+        ],
+        "blanks": [
+          { "marker": "b1", "correctWordId": "wb-de-mult" },
+          { "marker": "b2", "correctWordId": "wb-decat" }
+        ]
+      }
+    },
+    {
+      "id": "ex-set19-free-01",
+      "stage": "transfer",
+      "responseMode": "openText",
+      "difficulty": 2,
+      "targetIds": ["og-altfel-alt-fel", "og-niciun-nici-un"],
+      "prompt": "Scrie două propoziții proprii: una cu „altfel”/„alt fel”, una cu „niciun”/„nici un”.",
+      "response": {
+        "instructions": "Folosește fiecare pereche cel puțin o dată.",
+        "modelAnswer": "Data viitoare voi încerca să rezolv problema altfel. N-am mai văzut niciun film atât de captivant anul ăsta.",
+        "selfCheckCriteria": [
+          "Am folosit „altfel”/„alt fel” corect?",
+          "Am folosit „niciun”/„nici un” corect?",
+          "Propozițiile au sens?"
+        ]
+      }
+    }
+  ]
+}
