@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "id": "set-20-odata-altadata-intruna",
+  "order": 20,
+  "characterId": null,
+  "title": "Odată / O dată, Altădată / Altă dată, Într-una / Întruna",
+  "pairs": [
+    {
+      "id": "og-odata-o-data",
+      "formA": "odată",
+      "formB": "o dată",
+      "explanation": "„Odată” e adverb, scris într-un cuvânt — înseamnă „cândva”, „odinioară”, sau arată simultaneitate. „O dată” sunt două cuvinte separate — „o” e numeral sau articol, „dată” e substantiv, arată o singură apariție sau o zi anume.",
+      "contrastExamples": [
+        "A fost odată (cândva) ca niciodată un împărat bogat.",
+        "Am fost la bazinul de înot o dată (o singură dată) de când s-a deschis sezonul."
+      ]
+    },
+    {
+      "id": "og-altadata-alta-data",
+      "formA": "altădată",
+      "formB": "altă dată",
+      "explanation": "„Altădată” e adverb, scris într-un cuvânt — înseamnă „odinioară”, „cândva în trecut”. „Altă dată” sunt două cuvinte separate — „altă” e adjectiv, „dată” e substantiv, arată o zi diferită, anume.",
+      "contrastExamples": [
+        "Altădată (odinioară) nu exista telefon mobil pentru fiecare copil.",
+        "Hai să ne întâlnim altă dată (o zi diferită), azi n-am timp."
+      ]
+    },
+    {
+      "id": "og-intruna-intr-una",
+      "formA": "întruna",
+      "formB": "într-una",
+      "explanation": "„Întruna” e adverb, scris într-un cuvânt — înseamnă „neîntrerupt”, „mereu”, „fără pauză”. „Într-una” e prepoziție + numeral, cu cratimă — înseamnă „în una din”, arată un element dintr-un grup mai mare.",
+      "contrastExamples": [
+        "Ploaia cade întruna (neîntrerupt) de aseară, fără nicio pauză.",
+        "Într-una (în una) din zilele săptămânii viitoare, mergem la film."
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex-set20-mcq-01",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "hobbies",
+      "targetIds": ["og-odata-o-data"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "A fost ___ ca niciodată un împărat bogat și curajos.",
+        "options": ["odată", "o dată"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set20-mcq-02",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "school",
+      "targetIds": ["og-altadata-alta-data"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Hai să ne întâlnim ___, azi n-am timp de joacă.",
+        "options": ["altădată", "altă dată"],
+        "correctIndices": [1]
+      }
+    },
+    {
+      "id": "ex-set20-fillblank-01",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "theme": "travel",
+      "targetIds": ["og-intruna-intr-una"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "Plănuim să mergem la munte ___ din zilele săptămânii viitoare.",
+        "correctAnswers": ["într-una"]
+      }
+    },
+    {
+      "id": "ex-set20-error-01",
+      "stage": "independent",
+      "responseMode": "errorCorrection",
+      "difficulty": 2,
+      "theme": "hobbies",
+      "targetIds": ["og-odata-o-data"],
+      "prompt": "Găsește și corectează greșeala.",
+      "response": {
+        "tokens": ["Am", "fost", "la", "bazinul", "de", "înot", "odată", "de", "când", "s-a", "deschis", "sezonul."],
+        "errorTokenIndex": 6,
+        "correctToken": "o dată",
+        "explanation": "Aici e nevoie de numeral + substantiv, nu de adverb: „o dată de când s-a deschis sezonul” numără câte ori s-a întâmplat ceva, poate fi înlocuit cu „o singură dată”. „Odată” (adverb, „cândva”) ar avea sens doar într-o poveste sau o întâmplare nedeterminată — aici vorbim despre un număr exact de vizite, deci forma corectă e „o dată” (două cuvinte)."
+      }
+    },
+    {
+      "id": "ex-set20-wordbank-01",
+      "stage": "guided",
+      "responseMode": "wordBank",
+      "difficulty": 2,
+      "targetIds": ["og-altadata-alta-data", "og-intruna-intr-una"],
+      "prompt": "Alege din bancă forma potrivită pentru fiecare spațiu.",
+      "response": {
+        "text": "{{b1}}, bunica mea locuia la țară, iar acum vorbește {{b2}} despre satul copilăriei ei.",
+        "bank": [
+          { "id": "wb-altadata", "word": "Altădată" },
+          { "id": "wb-alta-data", "word": "Altă dată" },
+          { "id": "wb-intruna", "word": "întruna" },
+          { "id": "wb-intr-una", "word": "într-una" }
+        ],
+        "blanks": [
+          { "marker": "b1", "correctWordId": "wb-altadata" },
+          { "marker": "b2", "correctWordId": "wb-intruna" }
+        ]
+      }
+    },
+    {
+      "id": "ex-set20-free-01",
+      "stage": "transfer",
+      "responseMode": "openText",
+      "difficulty": 2,
+      "targetIds": ["og-odata-o-data", "og-altadata-alta-data", "og-intruna-intr-una"],
+      "prompt": "Scrie trei propoziții proprii: una cu „odată”/„o dată”, una cu „altădată”/„altă dată”, una cu „întruna”/„într-una”.",
+      "response": {
+        "instructions": "Folosește fiecare pereche cel puțin o dată.",
+        "modelAnswer": "A fost odată un dragon prietenos care locuia pe un munte înalt. Altădată nu existau telefoane inteligente. Câinele nostru latră întruna când aude soneria.",
+        "selfCheckCriteria": [
+          "Am folosit „odată”/„o dată” corect?",
+          "Am folosit „altădată”/„altă dată” corect?",
+          "Am folosit „întruna”/„într-una” corect?",
+          "Propozițiile au sens?"
+        ]
+      }
+    }
+  ]
+}

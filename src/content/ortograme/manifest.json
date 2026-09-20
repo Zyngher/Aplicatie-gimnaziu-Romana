@@ -20,6 +20,6 @@
     { "id": "set-17-ca-vise-zile-nul-deoparte", "order": 17, "characterId": null, "title": "Ca / C-a, Vise / Vi se, Zile / Zi-le, Nul / Nu-l, Deoparte / De o parte", "filePath": "sets/set-17-ca-vise-zile-nul-deoparte.json", "groupLabel": "Grupa E — Două forme, aceeași pronunție" },
     { "id": "set-18-devreme-bineinteles-incat-asadar-deloc", "order": 18, "characterId": null, "title": "Devreme / De vreme, Bineînțeles / Bine înțeles, Încât / În cât, Așadar / Așa dar, Deloc / De loc", "filePath": "sets/set-18-devreme-bineinteles-incat-asadar-deloc.json", "groupLabel": "Grupa F — Reguli finale" },
     { "id": "set-19-decat-demult-altfel-fii-niciun", "order": 19, "characterId": null, "title": "Decât / De cât, Demult / De mult, Altfel / Alt fel, Fii / Nu fi, Niciun / Nici un", "filePath": "sets/set-19-decat-demult-altfel-fii-niciun.json", "groupLabel": "Grupa F — Reguli finale" },
-    { "id": "set-20-odata-altadata-intruna", "order": 20, "characterId": null, "title": "Odată / O dată, Altădată / Altă dată, Într-una / Întruna", "filePath": null, "groupLabel": "Grupa F — Reguli finale" }
+    { "id": "set-20-odata-altadata-intruna", "order": 20, "characterId": null, "title": "Odată / O dată, Altădată / Altă dată, Într-una / Întruna", "filePath": "sets/set-20-odata-altadata-intruna.json", "groupLabel": "Grupa F — Reguli finale" }
   ]
 }
