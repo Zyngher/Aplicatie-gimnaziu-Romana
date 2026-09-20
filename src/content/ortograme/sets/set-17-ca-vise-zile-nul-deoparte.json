@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "id": "set-17-ca-vise-zile-nul-deoparte",
+  "order": 17,
+  "characterId": null,
+  "title": "Ca / C-a, Vise / Vi se, Zile / Zi-le, Nul / Nu-l, Deoparte / De o parte",
+  "pairs": [
+    {
+      "id": "og-ca-c-a",
+      "formA": "ca",
+      "formB": "c-a",
+      "explanation": "„Ca” e adverb/conjuncție — se folosește pentru comparații („frumos ca tine”). „C-a” e conjuncție + verb, două cuvinte („c” și „a”) rostite împreună — poți verifica înlocuind cu „că a”.",
+      "contrastExamples": [
+        "Aleargă rapid ca (asemenea) un campion olimpic.",
+        "Se vede c-a (că a) învățat mult pentru testul ăsta."
+      ]
+    },
+    {
+      "id": "og-vise-vi-se",
+      "formA": "vise",
+      "formB": "vi se",
+      "explanation": "„Vise” e substantiv la plural — ceea ce trăim în somn. „Vi se” e pronume + pronume, două cuvinte („vi” și „se”) rostite separat — arată o acțiune care vi se întâmplă vouă.",
+      "contrastExamples": [
+        "Am avut vise (ce trăim în somn) frumoase în noaptea asta.",
+        "Vi se (vouă) pare corect răspunsul dat de profesor?"
+      ]
+    },
+    {
+      "id": "og-zile-zi-le",
+      "formA": "zile",
+      "formB": "zi-le",
+      "explanation": "„Zile” e substantiv la plural — unități de timp („trei zile”). „Zi-le” e verbul „a zice” la imperativ + pronume, două cuvinte („zi” și „le”) rostite împreună — o comandă, „spune-le”.",
+      "contrastExamples": [
+        "Au mai rămas trei zile (unități de timp) până la vacanță.",
+        "Zi-le (spune-le) colegilor tăi vestea cea bună!"
+      ]
+    },
+    {
+      "id": "og-nul-nu-l",
+      "formA": "nul",
+      "formB": "nu-l",
+      "explanation": "„Nul” e adjectiv — descrie ceva fără valoare, egal cu zero („meci nul”). „Nu-l” e negația „nu” + pronume, două cuvinte rostite împreună — poți verifica înlocuind cu „nu îl”.",
+      "contrastExamples": [
+        "Meciul s-a terminat nul (scor egal), 1 la 1.",
+        "Nu-l (nu îl) cred în stare să mintă atât de mult."
+      ]
+    },
+    {
+      "id": "og-deoparte-de-o-parte",
+      "formA": "deoparte",
+      "formB": "de o parte",
+      "explanation": "„Deoparte” e adverb — arată izolare sau păstrare pentru mai târziu („am pus bani deoparte”). „De o parte” sunt trei cuvinte separate — prepoziția „de” + articolul „o” + substantivul „parte” — arată una dintre laturi.",
+      "contrastExamples": [
+        "Am pus deoparte (rezervat) jucăriile pe care nu le mai folosesc.",
+        "De o parte (o latură) a drumului erau case, de cealaltă un lac."
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex-set17-mcq-01",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "hobbies",
+      "targetIds": ["og-ca-c-a"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Aleargă rapid ___ un campion olimpic.",
+        "options": ["ca", "c-a"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set17-mcq-02",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "hobbies",
+      "targetIds": ["og-nul-nu-l"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Meciul s-a terminat ___, 1 la 1.",
+        "options": ["nul", "nu-l"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set17-mcq-03",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "school",
+      "targetIds": ["og-deoparte-de-o-parte"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Am pus ___ jucăriile pe care nu le mai folosesc.",
+        "options": ["deoparte", "de o parte"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set17-fillblank-01",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "theme": "school",
+      "targetIds": ["og-vise-vi-se"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "Vouă chiar ___ pare corect răspunsul dat de profesor?",
+        "correctAnswers": ["vi se"]
+      }
+    },
+    {
+      "id": "ex-set17-fillblank-02",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "theme": "travel",
+      "targetIds": ["og-zile-zi-le"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "Au mai rămas trei ___ până la excursia mult așteptată.",
+        "correctAnswers": ["zile"]
+      }
+    },
+    {
+      "id": "ex-set17-error-01",
+      "stage": "independent",
+      "responseMode": "errorCorrection",
+      "difficulty": 2,
+      "theme": "movies",
+      "targetIds": ["og-nul-nu-l"],
+      "prompt": "Găsește și corectează greșeala.",
+      "response": {
+        "tokens": ["Nul", "cred", "în", "stare", "să", "mintă", "atât", "de", "mult."],
+        "errorTokenIndex": 0,
+        "correctToken": "Nu-l",
+        "explanation": "Aici e nevoie de negație + pronume, nu de adjectiv: „nu-l cred” arată o acțiune legată de o persoană („pe el”), poate fi înlocuit cu „nu îl cred”. „Nul” (adjectiv, fără valoare) ar avea sens doar dacă descria un scor sau un rezultat — aici urmează verbul „cred”, deci forma corectă e „nu-l”."
+      }
+    },
+    {
+      "id": "ex-set17-wordbank-01",
+      "stage": "guided",
+      "responseMode": "wordBank",
+      "difficulty": 2,
+      "targetIds": ["og-ca-c-a", "og-zile-zi-le"],
+      "prompt": "Alege din bancă forma potrivită pentru fiecare spațiu.",
+      "response": {
+        "text": "Se vede {{b1}} muncit mult în ultimele {{b2}} pentru proiectul ăsta.",
+        "bank": [
+          { "id": "wb-ca", "word": "ca" },
+          { "id": "wb-c-a", "word": "c-a" },
+          { "id": "wb-zile", "word": "zile" },
+          { "id": "wb-zi-le", "word": "zi-le" }
+        ],
+        "blanks": [
+          { "marker": "b1", "correctWordId": "wb-c-a" },
+          { "marker": "b2", "correctWordId": "wb-zile" }
+        ]
+      }
+    },
+    {
+      "id": "ex-set17-free-01",
+      "stage": "transfer",
+      "responseMode": "openText",
+      "difficulty": 2,
+      "targetIds": ["og-vise-vi-se", "og-deoparte-de-o-parte"],
+      "prompt": "Scrie două propoziții proprii: una cu „vise”/„vi se”, una cu „deoparte”/„de o parte”.",
+      "response": {
+        "instructions": "Folosește fiecare pereche cel puțin o dată.",
+        "modelAnswer": "Am avut vise frumoase în vacanța asta. Am pus deoparte niște bani pentru o bicicletă nouă.",
+        "selfCheckCriteria": [
+          "Am folosit „vise”/„vi se” corect?",
+          "Am folosit „deoparte”/„de o parte” corect?",
+          "Propozițiile au sens?"
+        ]
+      }
+    }
+  ]
+}
