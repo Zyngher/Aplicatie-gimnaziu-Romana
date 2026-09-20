@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "id": "set-16-mor-pun-va-miau-na",
+  "order": 16,
+  "characterId": null,
+  "title": "Mor / M-or, Pun / P-un, Va / V-a, Miau / Mi-au, Na / N-a",
+  "pairs": [
+    {
+      "id": "og-mor-m-or",
+      "formA": "mor",
+      "formB": "m-or",
+      "explanation": "„Mor” e verbul „a muri” la persoana I sau a III-a („eu mor”, „ei mor”). „M-or” e pronume + verb, două cuvinte („m” și „or”) rostite împreună — arată ce îmi vor face ei, la viitor.",
+      "contrastExamples": [
+        "Florile din grădină mor (verbul „a muri”) dacă nu le uzi des.",
+        "Cred că m-or (ei mă vor) aștepta la intrare."
+      ]
+    },
+    {
+      "id": "og-pun-p-un",
+      "formA": "pun",
+      "formB": "p-un",
+      "explanation": "„Pun” e verbul „a pune” la persoana I sau a III-a („eu pun”, „ei pun”). „P-un” e o formă mai rar întâlnită, scrisă cu cratimă, din prepoziția „pe” + articolul „un” („pe un”), rostite împreună — apare mai ales în poezii sau texte populare.",
+      "contrastExamples": [
+        "Eu pun (verbul „a pune”) cărțile pe raft în fiecare seară.",
+        "Balada „Miorița” începe cu versul „Pe-un picior de plai”, scris uneori și „p-un picior de plai”."
+      ]
+    },
+    {
+      "id": "og-va-v-a",
+      "formA": "va",
+      "formB": "v-a",
+      "explanation": "„Va” e verbul auxiliar de viitor, persoana a III-a singular — arată ce va face „el”/„ea”. „V-a” e pronume + verb, două cuvinte („v” și „a”) rostite împreună — arată ce v-a făcut „el”/„ea” vouă.",
+      "contrastExamples": [
+        "Antrenorul va (el) veni mai devreme azi la sală.",
+        "Curierul v-a (vă a) adus coletul comandat ieri."
+      ]
+    },
+    {
+      "id": "og-miau-mi-au",
+      "formA": "miau",
+      "formB": "mi-au",
+      "explanation": "„Miau” e onomatopeea sunetului pe care îl scoate o pisică. „Mi-au” e pronume + verb, două cuvinte („mi” și „au”) rostite împreună — poți verifica înlocuind „mi” cu „mie”.",
+      "contrastExamples": [
+        "Pisica a scos un miau (sunetul) lung și trist.",
+        "Colegii mi-au (mie) povestit tot ce s-a întâmplat la meci."
+      ]
+    },
+    {
+      "id": "og-na-n-a",
+      "formA": "na",
+      "formB": "n-a",
+      "explanation": "„Na” e o interjecție — se folosește când dai cuiva ceva („na, ia asta!”). „N-a” e negația „nu” + verbul „a”, două cuvinte rostite împreună — arată ceva ce nu s-a întâmplat.",
+      "contrastExamples": [
+        "Na (poftim), ia și tu o bomboană!",
+        "Din păcate, n-a (nu a) ajuns la timp la autobuz."
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex-set16-mcq-01",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "hobbies",
+      "targetIds": ["og-mor-m-or"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Florile din ghiveci ___ dacă uit să le ud.",
+        "options": ["mor", "m-or"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set16-mcq-02",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "school",
+      "targetIds": ["og-va-v-a"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Profesorul ___ explica lecția din nou mâine.",
+        "options": ["va", "v-a"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set16-mcq-03",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "hobbies",
+      "targetIds": ["og-na-n-a"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Din păcate, ___ ajuns la timp la antrenament.",
+        "options": ["na", "n-a"],
+        "correctIndices": [1]
+      }
+    },
+    {
+      "id": "ex-set16-fillblank-01",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "theme": "school",
+      "targetIds": ["og-pun-p-un"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "În fiecare seară, ___ cărțile pe raft, la locul lor.",
+        "correctAnswers": ["pun"]
+      }
+    },
+    {
+      "id": "ex-set16-fillblank-02",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "theme": "animals",
+      "targetIds": ["og-miau-mi-au"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "Colegii ___ povestit tot ce s-a întâmplat la meci.",
+        "correctAnswers": ["mi-au"]
+      }
+    },
+    {
+      "id": "ex-set16-error-01",
+      "stage": "independent",
+      "responseMode": "errorCorrection",
+      "difficulty": 2,
+      "targetIds": ["og-va-v-a"],
+      "prompt": "Găsește și corectează greșeala.",
+      "response": {
+        "tokens": ["Curierul", "va", "adus", "coletul", "comandat", "ieri."],
+        "errorTokenIndex": 1,
+        "correctToken": "v-a",
+        "explanation": "Aici e nevoie de pronume + verb, nu doar de auxiliar de viitor: „v-a adus” arată o acțiune deja făcută vouă, poate fi înlocuit cu „vă a adus”. „Va” (fără pronume) ar avea sens doar la viitor, ca „va aduce” — aici verbul e la timpul trecut (perfect compus), deci forma corectă e „v-a”."
+      }
+    },
+    {
+      "id": "ex-set16-wordbank-01",
+      "stage": "guided",
+      "responseMode": "wordBank",
+      "difficulty": 2,
+      "targetIds": ["og-mor-m-or", "og-na-n-a"],
+      "prompt": "Alege din bancă forma potrivită pentru fiecare spațiu.",
+      "response": {
+        "text": "Cred că {{b1}} certa părinții, pentru că sora mea {{b2}} ajuns acasă la timp.",
+        "bank": [
+          { "id": "wb-mor", "word": "mor" },
+          { "id": "wb-m-or", "word": "m-or" },
+          { "id": "wb-na", "word": "na" },
+          { "id": "wb-n-a", "word": "n-a" }
+        ],
+        "blanks": [
+          { "marker": "b1", "correctWordId": "wb-m-or" },
+          { "marker": "b2", "correctWordId": "wb-n-a" }
+        ]
+      }
+    },
+    {
+      "id": "ex-set16-free-01",
+      "stage": "transfer",
+      "responseMode": "openText",
+      "difficulty": 2,
+      "targetIds": ["og-pun-p-un", "og-miau-mi-au"],
+      "prompt": "Scrie două propoziții proprii: una cu „pun”/„p-un”, una cu „miau”/„mi-au”.",
+      "response": {
+        "instructions": "Folosește fiecare pereche cel puțin o dată.",
+        "modelAnswer": "În fiecare dimineață pun ghiozdanul lângă ușă. Vecinii mi-au spus că pisica lor a fugit de acasă.",
+        "selfCheckCriteria": [
+          "Am folosit „pun”/„p-un” corect?",
+          "Am folosit „miau”/„mi-au” corect?",
+          "Propozițiile au sens?"
+        ]
+      }
+    }
+  ]
+}
