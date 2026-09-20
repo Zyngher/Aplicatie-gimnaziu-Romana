@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "id": "set-15-doi-ai-al-asi-iai",
+  "order": 15,
+  "characterId": null,
+  "title": "Mia / Mi-a, Ai / A-i, Al / A-l, Ași / A-și, Ia-i / I-ai",
+  "pairs": [
+    {
+      "id": "og-mia-mi-a",
+      "formA": "mia",
+      "formB": "mi-a",
+      "explanation": "„Mia” înseamnă numărul 1000 sau poate fi un nume de fată. „Mi-a” e pronume + verb, două cuvinte („mi” și „a”) rostite împreună — poți verifica înlocuind „mi” cu „mie”.",
+      "contrastExamples": [
+        "A câștigat mia (1000) de lei la concursul de matematică.",
+        "Colegul mi-a (mie) împrumutat cartea pentru weekend."
+      ]
+    },
+    {
+      "id": "og-ai-a-i",
+      "formA": "ai",
+      "formB": "a-i",
+      "explanation": "„Ai” e verbul „a avea” la persoana a II-a („tu ai”). „A-i” e prepoziția de infinitiv „a” + pronume, două cuvinte rostite împreună — apare înainte de un verb la infinitiv, cu sensul de „a-i da”, „a-i spune”.",
+      "contrastExamples": [
+        "Tu ai (verbul „a avea”) multe cărți acasă.",
+        "Vrea să încerce a-i (a le) explica regula din nou."
+      ]
+    },
+    {
+      "id": "og-al-a-l",
+      "formA": "al",
+      "formB": "a-l",
+      "explanation": "„Al” arată cui aparține ceva („un prieten al meu”) sau formează un numeral ordinal („al treilea”). „A-l” e prepoziția de infinitiv „a” + pronume, două cuvinte rostite împreună — apare înainte de un verb la infinitiv, cu sensul de „a-l vedea”, „a-l asculta”.",
+      "contrastExamples": [
+        "Am întâlnit un prieten al (posesie) fratelui meu.",
+        "Mi-a făcut mare plăcere a-l (pe el) revedea după atâta timp."
+      ]
+    },
+    {
+      "id": "og-asi-a-si",
+      "formA": "ași",
+      "formB": "a-și",
+      "explanation": "„Ași” e pluralul substantivului „as” — cărți de joc sau persoane foarte pricepute într-un domeniu. „A-și” e prepoziția de infinitiv „a” + pronumele reflexiv „și”, două cuvinte rostite împreună — apare înainte de un verb la infinitiv, cu sensul de „a-și aminti”, „a-și face”.",
+      "contrastExamples": [
+        "În acest joc de cărți sunt patru ași (cărțile) valoroși.",
+        "A-și (pentru sine) aminti detaliile exacte nu e ușor după atâta timp."
+      ]
+    },
+    {
+      "id": "og-iai-i-ai",
+      "formA": "ia-i",
+      "formB": "i-ai",
+      "explanation": "„Ia-i” e verbul „a lua” la imperativ + pronume, două cuvinte rostite împreună — o comandă, „ia și pentru el”. „I-ai” e pronume + verb, două cuvinte („i” și „ai”) rostite împreună — arată o acțiune deja făcută cuiva.",
+      "contrastExamples": [
+        "Ia-i (pentru el) și lui Andrei un suc de la magazin, te rog.",
+        "I-ai (lui i-) explicat deja cum se joacă?"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex-set15-mcq-01",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "school",
+      "targetIds": ["og-mia-mi-a"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "A câștigat ___ de lei la concursul de matematică.",
+        "options": ["mia", "mi-a"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set15-mcq-02",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "hobbies",
+      "targetIds": ["og-ai-a-i"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Tu ___ multe jocuri video acasă, nu-i așa?",
+        "options": ["ai", "a-i"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set15-mcq-03",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "movies",
+      "targetIds": ["og-al-a-l"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Mi-a făcut mare plăcere ___ revedea pe actorul preferat.",
+        "options": ["al", "a-l"],
+        "correctIndices": [1]
+      }
+    },
+    {
+      "id": "ex-set15-fillblank-01",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "theme": "gaming",
+      "targetIds": ["og-asi-a-si"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "În acest joc de cărți, cei patru ___ sunt cele mai valoroase cărți.",
+        "correctAnswers": ["ași"]
+      }
+    },
+    {
+      "id": "ex-set15-fillblank-02",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "theme": "hobbies",
+      "targetIds": ["og-iai-i-ai"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "Când treci pe la magazin, ___ și lui Andrei un suc, te rog.",
+        "correctAnswers": ["ia-i"]
+      }
+    },
+    {
+      "id": "ex-set15-error-01",
+      "stage": "independent",
+      "responseMode": "errorCorrection",
+      "difficulty": 2,
+      "theme": "movies",
+      "targetIds": ["og-al-a-l"],
+      "prompt": "Găsește și corectează greșeala.",
+      "response": {
+        "tokens": ["Mi-a", "făcut", "mare", "plăcere", "al", "revedea", "pe", "regizor."],
+        "errorTokenIndex": 4,
+        "correctToken": "a-l",
+        "explanation": "Aici e nevoie de prepoziția de infinitiv + pronume, nu de articol: „a-l revedea” arată acțiunea de a-l vedea din nou („pe el”), urmată de un verb la infinitiv. „Al” (articol) ar avea sens doar înaintea unui substantiv sau numeral, ca „al doilea” — aici urmează verbul „revedea”, deci forma corectă e „a-l”."
+      }
+    },
+    {
+      "id": "ex-set15-wordbank-01",
+      "stage": "guided",
+      "responseMode": "wordBank",
+      "difficulty": 2,
+      "theme": "school",
+      "targetIds": ["og-mia-mi-a", "og-ai-a-i"],
+      "prompt": "Alege din bancă forma potrivită pentru fiecare spațiu.",
+      "response": {
+        "text": "{{b1}} spus că {{b2}} destui bani ca să cumperi jocul nou.",
+        "bank": [
+          { "id": "wb-mia", "word": "Mia" },
+          { "id": "wb-mi-a", "word": "Mi-a" },
+          { "id": "wb-ai", "word": "ai" },
+          { "id": "wb-a-i", "word": "a-i" }
+        ],
+        "blanks": [
+          { "marker": "b1", "correctWordId": "wb-mi-a" },
+          { "marker": "b2", "correctWordId": "wb-ai" }
+        ]
+      }
+    },
+    {
+      "id": "ex-set15-free-01",
+      "stage": "transfer",
+      "responseMode": "openText",
+      "difficulty": 2,
+      "targetIds": ["og-asi-a-si", "og-iai-i-ai"],
+      "prompt": "Scrie două propoziții proprii: una cu „ași”/„a-și”, una cu „ia-i”/„i-ai”.",
+      "response": {
+        "instructions": "Folosește fiecare pereche cel puțin o dată.",
+        "modelAnswer": "A-și aminti totul dintr-o carte lungă e greu. I-ai promis fratelui tău că mergeți la meci?",
+        "selfCheckCriteria": [
+          "Am folosit „ași”/„a-și” corect?",
+          "Am folosit „ia-i”/„i-ai” corect?",
+          "Propozițiile au sens?"
+        ]
+      }
+    }
+  ]
+}
