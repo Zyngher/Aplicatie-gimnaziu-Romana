@@ -23,21 +23,6 @@ export function SetDetail() {
       </button>
       <HomeButton />
       <h1 className={styles.title}>{set.title}</h1>
-      {set.pairs.map((pair) => (
-        <section key={pair.id} className={styles.pair}>
-          <h2 className={styles.pairTitle}>
-            {pair.formA} / {pair.formB}
-          </h2>
-          <p className={styles.explanation}>{pair.explanation}</p>
-          <ul className={styles.examples}>
-            {pair.contrastExamples.map((example) => (
-              <li key={example} className={styles.example}>
-                {example}
-              </li>
-            ))}
-          </ul>
-        </section>
-      ))}
       <ol className={styles.exerciseList}>
         {set.exercises.map((exercise, index) => (
           <li key={exercise.id}>
@@ -52,6 +37,22 @@ export function SetDetail() {
           </li>
         ))}
       </ol>
+      <h2 className={styles.rulesHeading}>Ce trebuie să știi</h2>
+      {set.pairs.map((pair) => (
+        <section key={pair.id} className={styles.pair}>
+          <h3 className={styles.pairTitle}>
+            {pair.formA} / {pair.formB}
+          </h3>
+          <p className={styles.explanation}>{pair.explanation}</p>
+          <ul className={styles.examples}>
+            {pair.contrastExamples.map((example) => (
+              <li key={example} className={styles.example}>
+                {example}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
     </div>
   );
 }

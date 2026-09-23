@@ -11,6 +11,12 @@
   margin: var(--space-4) 0 var(--space-4);
 }
 
+.rulesHeading {
+  composes: eyebrow from global;
+  color: var(--sub);
+  margin: var(--space-6) 0 var(--space-4);
+}
+
 .pair {
   margin-bottom: var(--space-6);
 }
