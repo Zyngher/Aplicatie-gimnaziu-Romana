@@ -2,6 +2,13 @@
   composes: notebook-page content-column from global;
 }
 
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
 .title {
   composes: heading-1 from global;
   margin: var(--space-4) 0 var(--space-2);
@@ -10,6 +17,11 @@
 .subtitle {
   color: var(--sub);
   margin: 0 0 var(--space-6);
+}
+
+.mascotSlot {
+  flex-shrink: 0;
+  margin-top: var(--space-4);
 }
 
 .unitList {

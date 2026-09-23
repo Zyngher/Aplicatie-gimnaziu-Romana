@@ -1,4 +1,5 @@
 import { useNavigation } from '../../lib/navigation';
+import { MascotMoment } from '../MascotMoment';
 import styles from './Home.module.css';
 
 interface UnitInfo {
@@ -24,8 +25,15 @@ export function Home() {
 
   return (
     <div className={styles.screen}>
-      <h1 className={styles.title}>Dascăl în acțiune</h1>
-      <p className={styles.subtitle}>Exersează limba română alături de personajele-ghid, în ritmul tău.</p>
+      <div className={styles.header}>
+        <div>
+          <h1 className={styles.title}>Dascăl în acțiune</h1>
+          <p className={styles.subtitle}>Exersează limba română alături de personajele-ghid, în ritmul tău.</p>
+        </div>
+        <div className={styles.mascotSlot}>
+          <MascotMoment variant="idle" size="companion" />
+        </div>
+      </div>
       <ul className={styles.unitList}>
         {UNITS.map((unit) => (
           <li key={unit.id}>
