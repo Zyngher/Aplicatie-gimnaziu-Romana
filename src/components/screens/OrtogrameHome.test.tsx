@@ -12,6 +12,14 @@ function CurrentScreenProbe() {
   return <p data-testid="current">{JSON.stringify(navigation.current)}</p>;
 }
 
+// getByRole's `name` matcher cu `exact: false` nu face potrivire pe substring asa cum ar face
+// getByText — verificat direct, ramane strict pe numele intreg calculat. Un regex neancorat e
+// singura cale sigura sa potrivim doar inceputul titlului unui buton (care mai are un sufix de
+// stare, "(0%)" sau "(Continut in lucru)", lipit fara spatiu in numele accesibil calculat).
+function titleMatcher(title: string): RegExp {
+  return new RegExp(title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+}
+
 beforeEach(() => {
   window.localStorage.clear();
 });
@@ -35,16 +43,24 @@ describe('OrtogrameHome — mod traseu (implicit)', () => {
     ]);
   });
 
-  it('primul set (autorat) e deblocat si arata avatarul personajului — fix #5', () => {
+  it('primul set autorat este deblocat necondiționat — fix #5', () => {
+    // Derivat direct din manifest, nu hardcodat la un set anume — primul set AUTORAT (in ordinea
+    // din manifest) trebuie sa fie mereu deblocat, indiferent care set e acesta la un moment dat
+    // (vezi jurnalul de lucru, 2026-09-20/21: set-01 a devenit primul autorat, nu mai e set-06).
+    // Randarea avatarului e verificata separat, pe Mira, in testul "fix #4" de mai jos, care nu
+    // depinde de starea de deblocare (avatarul se randeaza indiferent daca butonul e disabled).
+    const firstAuthored = getManifest().sets.find((s) => s.filePath !== null);
+    if (!firstAuthored) throw new Error('Testul presupune cel putin un set autorat in manifest');
     render(<NavigationProvider><OrtogrameHome /></NavigationProvider>);
-    const button = screen.getByRole('button', { name: /sa \/ s-a/i });
+    const button = screen.getByRole('button', { name: titleMatcher(firstAuthored.title) });
     expect(button).not.toBeDisabled();
-    expect(screen.getByAltText('Mira')).toBeInTheDocument();
   });
 
   it('un set neautorat arata "continut in lucru", nu e clickabil', () => {
     render(<NavigationProvider><OrtogrameHome /></NavigationProvider>);
-    const button = screen.getByRole('button', { name: /î și â/i });
+    const firstUnauthored = getManifest().sets.find((s) => s.filePath === null);
+    if (!firstUnauthored) throw new Error('Testul presupune cel putin un set neautorat in manifest');
+    const button = screen.getByRole('button', { name: titleMatcher(firstUnauthored.title) });
     expect(button).toBeDisabled();
     // fix #5: eticheta trebuie sa apara pentru toate seturile neautorate, nu doar pentru cele
     // deblocate — altfel majoritatea sunt butoane fara nicio explicatie pentru un elev nou.
@@ -65,15 +81,17 @@ describe('OrtogrameHome — mod traseu (implicit)', () => {
 
   it('click pe setul autorat si deblocat navigheaza la setDetail', async () => {
     const user = userEvent.setup();
+    const firstAuthored = getManifest().sets.find((s) => s.filePath !== null);
+    if (!firstAuthored) throw new Error('Testul presupune cel putin un set autorat in manifest');
     render(
       <NavigationProvider>
         <OrtogrameHome />
         <CurrentScreenProbe />
       </NavigationProvider>,
     );
-    await user.click(screen.getByRole('button', { name: /sa \/ s-a/i }));
+    await user.click(screen.getByRole('button', { name: titleMatcher(firstAuthored.title) }));
     expect(screen.getByTestId('current')).toHaveTextContent('setDetail');
-    expect(screen.getByTestId('current')).toHaveTextContent('set-06-sa-sau-ia-iau');
+    expect(screen.getByTestId('current')).toHaveTextContent(firstAuthored.id);
   });
 
   it('foloseste clasele temei vizuale pe ecran si pe titlu', () => {

@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 1,
+  "id": "set-01-i-a-circumflex",
+  "order": 1,
+  "characterId": null,
+  "title": "Î și Â",
+  "pairs": [
+    {
+      "id": "og-inceput-cuvant",
+      "formA": "început",
+      "formB": "cuvânt",
+      "explanation": "«Î» se scrie la ÎNCEPUTUL cuvântului. «Â» se scrie în INTERIORUL cuvântului (nu la început, nu la sfârșit). Cele două litere se pronunță identic — doar poziția în cuvânt decide care se scrie.",
+      "contrastExamples": [
+        "Începutul (la început) poveștii a fost foarte captivant.",
+        "Am găsit cuvântul (în interior) potrivit pentru poezia mea."
+      ]
+    },
+    {
+      "id": "og-uri-urat",
+      "formA": "a urî",
+      "formB": "urât",
+      "explanation": "«Î» se scrie la SFÂRȘITUL cuvântului («a urî»). «Â» se scrie în interiorul cuvântului, chiar dacă vine din același cuvânt de bază («urât»).",
+      "contrastExamples": [
+        "Verbul „a urî” (sfârșit) înseamnă a avea ură pentru cineva sau ceva.",
+        "Desenul lui era destul de urât (interior), dar plin de imaginație."
+      ]
+    },
+    {
+      "id": "og-hotari-hotarare",
+      "formA": "a hotărî",
+      "formB": "hotărâre",
+      "explanation": "«Î» se scrie la sfârșitul verbului la infinitiv («a hotărî»). «Â» apare în interior, în cuvântul derivat din același radical («hotărâre»).",
+      "contrastExamples": [
+        "Trebuie să hotărî (sfârșit) repede ce vrei să faci în vacanță.",
+        "Familia a luat o hotărâre (interior) importantă anul acesta."
+      ]
+    },
+    {
+      "id": "og-neinteles-gand",
+      "formA": "neînțeles",
+      "formB": "gând",
+      "explanation": "«Î» se scrie și după prefixe, dacă acel cuvânt începea deja cu «î» («neînțeles» = ne + înțeles). «Â» rămâne în interiorul cuvintelor fără prefix («gând»).",
+      "contrastExamples": [
+        "Mesajul lui a rămas neînțeles (după prefixul „ne-”) de toată clasa.",
+        "A avut un gând (interior) bun, chiar dacă nu i-a ieșit planul."
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex-set01-mcq-01",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "targetIds": ["og-inceput-cuvant"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Am găsit ___ potrivit pentru poezia mea.",
+        "options": ["cuvântul", "cuvîntul"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set01-mcq-02",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "school",
+      "targetIds": ["og-inceput-cuvant"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "___ anului școlar aduce multe emoții pentru toți elevii.",
+        "options": ["Începutul", "Ânceputul"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set01-fillblank-01",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "targetIds": ["og-uri-urat"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "Verbul „a ___” înseamnă a avea ură pentru cineva sau ceva.",
+        "correctAnswers": ["urî"]
+      }
+    },
+    {
+      "id": "ex-set01-fillblank-02",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "theme": "travel",
+      "targetIds": ["og-hotari-hotarare"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "Familia a luat o ___ importantă: mergem la munte în vacanța de vară.",
+        "correctAnswers": ["hotărâre"]
+      }
+    },
+    {
+      "id": "ex-set01-error-01",
+      "stage": "independent",
+      "responseMode": "errorCorrection",
+      "difficulty": 2,
+      "theme": "school",
+      "targetIds": ["og-neinteles-gand"],
+      "prompt": "Găsește și corectează greșeala.",
+      "response": {
+        "tokens": ["Am", "așteptat", "mult", "la", "rînd", "la", "cantina", "școlii."],
+        "errorTokenIndex": 4,
+        "correctToken": "rând",
+        "explanation": "«Â» se scrie în interiorul cuvântului, nu la început sau la sfârșit. «Rând» nu are prefix, iar «â»-ul e chiar în mijlocul cuvântului, deci se scrie cu «â», nu cu «î» — deși cele două litere se pronunță identic."
+      }
+    },
+    {
+      "id": "ex-set01-wordbank-01",
+      "stage": "guided",
+      "responseMode": "wordBank",
+      "difficulty": 2,
+      "targetIds": ["og-neinteles-gand"],
+      "prompt": "Alege din bancă forma potrivită pentru fiecare spațiu.",
+      "response": {
+        "text": "Mesajul lui a rămas {{b1}} de toți, deși avea un {{b2}} bun.",
+        "bank": [
+          { "id": "wb-neinteles", "word": "neînțeles" },
+          { "id": "wb-neinteles-gresit", "word": "neânțeles" },
+          { "id": "wb-gand", "word": "gând" },
+          { "id": "wb-gand-gresit", "word": "gînd" }
+        ],
+        "blanks": [
+          { "marker": "b1", "correctWordId": "wb-neinteles" },
+          { "marker": "b2", "correctWordId": "wb-gand" }
+        ]
+      }
+    },
+    {
+      "id": "ex-set01-free-01",
+      "stage": "transfer",
+      "responseMode": "openText",
+      "difficulty": 2,
+      "targetIds": ["og-inceput-cuvant", "og-uri-urat", "og-hotari-hotarare"],
+      "prompt": "Scrie două propoziții proprii, cu grijă la scriere: una cu un cuvânt care conține „î” (la început sau la sfârșit), una cu un cuvânt care conține „â” (în interior).",
+      "response": {
+        "instructions": "Gândește-te la poziția literei în cuvânt înainte să scrii.",
+        "modelAnswer": "Îmi place mult să citesc povești înainte de culcare. Am luat o hotărâre importantă: exersez pian în fiecare zi.",
+        "selfCheckCriteria": [
+          "Am folosit «î» la început sau la sfârșit de cuvânt?",
+          "Am folosit «â» în interiorul cuvântului?",
+          "Propozițiile au sens?"
+        ]
+      }
+    }
+  ]
+}

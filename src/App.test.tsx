@@ -2,14 +2,42 @@ import { describe, it, expect, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from './App';
-import { loadProgress } from './lib/progress';
+import { loadProgress, buildProgressKey, markExerciseCompleted, markOpenTextSelfCheck } from './lib/progress';
+import { getManifest, getSetById } from './lib/content-loader';
 
 beforeEach(() => {
   window.localStorage.clear();
 });
 
+// Completeaza un set autorat direct in localStorage, citind continutul lui real (nu id-uri de
+// exercitii hardcodate) — acelasi tipar ca in OrtogrameHome.test.tsx (vezi jurnalul de lucru,
+// 2026-09-18/19).
+function completeAuthoredSet(setId: string) {
+  const set = getSetById(setId);
+  const progressKey = buildProgressKey('ortograme', set.id);
+  for (const exercise of set.exercises) {
+    if (exercise.responseMode === 'openText') {
+      markOpenTextSelfCheck(progressKey, exercise.id, true);
+    } else {
+      markExerciseCompleted(progressKey, exercise.id);
+    }
+  }
+}
+
 describe('App — flux complet capăt-la-capăt (fix #8)', () => {
   it('Home → Ortograme → set → exercițiu → răspuns → înapoi → Home cu progres actualizat', async () => {
+    // Testul verifica deliberat continutul REAL din set-06 (nu un set oarecare) — dar set-06 nu
+    // mai e neaparat primul autorat (din 2026-09-20/21, set-01 poate precede in manifest).
+    // Completam dinamic toate seturile autorate care preced set-06, oricare ar fi ele la un
+    // moment dat, ca setul sa ramana accesibil prin clic real, fara sa hardcodam id-uri de
+    // seturi care s-ar rupe la fiecare set nou autorat inaintea lui set-06.
+    const targetSetId = 'set-06-sa-sau-ia-iau';
+    const manifest = getManifest();
+    const targetOrder = manifest.sets.find((s) => s.id === targetSetId)?.order ?? Infinity;
+    manifest.sets
+      .filter((s) => s.filePath !== null && s.order < targetOrder)
+      .forEach((s) => completeAuthoredSet(s.id));
+
     const user = userEvent.setup();
     render(<App />);
 
