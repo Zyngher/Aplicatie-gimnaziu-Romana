@@ -5,7 +5,11 @@ export type Screen =
   | { name: 'ortogrameHome' }
   | { name: 'setDetail'; setId: string }
   | { name: 'exercise'; setId: string; exerciseIndex: number }
-  | { name: 'setComplete'; setId: string };
+  | { name: 'setComplete'; setId: string }
+  | { name: 'sinonimeAntonimeHome' }
+  | { name: 'topicDetail'; topicId: string }
+  | { name: 'synantExercise'; topicId: string; exerciseIndex: number }
+  | { name: 'topicComplete'; topicId: string };
 
 interface NavigationContextValue {
   current: Screen;

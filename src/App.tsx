@@ -5,6 +5,10 @@ import { OrtogrameHome } from './components/screens/OrtogrameHome';
 import { SetDetail } from './components/screens/SetDetail';
 import { ExerciseScreen } from './components/screens/ExerciseScreen';
 import { SetComplete } from './components/screens/SetComplete';
+import { SinonimeAntonimeHome } from './components/screens/SinonimeAntonimeHome';
+import { TopicDetail } from './components/screens/TopicDetail';
+import { SynAntExerciseScreen } from './components/screens/SynAntExerciseScreen';
+import { TopicComplete } from './components/screens/TopicComplete';
 
 function Router() {
   const navigation = useNavigation();
@@ -19,6 +23,14 @@ function Router() {
       return <ExerciseScreen />;
     case 'setComplete':
       return <SetComplete />;
+    case 'sinonimeAntonimeHome':
+      return <SinonimeAntonimeHome />;
+    case 'topicDetail':
+      return <TopicDetail />;
+    case 'synantExercise':
+      return <SynAntExerciseScreen />;
+    case 'topicComplete':
+      return <TopicComplete />;
     default: {
       const _exhaustive: never = navigation.current;
       return _exhaustive;
