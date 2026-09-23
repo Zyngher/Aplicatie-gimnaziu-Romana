@@ -3,7 +3,7 @@
   "id": "set-10-cei-cel-dea-mie-tie",
   "order": 10,
   "characterId": null,
-  "title": "Cei / Ce-i, Cel / Ce-l, Dea / De-a, Mie / Mi-e, Ție / Ți-e",
+  "title": "Cei / Ce-i, Cel / Ce-l, Dea / De-a, Mie / Mi-e, Mii / Mi-i, Ție / Ți-e, Ții / Ți-i",
   "pairs": [
     {
       "id": "og-cei-ce-i",
@@ -46,6 +46,16 @@
       ]
     },
     {
+      "id": "og-mii-mi-i",
+      "formA": "mii",
+      "formB": "mi-i",
+      "explanation": "„Mii” e pluralul lui „o mie” (1000) — „două mii de oameni”. „Mi-i” e o formă populară, regională (moldovenească), de la „mi-e” („mi” + „e”, din „a fi”) — „mi-i foame” înseamnă același lucru ca „mi-e foame”.",
+      "contrastExamples": [
+        "La meci au fost câteva mii (pluralul lui o mie) de oameni.",
+        "Mi-i (regional, mi-e) foame, hai să mâncăm ceva."
+      ]
+    },
+    {
       "id": "og-tie-ti-e",
       "formA": "ție",
       "formB": "ți-e",
@@ -53,6 +63,16 @@
       "contrastExamples": [
         "Ție (cui?) îți spun secretul, pentru că am încredere în tine.",
         "Ți-e (îți este) foame după atâta alergat?"
+      ]
+    },
+    {
+      "id": "og-tii-ti-i",
+      "formA": "ții",
+      "formB": "ți-i",
+      "explanation": "„Ții” e verbul „a ține” la persoana a II-a („tu ții cartea”). „Ți-i” e o formă populară, regională, de la „ți-e” („ți” + „e”, din „a fi”) — „ți-i somn” înseamnă același lucru ca „ți-e somn”.",
+      "contrastExamples": [
+        "Tu ții (verbul „a ține”) cartea foarte strâns la piept.",
+        "Ți-i (regional, ți-e) somn după atâta alergat?"
       ]
     }
   ],
@@ -158,6 +178,54 @@
         "blanks": [
           { "marker": "b1", "correctWordId": "wb-cei" },
           { "marker": "b2", "correctWordId": "wb-de-a" }
+        ]
+      }
+    },
+    {
+      "id": "ex-set10-mcq-04",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "hobbies",
+      "targetIds": ["og-mii-mi-i"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "La meci au fost câteva ___ de oameni.",
+        "options": ["mii", "mi-i"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set10-fillblank-03",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "theme": "school",
+      "targetIds": ["og-tii-ti-i"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "Tu ___ cartea foarte strâns la piept.",
+        "correctAnswers": ["ții"]
+      }
+    },
+    {
+      "id": "ex-set10-wordbank-02",
+      "stage": "guided",
+      "responseMode": "wordBank",
+      "difficulty": 2,
+      "targetIds": ["og-mii-mi-i", "og-tii-ti-i"],
+      "prompt": "Alege din bancă forma potrivită pentru fiecare spațiu.",
+      "response": {
+        "text": "La bâlci erau multe {{b1}} de oameni. Dacă ai mers atât, sigur {{b2}} somn acum.",
+        "bank": [
+          { "id": "wb-mii", "word": "mii" },
+          { "id": "wb-mi-i", "word": "mi-i" },
+          { "id": "wb-tii", "word": "ții" },
+          { "id": "wb-ti-i", "word": "ți-i" }
+        ],
+        "blanks": [
+          { "marker": "b1", "correctWordId": "wb-mii" },
+          { "marker": "b2", "correctWordId": "wb-ti-i" }
         ]
       }
     },
