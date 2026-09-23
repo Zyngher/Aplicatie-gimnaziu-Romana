@@ -1,11 +1,13 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { NavigationProvider, useNavigation } from '../../lib/navigation';
 import { markExerciseCompleted, markOpenTextSelfCheck, buildProgressKey } from '../../lib/progress';
 import { getManifest, getSetById } from '../../lib/content-loader';
+import * as contentLoader from '../../lib/content-loader';
 import { OrtogrameHome } from './OrtogrameHome';
 import styles from './OrtogrameHome.module.css';
+import type { ManifestEntry } from '../../types/content';
 
 function CurrentScreenProbe() {
   const navigation = useNavigation();
@@ -57,18 +59,34 @@ describe('OrtogrameHome — mod traseu (implicit)', () => {
   });
 
   it('un set neautorat arata "continut in lucru", nu e clickabil', () => {
-    render(<NavigationProvider><OrtogrameHome /></NavigationProvider>);
-    const firstUnauthored = getManifest().sets.find((s) => s.filePath === null);
-    if (!firstUnauthored) throw new Error('Testul presupune cel putin un set neautorat in manifest');
-    const button = screen.getByRole('button', { name: titleMatcher(firstUnauthored.title) });
-    expect(button).toBeDisabled();
-    // fix #5: eticheta trebuie sa apara pentru toate seturile neautorate, nu doar pentru cele
-    // deblocate — altfel majoritatea sunt butoane fara nicio explicatie pentru un elev nou.
-    // Numarul asteptat e derivat direct din manifest (nu un numar magic hardcodat) ca testul sa
-    // nu ceara o editare manuala de fiecare data cand se autoreaza un set nou — vezi jurnalul de
-    // lucru, 2026-09-18/19: acelasi 2 teste au trebuit reactualizate la fiecare din set-07/08/09.
-    const unauthoredCount = getManifest().sets.filter((s) => s.filePath === null).length;
-    expect(screen.getAllByText(/conținut în lucru/i)).toHaveLength(unauthoredCount);
+    // La 2026-09-23 (set-05, ultimul din Grupa A), toate cele 20 de seturi reale din manifest
+    // sunt autorate — nu mai exista niciun exemplu natural de set neautorat. Randarea pentru
+    // "neautorat" (eticheta + buton dezactivat) ramane insa cod real din OrtogrameHome.tsx,
+    // folosit imediat ce apare un set nou neautorat in manifest — testat aici cu UN set sintetic
+    // injectat prin spyOn pe getManifest, ca sa nu pierdem acoperirea reala a acestei cai doar
+    // pentru ca azi manifestul nu mai are niciun exemplu. fix #5: eticheta trebuie sa apara
+    // pentru orice set neautorat, nu doar pentru cele deblocate.
+    const realManifest = getManifest();
+    const syntheticUnauthored: ManifestEntry = {
+      id: 'set-99-sintetic-neautorat',
+      order: 999,
+      characterId: null,
+      title: 'Set sintetic de test',
+      filePath: null,
+      groupLabel: 'Grupa A — Fundamente',
+    };
+    const spy = vi.spyOn(contentLoader, 'getManifest').mockReturnValue({
+      ...realManifest,
+      sets: [...realManifest.sets, syntheticUnauthored],
+    });
+    try {
+      render(<NavigationProvider><OrtogrameHome /></NavigationProvider>);
+      const button = screen.getByRole('button', { name: titleMatcher(syntheticUnauthored.title) });
+      expect(button).toBeDisabled();
+      expect(screen.getAllByText(/conținut în lucru/i)).toHaveLength(1);
+    } finally {
+      spy.mockRestore();
+    }
   });
 
   it('fix #4: daca avatarul mascotei nu se incarca, arata un fallback cu initialele, nu o imagine spartă', () => {

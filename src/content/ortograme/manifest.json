@@ -5,7 +5,7 @@
     { "id": "set-02-m-inainte-de-b-p", "order": 2, "characterId": null, "title": "M înainte de B și P", "filePath": "sets/set-02-m-inainte-de-b-p.json", "groupLabel": "Grupa A — Fundamente" },
     { "id": "set-03-consoane-vocale-duble", "order": 3, "characterId": null, "title": "Consoane și vocale duble", "filePath": "sets/set-03-consoane-vocale-duble.json", "groupLabel": "Grupa A — Fundamente" },
     { "id": "set-04-scrierea-cu-nn", "order": 4, "characterId": null, "title": "Scrierea cu NN", "filePath": "sets/set-04-scrierea-cu-nn.json", "groupLabel": "Grupa A — Fundamente" },
-    { "id": "set-05-intr-o-dintr-o-printr-o", "order": 5, "characterId": null, "title": "Într-o, Dintr-o, Printr-o", "filePath": null, "groupLabel": "Grupa A — Fundamente" },
+    { "id": "set-05-intr-o-dintr-o-printr-o", "order": 5, "characterId": null, "title": "Într-o, Dintr-o, Printr-o", "filePath": "sets/set-05-intr-o-dintr-o-printr-o.json", "groupLabel": "Grupa A — Fundamente" },
     { "id": "set-06-sa-sau-ia-iau", "order": 6, "characterId": "char-mira", "title": "Sa / S-a, Sau / S-au, Ia / I-a, Iau / I-au", "filePath": "sets/set-06-sa-sau-ia-iau.json", "groupLabel": "Grupa B — Cratimă cu \"a\" I" },
     { "id": "set-07-la-sai-nea-neam", "order": 7, "characterId": null, "title": "La / L-a, Săi / Să-i, Nea / Ne-a, Neam / Ne-am", "filePath": "sets/set-07-la-sai-nea-neam.json", "groupLabel": "Grupa C — Cratimă cu \"a\" II" },
     { "id": "set-08-mai-sar-iar-nai-cai", "order": 8, "characterId": null, "title": "Mai / M-ai, Sar / S-ar, Iar / I-ar, Nai / N-ai, Căi / Că-i", "filePath": "sets/set-08-mai-sar-iar-nai-cai.json", "groupLabel": "Grupa D — Cratimă diversă" },
