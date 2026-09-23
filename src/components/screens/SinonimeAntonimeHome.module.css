@@ -1,0 +1,81 @@
+.screen {
+  composes: notebook-page from global;
+}
+
+.backButton {
+  composes: action-button from global;
+}
+
+.header {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.title {
+  composes: heading-1 from global;
+  margin: var(--space-4) 0 var(--space-2);
+}
+
+.modeLabel {
+  composes: eyebrow from global;
+  color: var(--sub);
+}
+
+.group {
+  max-width: 560px;
+  margin: 0 auto var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .group {
+    max-width: 100%;
+  }
+}
+
+.groupTitle {
+  composes: heading-2 from global;
+  margin-bottom: var(--space-3);
+}
+
+.topicList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+@media (min-width: 768px) {
+  .topicList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-4);
+  }
+}
+
+.topicButton {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: var(--space-3) var(--space-4);
+}
+
+.topicButton:disabled {
+  background: var(--bg);
+}
+
+.workInProgress {
+  composes: eyebrow from global;
+  color: var(--sub);
+}
+
+.percent {
+  composes: eyebrow from global;
+  color: var(--accent);
+}
