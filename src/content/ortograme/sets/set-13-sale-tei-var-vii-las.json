@@ -3,16 +3,16 @@
   "id": "set-13-sale-tei-var-vii-las",
   "order": 13,
   "characterId": null,
-  "title": "Șale / Ș-ale, Tei / Te-i, Var / V-ar, Vii / Vi-i, Laș / L-aș",
+  "title": "Vreodată / Vreo dată, Tei / Te-i, Var / V-ar, Vii / Vi-i, Laș / L-aș",
   "pairs": [
     {
-      "id": "og-shale-sh-ale",
-      "formA": "șale",
-      "formB": "ș-ale",
-      "explanation": "„Șale” e substantiv la plural — partea de jos a spatelui, la om sau la animale. „Ș-ale” e o formă mai rar întâlnită, scrisă cu cratimă, din „și” + „ale” („și ale”), rostite împreună — apare mai ales în povești, cu sensul de „și ale mele”, „și ale lui”.",
+      "id": "og-vreodata-vreo-data",
+      "formA": "vreodată",
+      "formB": "vreo dată",
+      "explanation": "«Vreodată» (un singur cuvânt) e adverb de timp — înseamnă «cândva», «măcar o dată în viață», mai ales în întrebări și negații. «Vreo dată» (două cuvinte) se referă la o dată/un moment anume, nesigur — folosește numeralul «o» și substantivul «dată».",
       "contrastExamples": [
-        "După ziua de grădinărit, mă dor șalele (partea de jos a spatelui).",
-        "A adunat jucăriile lui, ș-ale (și ale) surorii mai mici."
+        "Ai fost vreodată (cândva) într-un alt oraș, fără părinții tăi?",
+        "Poate ne mai vedem vreo dată (o anumită zi) săptămâna viitoare."
       ]
     },
     {
@@ -105,11 +105,11 @@
       "responseMode": "fillBlank",
       "difficulty": 1,
       "theme": "hobbies",
-      "targetIds": ["og-shale-sh-ale"],
+      "targetIds": ["og-vreodata-vreo-data"],
       "prompt": "Completează spațiul liber cu forma corectă.",
       "response": {
-        "text": "După o zi întreagă de alergat, simt o durere în ___.",
-        "correctAnswers": ["șale"]
+        "text": "Ai fost ___ într-un alt oraș, fără părinții tăi?",
+        "correctAnswers": ["vreodată"]
       }
     },
     {
@@ -166,13 +166,13 @@
       "stage": "transfer",
       "responseMode": "openText",
       "difficulty": 2,
-      "targetIds": ["og-shale-sh-ale", "og-vii-vi-i"],
-      "prompt": "Scrie două propoziții proprii: una cu „șale”/„ș-ale”, una cu „vii”/„vi-i”.",
+      "targetIds": ["og-vreodata-vreo-data", "og-vii-vi-i"],
+      "prompt": "Scrie două propoziții proprii: una cu „vreodată”/„vreo dată”, una cu „vii”/„vi-i”.",
       "response": {
         "instructions": "Folosește fiecare pereche cel puțin o dată.",
-        "modelAnswer": "După antrenament, mă dor puțin șalele. Vii cu bicicleta la mine mâine dimineață?",
+        "modelAnswer": "Ai mâncat vreodată mango proaspăt? Vii cu bicicleta la mine mâine dimineață?",
         "selfCheckCriteria": [
-          "Am folosit „șale”/„ș-ale” corect?",
+          "Am folosit „vreodată”/„vreo dată” corect?",
           "Am folosit „vii”/„vi-i” corect?",
           "Propozițiile au sens?"
         ]

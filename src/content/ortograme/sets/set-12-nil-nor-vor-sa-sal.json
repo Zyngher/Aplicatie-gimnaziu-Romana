@@ -3,7 +3,7 @@
   "id": "set-12-nil-nor-vor-sa-sal",
   "order": 12,
   "characterId": null,
-  "title": "Nil / Ni-l, Nor / N-or, Vor / V-or, Șa / Ș-a, Șal / Ș-al",
+  "title": "Nil / Ni-l, Nor / N-or, Vor / V-or, Des / De-s, Totuna / Tot una",
   "pairs": [
     {
       "id": "og-nil-ni-l",
@@ -36,23 +36,23 @@
       ]
     },
     {
-      "id": "og-sha-sh-a",
-      "formA": "șa",
-      "formB": "ș-a",
-      "explanation": "„Șa” e substantiv — piesa de piele sau plastic care se pune pe spinarea calului sau pe bicicletă, pe care stă călărețul. „Ș-a” e o formă mai rar întâlnită, scrisă cu cratimă, din „și” + „a” („și a”), rostite împreună — apare mai ales în povești, cu sensul de „și a făcut ceva”.",
+      "id": "og-des-de-s",
+      "formA": "des",
+      "formB": "de-s",
+      "explanation": "«Des» e adverb — înseamnă «care se întâmplă des» sau «țesut des» (opusul lui «rar»). «De-s» e o formă populară, scrisă cu cratimă, din prepoziția «de» + forma scurtă a verbului «a fi» («-s» = sunt/sunteți) — cu sensul de «dacă sunt/sunteți».",
       "contrastExamples": [
-        "Pe spinarea calului stă o șa (piesa) nouă, din piele fină.",
-        "A ajuns acasă, ș-a (și a) pus imediat rucsacul jos."
+        "Ne întâlnim des (frecvent) la parcul din cartier, aproape în fiecare zi.",
+        "Nu e vina ta de-s (dacă sunt) triști colegii azi."
       ]
     },
     {
-      "id": "og-shal-sh-al",
-      "formA": "șal",
-      "formB": "ș-al",
-      "explanation": "„Șal” e substantiv — o bucată de material purtată pe umeri, pentru cald. „Ș-al” e o formă mai rar întâlnită, scrisă cu cratimă, din „și” + „al” („și al”), rostite împreună — apare mai ales în povești, cu sensul de „și al doilea”, „și al meu”.",
+      "id": "og-totuna-tot-una",
+      "formA": "totuna",
+      "formB": "tot una",
+      "explanation": "«Totuna» (un singur cuvânt) e adverb, cu sensul de «la fel», «nu contează» — exprimă indiferență. «Tot una» (două cuvinte) folosește numeralul/pronumele «una» și înseamnă «tot aceeași», referindu-se la un singur lucru.",
       "contrastExamples": [
-        "Bunica mi-a tricotat un șal (bucata de material) călduros pentru iarnă.",
-        "Am citit primul capitol, ș-al (și al) doilea l-am lăsat pe mâine."
+        "Mie mi-e totuna (nu contează) dacă mergem la munte sau la mare.",
+        "Colegii au adus cărți diferite, dar eu am adus tot una (tot aceeași)."
       ]
     }
   ],
@@ -104,11 +104,11 @@
       "responseMode": "fillBlank",
       "difficulty": 1,
       "theme": "hobbies",
-      "targetIds": ["og-sha-sh-a"],
+      "targetIds": ["og-des-de-s"],
       "prompt": "Completează spațiul liber cu forma corectă.",
       "response": {
-        "text": "Pe spinarea calului stă o ___ nouă, din piele fină.",
-        "correctAnswers": ["șa"]
+        "text": "Ne întâlnim ___ la parcul din cartier, aproape în fiecare zi.",
+        "correctAnswers": ["des"]
       }
     },
     {
@@ -117,11 +117,11 @@
       "responseMode": "fillBlank",
       "difficulty": 1,
       "theme": "school",
-      "targetIds": ["og-shal-sh-al"],
+      "targetIds": ["og-totuna-tot-una"],
       "prompt": "Completează spațiul liber cu forma corectă.",
       "response": {
-        "text": "Bunica mi-a tricotat un ___ călduros pentru iarnă.",
-        "correctAnswers": ["șal"]
+        "text": "Mie mi-e ___ dacă mergem la munte sau la mare.",
+        "correctAnswers": ["totuna"]
       }
     },
     {
@@ -166,14 +166,14 @@
       "stage": "transfer",
       "responseMode": "openText",
       "difficulty": 2,
-      "targetIds": ["og-sha-sh-a", "og-shal-sh-al"],
-      "prompt": "Scrie două propoziții proprii: una cu „șa”/„ș-a”, una cu „șal”/„ș-al”.",
+      "targetIds": ["og-des-de-s", "og-totuna-tot-una"],
+      "prompt": "Scrie două propoziții proprii: una cu „des”/„de-s”, una cu „totuna”/„tot una”.",
       "response": {
         "instructions": "Folosește fiecare pereche cel puțin o dată.",
-        "modelAnswer": "Am cumpărat o șa nouă pentru bicicletă. A terminat prima poveste, ș-a început imediat pe a doua.",
+        "modelAnswer": "Merg des la bibliotecă, în fiecare săptămână. Mie mi-e totuna ce film vedem diseară.",
         "selfCheckCriteria": [
-          "Am folosit „șa”/„ș-a” corect?",
-          "Am folosit „șal”/„ș-al” corect?",
+          "Am folosit „des”/„de-s” corect?",
+          "Am folosit „totuna”/„tot una” corect?",
           "Propozițiile au sens?"
         ]
       }
