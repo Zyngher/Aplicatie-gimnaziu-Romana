@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "topics": [
+    { "id": "topic-01-vremea-vesela", "order": 1, "level": "mediu", "relation": "synonym", "title": "Vremea", "filePath": "topics/topic-01-vremea-vesela.json", "groupLabel": "Nivel mediu" }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "topic-01-vremea-vesela",
+  "order": 1,
+  "level": "mediu",
+  "relation": "synonym",
+  "title": "Vremea",
+  "focusWords": [
+    { "id": "fw-vesel", "headword": "vesel", "partOfSpeech": "adjectiv", "meaningNote": "plin de bucurie" },
+    { "id": "fw-rapid", "headword": "rapid", "partOfSpeech": "adjectiv", "meaningNote": "care se mișcă repede" }
+  ],
+  "exercises": [
+    { "id": "ex-topic01-mcq-01", "stage": "guided", "responseMode": "multipleChoice", "difficulty": 1, "targetIds": ["fw-vesel"], "prompt": "Alege forma corectă.", "response": { "text": "Copilul era ___ că a luat cea mai mare notă la test.", "options": ["vesel", "trist"], "correctIndices": [0] } },
+    { "id": "ex-topic01-mcq-02", "stage": "guided", "responseMode": "multipleChoice", "difficulty": 1, "targetIds": ["fw-vesel"], "prompt": "Alege un cuvânt cu înțeles asemănător lui «vesel».", "response": { "text": "Alege un cuvânt cu înțeles asemănător lui «vesel».", "options": ["bucuros", "trist", "obosit"], "correctIndices": [0] } },
+    { "id": "ex-topic01-fillblank-01", "stage": "guided", "responseMode": "fillBlank", "difficulty": 1, "targetIds": ["fw-rapid"], "prompt": "Completează spațiul liber.", "response": { "text": "Un alt cuvânt cu înțeles asemănător lui «rapid» este ___.", "correctAnswers": ["iute"] } },
+    { "id": "ex-topic01-wordbank-01", "stage": "guided", "responseMode": "wordBank", "difficulty": 2, "targetIds": ["fw-rapid"], "prompt": "Alege din bancă forma potrivită.", "response": { "text": "Câinele a alergat foarte {{b1}}, ca vântul.", "bank": [ {"id":"wb-iute","word":"iute"}, {"id":"wb-lent","word":"lent"} ], "blanks": [ {"marker":"b1","correctWordId":"wb-iute"} ] } },
+    { "id": "ex-topic01-error-01", "stage": "independent", "responseMode": "errorCorrection", "difficulty": 2, "targetIds": ["fw-vesel"], "prompt": "Găsește și corectează cuvântul care nu se potrivește.", "response": { "tokens": ["Ea", "era", "foarte", "tristă", "că", "a", "câștigat", "concursul."], "errorTokenIndex": 3, "correctToken": "veselă", "explanation": "Dacă a câștigat concursul, cuvântul potrivit e «veselă», nu «tristă» — «tristă» nu are sens într-o situație fericită." } },
+    { "id": "ex-topic01-free-01", "stage": "transfer", "responseMode": "openText", "difficulty": 2, "targetIds": ["fw-vesel", "fw-rapid"], "prompt": "Scrie o propoziție proprie cu un cuvânt care înseamnă aproape același lucru ca «vesel» sau ca «rapid».", "response": { "instructions": "Folosește cel puțin unul dintre cele două cuvinte.", "modelAnswer": "Sunt bucuros când ies afară să mă joc, mai ales dacă alerg iute prin parc.", "selfCheckCriteria": ["Am folosit un cuvânt cu înțeles asemănător lui «vesel» sau «rapid»?", "Propoziția are sens?"] } }
+  ]
+}
