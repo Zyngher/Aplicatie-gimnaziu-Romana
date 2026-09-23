@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sets": [
     { "id": "set-01-i-a-circumflex", "order": 1, "characterId": null, "title": "Î și Â", "filePath": "sets/set-01-i-a-circumflex.json", "groupLabel": "Grupa A — Fundamente" },
-    { "id": "set-02-m-inainte-de-b-p", "order": 2, "characterId": null, "title": "M înainte de B și P", "filePath": null, "groupLabel": "Grupa A — Fundamente" },
+    { "id": "set-02-m-inainte-de-b-p", "order": 2, "characterId": null, "title": "M înainte de B și P", "filePath": "sets/set-02-m-inainte-de-b-p.json", "groupLabel": "Grupa A — Fundamente" },
     { "id": "set-03-consoane-vocale-duble", "order": 3, "characterId": null, "title": "Consoane și vocale duble", "filePath": null, "groupLabel": "Grupa A — Fundamente" },
     { "id": "set-04-scrierea-cu-nn", "order": 4, "characterId": null, "title": "Scrierea cu NN", "filePath": null, "groupLabel": "Grupa A — Fundamente" },
     { "id": "set-05-intr-o-dintr-o-printr-o", "order": 5, "characterId": null, "title": "Într-o, Dintr-o, Printr-o", "filePath": null, "groupLabel": "Grupa A — Fundamente" },
