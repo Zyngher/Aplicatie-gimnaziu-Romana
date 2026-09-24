@@ -1,4 +1,4 @@
-import { useNavigation } from '../../lib/navigation';
+import { useNavigation, type Screen } from '../../lib/navigation';
 import { MascotMoment } from '../MascotMoment';
 import styles from './Home.module.css';
 
@@ -15,10 +15,15 @@ const UNITS: UnitInfo[] = [
     id: 'sinonime-antonime',
     title: 'Sinonime și Antonime',
     subtitle: 'Cuvinte cu înțeles asemănător sau opus',
-    active: false,
+    active: true,
   },
   { id: 'literatura', title: 'Literatură', subtitle: 'Texte și înțelegerea lor', active: false },
 ];
+
+const UNIT_SCREENS: Record<string, Screen> = {
+  ortograme: { name: 'ortogrameHome' },
+  'sinonime-antonime': { name: 'sinonimeAntonimeHome' },
+};
 
 export function Home() {
   const navigation = useNavigation();
@@ -42,7 +47,8 @@ export function Home() {
               className={styles.unitButton}
               disabled={!unit.active}
               onClick={() => {
-                if (unit.active) navigation.push({ name: 'ortogrameHome' });
+                const target = UNIT_SCREENS[unit.id];
+                if (unit.active && target) navigation.push(target);
               }}
             >
               <span className={styles.unitTitle}>{unit.title}</span> — {unit.subtitle}

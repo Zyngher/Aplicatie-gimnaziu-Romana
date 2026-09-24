@@ -18,11 +18,12 @@ describe('Home (selector de unități)', () => {
     expect(screen.getByText('Literatură')).toBeInTheDocument();
   });
 
-  it('Sinonime și Antonime si Literatura sunt dezactivate, cu eticheta "in curand"', () => {
+  it('doar Literatura e dezactivata, cu eticheta "in curand"', () => {
     render(<NavigationProvider><Home /></NavigationProvider>);
-    expect(screen.getByRole('button', { name: /sinonime și antonime/i })).toBeDisabled();
+    expect(screen.getByRole('button', { name: /ortograme/i })).not.toBeDisabled();
+    expect(screen.getByRole('button', { name: /sinonime și antonime/i })).not.toBeDisabled();
     expect(screen.getByRole('button', { name: /literatură/i })).toBeDisabled();
-    expect(screen.getAllByText(/în curând/i)).toHaveLength(2);
+    expect(screen.getAllByText(/în curând/i)).toHaveLength(1);
   });
 
   it('click pe Ortograme navigheaza la ortogrameHome', async () => {
@@ -35,6 +36,18 @@ describe('Home (selector de unități)', () => {
     );
     await user.click(screen.getByRole('button', { name: /ortograme/i }));
     expect(screen.getByTestId('current')).toHaveTextContent('ortogrameHome');
+  });
+
+  it('click pe Sinonime si Antonime navigheaza la sinonimeAntonimeHome', async () => {
+    const user = userEvent.setup();
+    render(
+      <NavigationProvider>
+        <Home />
+        <CurrentScreenProbe />
+      </NavigationProvider>,
+    );
+    await user.click(screen.getByRole('button', { name: /sinonime și antonime/i }));
+    expect(screen.getByTestId('current')).toHaveTextContent('sinonimeAntonimeHome');
   });
 
   it('foloseste clasele temei vizuale pe ecran si pe titlu', () => {
