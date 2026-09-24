@@ -25,8 +25,15 @@ export function SinonimeAntonimeHome() {
     return getSetProgressPercent(buildProgressKey(UNIT_ID, entry.id), topic.exercises.length);
   });
 
+  // Index liber pornește doar la finalizarea completă (100%) a conținutului autorat existent —
+  // distinct de pragul de 80% folosit pentru deblocarea nodului următor pe traseu.
   const indexMode = isIndexModeActive(percentages, 100);
 
+  // Lanțul de deblocare pe traseu ține cont doar de seturile autorate: un set neautorat
+  // ("conținut în lucru") nu are progres propriu, deci nu poate fi folosit ca "set precedent"
+  // pentru un set autorat aflat mai departe în manifest (vezi fix #5 — primul set autorat
+  // trebuie să fie mereu deblocat, nu doar primul rând din manifest). Logica propriu-zisă
+  // e o funcție pură, testată separat, în lib/unlock.ts.
   const unlockedStates = computeAuthoredChainUnlockState(
     sortedEntries.map((entry, index) => ({ authored: entry.filePath !== null, percent: percentages[index] })),
     indexMode,

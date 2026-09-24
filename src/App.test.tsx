@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 import App from './App';
 import { loadProgress, buildProgressKey, markExerciseCompleted, markOpenTextSelfCheck } from './lib/progress';
 import { getManifest, getSetById } from './lib/content-loader';
+import { getTopicById } from './lib/synant-content-loader';
 
 beforeEach(() => {
   window.localStorage.clear();
@@ -83,5 +84,57 @@ describe('App — flux complet capăt-la-capăt (fix #8)', () => {
 
     const store = loadProgress();
     expect(store['ortograme:set-06-sa-sau-ia-iau'].completedExerciseIds).toContain('ex-set06-mcq-01');
+  });
+});
+
+describe('App — flux complet capăt-la-capăt, Sinonime și Antonime (fix final review #5)', () => {
+  it('Home → Sinonime și Antonime → temă → exercițiu → răspuns → înapoi → Home cu progres actualizat', async () => {
+    // Spre deosebire de fluxul Ortograme de mai sus (unde set-06 nu e neaparat primul autorat),
+    // topic-01-vremea-vesela e chiar prima tema autorata din manifest.json — deblocata
+    // neconditionat, deci nu trebuie completat nimic in prealabil ca sa fie accesibila prin clic.
+    const topic = getTopicById('topic-01-vremea-vesela');
+
+    const user = userEvent.setup();
+    render(<App />);
+
+    // Home (pagina principala)
+    expect(screen.getByText('Dascăl în acțiune')).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: /sinonime și antonime —/i }));
+
+    // SinonimeAntonimeHome (traseu)
+    expect(screen.getByText('Sinonime și Antonime')).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: /vremea/i }));
+
+    // TopicDetail
+    expect(screen.getByText(topic.title)).toBeInTheDocument();
+    // ex-topic01-mcq-01 e primul exercitiu din topic-01-vremea-vesela: "Ghidat — Alege forma
+    // corectă." — text unic pe acest ecran (ex-topic01-mcq-02 a fost rescris, vezi fix-ul pentru
+    // finding 2 din review-ul final, la "Alege răspunsul corect.", deci nu mai coincide).
+    await user.click(screen.getByRole('button', { name: /ghidat — alege forma corectă\./i }));
+
+    // SynAntExerciseScreen — răspunde corect
+    // ex-topic01-mcq-01: „Copilul era ___ că a luat cea mai mare notă la test.” — „vesel”
+    // (index 0) e forma corectă.
+    await user.click(screen.getByRole('radio', { name: 'vesel' }));
+    await user.click(screen.getByRole('button', { name: /^verifică$/i }));
+    expect(screen.getByText(/corect!/i)).toBeInTheDocument();
+
+    // Inapoi la TopicDetail, apoi la SinonimeAntonimeHome, apoi la Home — fara sa apasam
+    // "Continuă" (progresul e deja marcat in handleSubmit, la raspunsul corect, inainte de orice
+    // click ulterior). Stiva de navigare are aceeasi adancime ca la Ortograme (home ->
+    // sinonimeAntonimeHome -> topicDetail -> synantExercise; vezi lib/navigation.tsx — fiecare
+    // ecran foloseste push, nu replace, pana la exercitiu), deci sunt necesari tot 3 pasi de
+    // "← Înapoi": synantExercise -> topicDetail (1), topicDetail -> sinonimeAntonimeHome (2),
+    // sinonimeAntonimeHome -> home (3).
+    await user.click(screen.getByRole('button', { name: /^← înapoi$/i }));
+    await user.click(screen.getByRole('button', { name: /^← înapoi$/i }));
+    await user.click(screen.getByRole('button', { name: /^← înapoi$/i }));
+
+    expect(screen.getByText('Dascăl în acțiune')).toBeInTheDocument();
+
+    const store = loadProgress();
+    expect(store['sinonime-antonime:topic-01-vremea-vesela'].completedExerciseIds).toContain(
+      'ex-topic01-mcq-01',
+    );
   });
 });
