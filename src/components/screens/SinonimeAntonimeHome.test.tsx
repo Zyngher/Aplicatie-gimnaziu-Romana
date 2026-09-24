@@ -64,7 +64,15 @@ describe('SinonimeAntonimeHome — mod traseu (implicit)', () => {
     if (authoredTopics.length < 2) {
       throw new Error('Testul presupune cel putin 2 teme autorate in manifest');
     }
-    // Don't complete any exercises of the first topic (0% < 80% threshold)
+    // Seed partial progress on the first topic: mark 3/6 exercises complete (50% < 80% threshold)
+    const firstTopic = authoredTopics[0];
+    const progressKey = buildProgressKey('sinonime-antonime', firstTopic.id);
+    // Mark 2 regular exercises
+    markExerciseCompleted(progressKey, 'ex-topic01-mcq-01');
+    markExerciseCompleted(progressKey, 'ex-topic01-mcq-02');
+    // Mark 1 openText exercise via self-check
+    markOpenTextSelfCheck(progressKey, 'ex-topic01-free-01', true);
+    // Now render: second topic should still be disabled (3/6 = 50% < 80%)
     render(<NavigationProvider><SinonimeAntonimeHome /></NavigationProvider>);
     const secondTopicButton = screen.getByRole('button', { name: titleMatcher(authoredTopics[1].title) });
     expect(secondTopicButton).toBeDisabled();
