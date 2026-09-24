@@ -1,0 +1,20 @@
+.screen {
+  composes: notebook-page content-column from global;
+  text-align: center;
+}
+
+.title {
+  composes: heading-1 from global;
+  margin: var(--space-4) 0 var(--space-2);
+}
+
+.percent {
+  composes: eyebrow from global;
+  color: var(--sub);
+  margin-bottom: var(--space-4);
+}
+
+.stamp {
+  composes: stamp from global;
+  margin: 0 auto var(--space-6);
+}
