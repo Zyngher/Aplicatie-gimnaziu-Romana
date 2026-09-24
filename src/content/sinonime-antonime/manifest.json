@@ -1,6 +1,7 @@
 {
   "schemaVersion": 1,
   "topics": [
-    { "id": "topic-01-vremea-vesela", "order": 1, "level": "mediu", "relation": "synonym", "title": "Vremea", "filePath": "topics/topic-01-vremea-vesela.json", "groupLabel": "Nivel mediu" }
+    { "id": "topic-01-vremea-vesela", "order": 1, "level": "mediu", "relation": "synonym", "title": "Vremea", "filePath": "topics/topic-01-vremea-vesela.json", "groupLabel": "Nivel mediu" },
+    { "id": "topic-02-zi-si-noapte", "order": 2, "level": "mediu", "relation": "antonym", "title": "Zi și noapte", "filePath": "topics/topic-02-zi-si-noapte.json", "groupLabel": "Nivel mediu" }
   ]
 }

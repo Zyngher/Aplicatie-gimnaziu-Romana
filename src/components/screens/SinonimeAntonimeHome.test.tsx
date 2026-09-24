@@ -58,6 +58,17 @@ describe('SinonimeAntonimeHome — mod traseu (implicit)', () => {
     expect(container.firstElementChild).toHaveClass(styles.screen);
     expect(screen.getByRole('heading', { level: 1 })).toHaveClass(styles.title);
   });
+
+  it('tema a doua este blocata pana cand prima atinge 80%', () => {
+    const authoredTopics = getManifest().topics.filter((t) => t.filePath !== null);
+    if (authoredTopics.length < 2) {
+      throw new Error('Testul presupune cel putin 2 teme autorate in manifest');
+    }
+    // Don't complete any exercises of the first topic (0% < 80% threshold)
+    render(<NavigationProvider><SinonimeAntonimeHome /></NavigationProvider>);
+    const secondTopicButton = screen.getByRole('button', { name: titleMatcher(authoredTopics[1].title) });
+    expect(secondTopicButton).toBeDisabled();
+  });
 });
 
 describe('SinonimeAntonimeHome — buton inapoi catre Home', () => {
