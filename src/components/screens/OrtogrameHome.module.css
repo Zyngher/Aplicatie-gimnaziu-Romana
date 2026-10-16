@@ -32,6 +32,23 @@
   }
 }
 
+/* Desktop (corectat 2026-10-01): foaia de caiet se plafoneaza si se centreaza, cu fundalul bej vizibil
+   in jur — ca pe celelalte ecrane, doar mai lata, fiindca aici grila are mai multe coloane. Inainte,
+   foaia se intindea pe tot ecranul (pe monitoare late arata ca un tapet, nu ca o pagina), iar titlul
+   ramanea centrat in 560px in timp ce grupele porneau de la marginea stanga.
+   1152px = exact 4 carduri pe rand: 4 x 260px (minmax din .setList) + 3 x 16px (gap) + 64px padding
+   lateral al foii (48px stanga + 16px dreapta, din .notebook-page). */
+@media (min-width: 768px) {
+  .screen {
+    max-width: 1152px;
+    margin: 0 auto;
+  }
+
+  .header {
+    max-width: none;
+  }
+}
+
 .groupTitle {
   composes: heading-2 from global;
   margin-bottom: var(--space-3);

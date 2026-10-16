@@ -14,7 +14,11 @@
   margin-bottom: var(--space-4);
 }
 
+/* display: flex (bloc), NU inline-flex-ul din clasa globala: ca element inline, stampila ignora
+   "margin: 0 auto" (nu se centra pe randul ei) si butonul "Înapoi la traseu" urca pe acelasi rand,
+   lipit de ea (corectat 2026-10-01). Acum: stampila centrata pe randul ei, butonul dedesubt. */
 .stamp {
   composes: stamp from global;
+  display: flex;
   margin: 0 auto var(--space-6);
 }

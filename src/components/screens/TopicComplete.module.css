@@ -14,7 +14,9 @@
   margin-bottom: var(--space-4);
 }
 
+/* display: flex, nu inline-flex — acelasi fix ca in SetComplete.module.css (explicatia acolo). */
 .stamp {
   composes: stamp from global;
+  display: flex;
   margin: 0 auto var(--space-6);
 }

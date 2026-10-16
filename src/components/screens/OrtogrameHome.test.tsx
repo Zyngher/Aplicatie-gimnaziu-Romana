@@ -27,9 +27,12 @@ beforeEach(() => {
 });
 
 describe('OrtogrameHome — mod traseu (implicit)', () => {
-  it('afiseaza toate cele 20 de seturi din manifest', () => {
+  it('afiseaza toate cele 21 de seturi din manifest', () => {
+    // 21 din 2026-09-30 (set-21 nou, vezi comparatie-toate-exercitiile.md) — nu hardcoda din nou
+    // fara sa verifici intai lungimea reala a manifestului, ca sa nu se repete acelasi tipar de test
+    // fragil.
     render(<NavigationProvider><OrtogrameHome /></NavigationProvider>);
-    expect(screen.getAllByRole('listitem')).toHaveLength(20);
+    expect(screen.getAllByRole('listitem')).toHaveLength(getManifest().sets.length);
   });
 
   it('grupele A-F apar ca anteturi de sectiune, in ordine, in ambele moduri', () => {
@@ -60,7 +63,8 @@ describe('OrtogrameHome — mod traseu (implicit)', () => {
 
   it('un set neautorat arata "continut in lucru", nu e clickabil', () => {
     // La 2026-09-23 (set-05, ultimul din Grupa A), toate cele 20 de seturi reale din manifest
-    // sunt autorate — nu mai exista niciun exemplu natural de set neautorat. Randarea pentru
+    // deveniseră autorate; la 2026-09-30, set-21 s-a adaugat direct autorat — inca nu exista
+    // niciun exemplu natural de set neautorat. Randarea pentru
     // "neautorat" (eticheta + buton dezactivat) ramane insa cod real din OrtogrameHome.tsx,
     // folosit imediat ce apare un set nou neautorat in manifest — testat aici cu UN set sintetic
     // injectat prin spyOn pe getManifest, ca sa nu pierdem acoperirea reala a acestei cai doar

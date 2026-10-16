@@ -32,6 +32,19 @@
   }
 }
 
+/* Desktop: foaie plafonata si centrata, titlu aliniat cu grila — acelasi fix ca in
+   OrtogrameHome.module.css (explicatia completa si calculul celor 1152px acolo). */
+@media (min-width: 768px) {
+  .screen {
+    max-width: 1152px;
+    margin: 0 auto;
+  }
+
+  .header {
+    max-width: none;
+  }
+}
+
 .groupTitle {
   composes: heading-2 from global;
   margin-bottom: var(--space-3);

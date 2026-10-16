@@ -3,7 +3,7 @@
   "id": "set-19-decat-demult-altfel-fii-niciun",
   "order": 19,
   "characterId": null,
-  "title": "Decât / De cât, Demult / De mult, Altfel / Alt fel, Fii / Nu fi, Niciun / Nici un",
+  "title": "Decât / De cât, Demult / De mult, Altfel / Alt fel, Fii / Nu fi, Niciun / Nici un, Nicio / Nici o",
   "pairs": [
     {
       "id": "og-decat-de-cat",
@@ -53,6 +53,16 @@
       "contrastExamples": [
         "N-am găsit niciun (nici măcar unul) creion în penar.",
         "Nu e nici un prost, nici un leneș — doar obosit azi."
+      ]
+    },
+    {
+      "id": "og-nicio-nici-o",
+      "formA": "nicio",
+      "formB": "nici o",
+      "explanation": "„Nicio” se scrie într-un cuvânt — forma obișnuită de negație, alături de un substantiv feminin. Test rapid: dacă întrebarea se poate pune cu „vreo” („Ai vreo soră?”), răspunsul negativ e „nicio” („N-am nicio soră”). „Nici o” se scrie în două cuvinte doar când „nici” înseamnă „nici măcar” și se opune direct unui număr, numărând același lucru de două ori („nici o prăjitură, nici două” = nu una, nu nici două).",
+      "contrastExamples": [
+        "N-am găsit nicio (zero) greșeală în tema mea la matematică.",
+        "N-a mai rămas nici o prăjitură, nici două — au dispărut toate din farfurie!"
       ]
     }
   ],
@@ -158,6 +168,33 @@
           { "marker": "b1", "correctWordId": "wb-de-mult" },
           { "marker": "b2", "correctWordId": "wb-decat" }
         ]
+      }
+    },
+    {
+      "id": "ex-set19-mcq-04",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "school",
+      "targetIds": ["og-nicio-nici-o"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "N-am găsit ___ greșeală în tema mea la matematică.",
+        "options": ["nicio", "nici o"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set19-fillblank-03",
+      "stage": "independent",
+      "responseMode": "fillBlank",
+      "difficulty": 2,
+      "theme": "hobbies",
+      "targetIds": ["og-nicio-nici-o"],
+      "prompt": "Completează spațiul liber cu forma corectă. Atenție: aici „nici” se opune direct unui număr (o, nu două).",
+      "response": {
+        "text": "N-a mai rămas ___ prăjitură, nici două — au dispărut toate din farfurie!",
+        "correctAnswers": ["nici o"]
       }
     },
     {

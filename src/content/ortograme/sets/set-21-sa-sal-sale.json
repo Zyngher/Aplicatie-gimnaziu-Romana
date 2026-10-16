@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "id": "set-21-sa-sal-sale",
+  "order": 21,
+  "characterId": null,
+  "title": "Șa / Ș-a, Șal / Ș-al, Șale / Ș-ale",
+  "pairs": [
+    {
+      "id": "og-sha-s-a",
+      "formA": "șa",
+      "formB": "ș-a",
+      "explanation": "„Șa” e substantiv — piesa de echipament așezată pe spatele calului, pentru călărie (e precedată de „o”/„pe”, ca orice substantiv). „Ș-a” e o formă populară/literară, prescurtată din „și a” (conjuncție + verb, din „a avea”, la timpul trecut) — leagă două acțiuni. În scris obișnuit poți folosi și forma completă, necontrasă, „și a”.",
+      "contrastExamples": [
+        "Călărețul a pus o șa (piesă) nouă pe spatele calului.",
+        "A alergat toată cursa ș-a (și a) terminat primul."
+      ]
+    },
+    {
+      "id": "og-shal-s-al",
+      "formA": "șal",
+      "formB": "ș-al",
+      "explanation": "„Șal” e substantiv — o eșarfă mare, purtată pe umeri, pentru căldură. „Ș-al” e o formă populară/literară, prescurtată din „și al” (conjuncție + articol posesiv) — arată a cui e ceva. În scris obișnuit poți folosi și forma completă „și al”.",
+      "contrastExamples": [
+        "Bunica și-a pus un șal (eșarfă) gros pe umeri, înainte să iasă în curte.",
+        "Am găsit caietul meu ș-al (și al) Danei sub bancă."
+      ]
+    },
+    {
+      "id": "og-shale-s-ale",
+      "formA": "șale",
+      "formB": "ș-ale",
+      "explanation": "„Șale” e substantiv la plural — regiunea lombară, partea de jos a spatelui, în dreptul mijlocului (ca în expresia „durere de șale”). „Ș-ale” e o formă populară/literară, prescurtată din „și ale” (conjuncție + articol posesiv, feminin plural). În scris obișnuit poți folosi și forma completă „și ale”.",
+      "contrastExamples": [
+        "Doctorul spune că am o durere de șale (partea de jos a spatelui), de la postura greșită.",
+        "Ți-am pus în ghiozdan cărțile tale, ș-ale (și ale) surorii tale."
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex-set21-mcq-01",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "hobbies",
+      "targetIds": ["og-sha-s-a"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Călărețul a pus o ___ nouă pe spatele calului.",
+        "options": ["șa", "ș-a"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set21-mcq-02",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "hobbies",
+      "targetIds": ["og-shal-s-al"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "Mi-am cumpărat un ___ gros pentru iarnă.",
+        "options": ["șal", "ș-al"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set21-fillblank-01",
+      "stage": "guided",
+      "responseMode": "fillBlank",
+      "difficulty": 1,
+      "theme": "school",
+      "targetIds": ["og-shale-s-ale"],
+      "prompt": "Completează spațiul liber cu forma corectă.",
+      "response": {
+        "text": "Doctorul spune că am o durere de ___, de la ghiozdanul greu pe care îl car la școală.",
+        "correctAnswers": ["șale"]
+      }
+    },
+    {
+      "id": "ex-set21-error-01",
+      "stage": "independent",
+      "responseMode": "errorCorrection",
+      "difficulty": 2,
+      "theme": "hobbies",
+      "targetIds": ["og-sha-s-a"],
+      "prompt": "Găsește greșeala și scrie forma corectă, cu cratimă.",
+      "response": {
+        "tokens": ["Bunicul", "a", "alergat", "mult", "șa", "obosit", "repede."],
+        "errorTokenIndex": 4,
+        "correctToken": "ș-a",
+        "explanation": "Aici e nevoie de conjuncție + verb, nu de substantiv: „ș-a obosit” leagă două acțiuni („și a obosit”). „Șa” (substantivul, piesa de echipament) ar fi precedat de „o”/„pe” și urmat direct de un substantiv sau adjectiv — aici urmează verbul „obosit”, deci forma corectă e „ș-a” (sau, complet, „și a”)."
+      }
+    },
+    {
+      "id": "ex-set21-wordbank-01",
+      "stage": "guided",
+      "responseMode": "wordBank",
+      "difficulty": 2,
+      "theme": "travel",
+      "targetIds": ["og-shal-s-al", "og-shale-s-ale"],
+      "prompt": "Alege din bancă forma potrivită pentru fiecare spațiu.",
+      "response": {
+        "text": "Mi-am pus un {{b1}} gros pe umeri. Am dureri de {{b2}} de la rucsacul greu.",
+        "bank": [
+          { "id": "wb-shal", "word": "șal" },
+          { "id": "wb-s-al", "word": "ș-al" },
+          { "id": "wb-shale", "word": "șale" },
+          { "id": "wb-s-ale", "word": "ș-ale" }
+        ],
+        "blanks": [
+          { "marker": "b1", "correctWordId": "wb-shal" },
+          { "marker": "b2", "correctWordId": "wb-shale" }
+        ]
+      }
+    },
+    {
+      "id": "ex-set21-free-01",
+      "stage": "transfer",
+      "responseMode": "openText",
+      "difficulty": 2,
+      "targetIds": ["og-sha-s-a", "og-shal-s-al"],
+      "prompt": "Scrie două propoziții proprii: una cu „șa”/„ș-a”, una cu „șal”/„ș-al”.",
+      "response": {
+        "instructions": "Folosește fiecare pereche cel puțin o dată.",
+        "modelAnswer": "Cavalerul a verificat șaua calului înainte de turnir. Mi-am uitat șalul acasă ș-a trebuit să mă întorc după el.",
+        "selfCheckCriteria": [
+          "Am folosit „șa”/„ș-a” corect?",
+          "Am folosit „șal”/„ș-al” corect?",
+          "Propozițiile au sens?"
+        ]
+      }
+    }
+  ]
+}

@@ -2,11 +2,13 @@ import { describe, it, expect } from 'vitest';
 import { getManifest, getCharacterById, getSetById } from './content-loader';
 
 describe('content-loader', () => {
-  it('getManifest returnează toate cele 20 de seturi, ordonate', () => {
+  it('getManifest returnează toate seturile din manifest, ordonate', () => {
+    // Nu hardcoda numărul de seturi aici — a devenit deja stale o dată (20 → 21 la 2026-09-30,
+    // vezi comparatie-toate-exercitiile.md). Verifică ordinea, nu un total fix.
     const manifest = getManifest();
-    expect(manifest.sets).toHaveLength(20);
+    expect(manifest.sets.length).toBeGreaterThan(0);
     expect(manifest.sets[0].order).toBe(1);
-    expect(manifest.sets[19].order).toBe(20);
+    expect(manifest.sets[manifest.sets.length - 1].order).toBe(manifest.sets.length);
   });
 
   it('getCharacterById returnează null pentru id null', () => {

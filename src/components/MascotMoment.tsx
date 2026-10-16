@@ -52,10 +52,24 @@ export function MascotMoment({ variant, size }: Props) {
       frameId = requestAnimationFrame(checkEnd);
     };
 
-    video.addEventListener('seeked', handleSeeked, { once: true });
-    video.currentTime = segment.start;
+    // Cautarea se face doar dupa ce video-ul are metadatele incarcate. O cautare pe un video inca
+    // neincarcat — mai ales repetata, cum face StrictMode in dev, care ruleaza efectul de doua ori —
+    // facea Chrome sa raporteze MEDIA_ERR_DECODE: mascota hero de pe SetComplete ramanea un
+    // dreptunghi negru (gasit 2026-10-01). Companion-ul nu era afectat: e deja incarcat cand
+    // variant se schimba, deci ramura cu cautare imediata se aplica.
+    const startSegment = () => {
+      video.addEventListener('seeked', handleSeeked, { once: true });
+      video.currentTime = segment.start;
+    };
+
+    if (video.readyState >= HTMLMediaElement.HAVE_METADATA) {
+      startSegment();
+    } else {
+      video.addEventListener('loadedmetadata', startSegment, { once: true });
+    }
 
     return () => {
+      video.removeEventListener('loadedmetadata', startSegment);
       video.removeEventListener('seeked', handleSeeked);
       cancelAnimationFrame(frameId);
     };

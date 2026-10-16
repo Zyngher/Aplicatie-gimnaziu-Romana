@@ -8,12 +8,17 @@
   margin: var(--space-4) 0 var(--space-3);
 }
 
+/* display: flex, NU inline-flex (corectat 2026-09-30): inline-flex facea ca butonul "Continuă"
+   sa urce pe acelasi rand, lipit de bifa (0px intre ele) — .continueButton are margin-top tocmai
+   pentru ca trebuie sa stea pe randul lui, dedesubt, ca in starea de raspuns gresit.
+   margin-top: fara el, mesajul de feedback se lipea de butonul "Verifică" (heading-2 are margin: 0). */
 .feedbackCorrect {
   composes: heading-2 from global;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: var(--space-2);
   color: var(--accent-pen);
+  margin-top: var(--space-4);
 }
 
 .feedbackCorrect::after {
@@ -28,6 +33,7 @@
 .feedbackIncorrect {
   composes: heading-2 from global;
   color: var(--ink);
+  margin-top: var(--space-4);
 }
 
 .correctAnswerHint {
@@ -54,15 +60,29 @@
   margin-bottom: var(--space-4);
 }
 
+/* Desktop: pagina de caiet + mascota-companion se centreaza ca O SINGURA unitate. Pagina ramane
+   coloana plafonata si centrata (content-column), cu mascota lipita de marginea ei dreapta; pagina
+   se deplaseaza vizual spre stanga cu jumatate din "amprenta" mascotei (spatiu + latime), ca grupul
+   intreg sa aiba margini egale stanga/dreapta la orice latime de ecran.
+   Inainte (bug gasit 2026-09-30): mascota era la calc(50% + 300px), iar DOAR pagina era centrata —
+   grupul ramanea decalat spre stanga, cu tot surplusul de gol in dreapta (vizibil pe monitoare
+   late), iar la ~768px mascota iesea partial din ecran.
+   --companion-width trebuie sa ramana egal cu latimea .companion din MascotMoment.module.css.
+   Deplasarea foloseste "left" (position: relative), NU "transform": transform ar crea un context
+   de stivuire nou pe pagina, iar video-ul mascotei (mix-blend-mode: multiply) n-ar mai putea sa
+   se amestece cu fundalul bej din spate — apare un dreptunghi alb vizibil in jurul Matildei. */
 @media (min-width: 768px) {
   .screen {
+    --companion-gap: var(--space-6);
+    --companion-width: 120px;
     position: relative;
+    left: calc(-0.5 * (var(--companion-gap) + var(--companion-width)));
   }
 
   .mascotSlot {
     position: absolute;
     top: var(--space-6);
-    left: calc(50% + 300px);
+    left: calc(100% + var(--companion-gap));
     margin-bottom: 0;
   }
 }

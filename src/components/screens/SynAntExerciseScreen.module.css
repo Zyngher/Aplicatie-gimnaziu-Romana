@@ -8,12 +8,15 @@
   margin: var(--space-4) 0 var(--space-3);
 }
 
+/* flex (nu inline-flex) + margin-top — acelasi fix ca in ExerciseScreen.module.css, explicatia
+   completa acolo ("Continuă" lipit de bifa; mesajul lipit de "Verifică"). */
 .feedbackCorrect {
   composes: heading-2 from global;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: var(--space-2);
   color: var(--accent-pen);
+  margin-top: var(--space-4);
 }
 
 .feedbackCorrect::after {
@@ -28,6 +31,7 @@
 .feedbackIncorrect {
   composes: heading-2 from global;
   color: var(--ink);
+  margin-top: var(--space-4);
 }
 
 .correctAnswerHint {
@@ -54,15 +58,22 @@
   margin-bottom: var(--space-4);
 }
 
+/* Desktop: pagina + mascota centrate ca o singura unitate — acelasi fix ca in
+   ExerciseScreen.module.css (explicatia completa acolo); cele doua ecrane aveau cod identic,
+   deci si acelasi bug. --companion-width = latimea .companion din MascotMoment.module.css.
+   "left", nu "transform" — transform ar rupe mix-blend-mode-ul mascotei (dreptunghi alb). */
 @media (min-width: 768px) {
   .screen {
+    --companion-gap: var(--space-6);
+    --companion-width: 120px;
     position: relative;
+    left: calc(-0.5 * (var(--companion-gap) + var(--companion-width)));
   }
 
   .mascotSlot {
     position: absolute;
     top: var(--space-6);
-    left: calc(50% + 300px);
+    left: calc(100% + var(--companion-gap));
     margin-bottom: 0;
   }
 }

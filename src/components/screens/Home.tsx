@@ -1,4 +1,6 @@
 import { useNavigation, type Screen } from '../../lib/navigation';
+import { getManifest } from '../../lib/content-loader';
+import { countPhrase } from '../../lib/labels';
 import { MascotMoment } from '../MascotMoment';
 import styles from './Home.module.css';
 
@@ -10,7 +12,8 @@ interface UnitInfo {
 }
 
 const UNITS: UnitInfo[] = [
-  { id: 'ortograme', title: 'Ortograme', subtitle: '20 de seturi de exersat', active: true },
+  // Numarul vine din manifest — scris de mana, ramasese "20" dupa ce s-a adaugat set-21.
+  { id: 'ortograme', title: 'Ortograme', subtitle: `${countPhrase(getManifest().sets.length, 'seturi')} de exersat`, active: true },
   {
     id: 'sinonime-antonime',
     title: 'Sinonime și Antonime',

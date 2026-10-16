@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { NavigationProvider, useNavigation } from '../../lib/navigation';
+import { getManifest } from '../../lib/content-loader';
 import { Home } from './Home';
 import styles from './Home.module.css';
 
@@ -16,6 +17,13 @@ describe('Home (selector de unități)', () => {
     expect(screen.getByText('Ortograme')).toBeInTheDocument();
     expect(screen.getByText('Sinonime și Antonime')).toBeInTheDocument();
     expect(screen.getByText('Literatură')).toBeInTheDocument();
+  });
+
+  it('numarul de seturi Ortograme vine din manifest, nu e scris de mana', () => {
+    // Regresie (2026-10-01): textul spunea "20 de seturi" si dupa ce s-a adaugat set-21.
+    render(<NavigationProvider><Home /></NavigationProvider>);
+    const count = getManifest().sets.length;
+    expect(screen.getByRole('button', { name: /ortograme/i })).toHaveTextContent(`${count} de seturi de exersat`);
   });
 
   it('doar Literatura e dezactivata, cu eticheta "in curand"', () => {

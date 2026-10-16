@@ -3,7 +3,7 @@
   "id": "set-10-cei-cel-dea-mie-tie",
   "order": 10,
   "characterId": null,
-  "title": "Cei / Ce-i, Cel / Ce-l, Dea / De-a, Mie / Mi-e, Mii / Mi-i, Ție / Ți-e, Ții / Ți-i",
+  "title": "Cei / Ce-i, Cel / Ce-l, Cea / Ce-a, Dea / De-a, Mie / Mi-e, Mii / Mi-i, Ție / Ți-e, Ții / Ți-i",
   "pairs": [
     {
       "id": "og-cei-ce-i",
@@ -23,6 +23,16 @@
       "contrastExamples": [
         "Cel (acela) mai rapid dintre noi câștigă cursa.",
         "Nu știu ce-l (ce îl) supără atât de tare pe câine."
+      ]
+    },
+    {
+      "id": "og-cea-ce-a",
+      "formA": "cea",
+      "formB": "ce-a",
+      "explanation": "„Cea” e pronume/articol demonstrativ, forma scurtă de feminin — arată o persoană sau un lucru anume, de obicei urmat de „care” sau de un adjectiv („cea mare”, „cea care a câștigat”). „Ce-a” e pronume + verb auxiliar, două cuvinte („ce” și „a”) rostite împreună — e prescurtarea de la „ce a”, arată o acțiune trecută.",
+      "contrastExamples": [
+        "Cea (aceea) care a răspuns prima la întrebare a primit un punct în plus.",
+        "Nu știu ce-a (ce a) pățit bicicleta mea, nu mai merge roata din spate."
       ]
     },
     {
@@ -227,6 +237,35 @@
           { "marker": "b1", "correctWordId": "wb-mii" },
           { "marker": "b2", "correctWordId": "wb-ti-i" }
         ]
+      }
+    },
+    {
+      "id": "ex-set10-mcq-05",
+      "stage": "guided",
+      "responseMode": "multipleChoice",
+      "difficulty": 1,
+      "theme": "school",
+      "targetIds": ["og-cea-ce-a"],
+      "prompt": "Alege forma corectă.",
+      "response": {
+        "text": "___ mai bună prietenă a mea se numește Ana.",
+        "options": ["Cea", "Ce-a"],
+        "correctIndices": [0]
+      }
+    },
+    {
+      "id": "ex-set10-error-02",
+      "stage": "independent",
+      "responseMode": "errorCorrection",
+      "difficulty": 2,
+      "theme": "hobbies",
+      "targetIds": ["og-cea-ce-a"],
+      "prompt": "Găsește greșeala și scrie forma corectă, cu cratimă.",
+      "response": {
+        "tokens": ["Nu", "știu", "cea", "pățit", "bicicleta", "mea."],
+        "errorTokenIndex": 2,
+        "correctToken": "ce-a",
+        "explanation": "Aici e nevoie de pronume + verb auxiliar, nu de pronume demonstrativ: „ce-a pățit” arată o întrebare despre o acțiune trecută, poate fi înlocuit cu „ce a pățit”. „Cea” (pronume demonstrativ) ar avea sens de obicei urmat de „care” sau de un adjectiv — aici urmează direct verbul „pățit”, deci forma corectă e „ce-a” (sau, complet, „ce a”)."
       }
     },
     {
